@@ -39,7 +39,7 @@
 					echo '<td>'. $row['mem_fname'] . '</td>';
 					echo '<td>'. $row['mem_lname'] . '</td>';
 					echo '<td>'. $row['mem_email'] . '</td>';
-					echo '<td><a class="btn" href="read.php?id='.$row['mem_no'].'">Read</a></td>';
+					echo '<td><a class="btn" href="read.php?mem_no='.$row['mem_no'].'">Read</a></td>';
 					echo '</tr>';
  }
  Database::disconnect();

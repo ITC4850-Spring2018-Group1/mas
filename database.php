@@ -1,10 +1,10 @@
 <?php
 class Database
 {
-	private static $dbName = 'MAS' ;
+	private static $dbName = 'yokotasp_mas1' ;
 	private static $dbHost = 'localhost' ;
-	private static $dbUsername = 'root';
-	private static $dbUserPassword = 'root';
+	private static $dbUsername = 'yokotasp_admin';
+	private static $dbUserPassword = 'Password1!';
 	 
 	private static $cont  = null;
 	 
