@@ -29,6 +29,7 @@
 			<th>Phone Number</th>
 			<th>Description</th>
 			<th>Add Date</th>
+			<th>Serial Number</th>
 			</tr>
 			</thead>
 		<tbody>
@@ -41,6 +42,7 @@ include 'database.php';
 	'SELECT * 
 	FROM member a
 	LEFT JOIN ref_member_type b ON a.mem_type = b.ref_mem_typ
+	LEFT JOIN atf c ON a.mem_no = c.atf_mem_no
 	ORDER BY mem_no DESC';
 	
 	foreach ($pdo->query($sql) as $row) {
@@ -52,6 +54,7 @@ include 'database.php';
 			echo '<td>'. $row['mem_cell_number'] . '</td>';
 			echo '<td>'. $row['ref_mem_typ_desc'] . '</td>';
 			echo '<td>'. $row['mem_add_date_time'] . '</td>';
+			echo '<td>'. $row['atf_serial_no'] . '</td>';
 			echo '</tr>';
 								 }
 Database::disconnect();
