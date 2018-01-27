@@ -48,8 +48,8 @@
 		</table>
 </div>
 </div> <!-- /container -->
-<h2>View Extended Membership Information</h2>
-<li><a href="view.php" <?php if( $page == 'view') echo 'class="active"'?> >View</a></li>
+<h2>View General Ledger</h2>
+<li><a href="general_ledger.php" <?php if( $page == 'view') echo 'class="active"'?> >View</a></li>
 
 
 </body>
