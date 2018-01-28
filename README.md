@@ -1,1 +1,1 @@
-# This repository contains the source files, documentation, and sql (to create the app's tables), for the Membership and Accounting System final IT project. Our project is just underway, and is scheduled to be implemented in late April 2018.
+# This repository contains the source files, documentation, and sql (to create the app's tables), for the Membership and Accounting System final IT project. Our project is just underway, and is scheduled to be implemented in late April 2018. The latest committed changes will be found under the master branch.
