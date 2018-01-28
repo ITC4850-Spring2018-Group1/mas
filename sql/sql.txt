@@ -1,7 +1,6 @@
 /* remove these DROP TABLE statements if you don't already have the table created */
 
 DROP TABLE member;    
-DROP TABLE ref_member_type; 
 DROP TABLE membership;
 DROP TABLE atf; 
 DROP TABLE general_ledger;
@@ -10,6 +9,12 @@ DROP TABLE balance;
 DROP TABLE receipts;
 DROP TABLE family;
 DROP TABLE price_list;
+DROP TABLE ref_member_catg;
+DROP TABLE ref_member_type;
+DROP TABLE ref_gen_led_transaction_type;
+DROP TABLE ref_gen_led_expense_type;
+DROP TABLE ref_gen_led_income_type;
+DROP TABLE ref_users_type; 
 
 
 CREATE TABLE member (
@@ -96,13 +101,15 @@ INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_t
 VALUES ('2', 'monthly meeting', 'E', '-', '50.00', 'M', ' ');
 
 CREATE TABLE users (
-	users_acct_email VARCHAR (50),
-	users_mem_no INTEGER (5),
-	users_type CHAR (1)
+	user_acct_email VARCHAR (50),
+	user_mem_no INTEGER (5),
+	user_type CHAR (1),
+	user_name VARCHAR (50),
+	user_password VARCHAR (15)
 );
 
 INSERT INTO users
-VALUES ('jason.kidder@yahoo.com', '1', 'M');
+VALUES ('jason.kidder@yahoo.com', '1', 'A', 'jason.kidder@yahoo.com', 'rocketman');
 
 CREATE TABLE balance (
 	bal_gen_led_id INTEGER (255) PRIMARY KEY,
@@ -179,16 +186,64 @@ VALUES ('LN', 'Local National');
 INSERT INTO ref_member_catg
 VALUES ('AV', 'Advisor');
 
+CREATE TABLE ref_gen_led_transaction_type (
+	ref_gen_led_transaction_typ CHAR (1) PRIMARY KEY,
+	ref_gen_led_transation_desc VARCHAR (10)
+);
 
+INSERT INTO ref_gen_led_transaction_type
+VALUES ('I', 'Income');
 
+INSERT INTO ref_gen_led_transaction_type
+VALUES ('E', 'Expense');
 
+CREATE TABLE ref_gen_led_expense_type (
+	ref_gen_led_expense_typ CHAR (1) PRIMARY KEY,
+	ref_gen_led_expense_desc VARCHAR (30)
+);
 
+INSERT INTO ref_gen_led_expense_type
+VALUES ('M', 'Meeting');
 
+INSERT INTO ref_gen_led_expense_type
+VALUES ('T', 'Trip reimbursement');
 
+INSERT INTO ref_gen_led_expense_type
+VALUES ('O', 'Other');
 
+INSERT INTO ref_gen_led_expense_type
+VALUES ('S', 'Supplies');
 
+CREATE TABLE ref_gen_led_income_type (
+	ref_gen_led_income_typ CHAR (2) PRIMARY KEY,
+	ref_gen_led_income_desc VARCHAR (15)
+);
+ 
+INSERT INTO ref_gen_led_income_type
+VALUES ('AD', 'Annual dues');
 
+INSERT INTO ref_gen_led_income_type
+VALUES ('RD', 'Renewal dues');
 
+INSERT INTO ref_gen_led_income_type
+VALUES ('SF', 'Sales fees');
+
+INSERT INTO ref_gen_led_income_type
+VALUES ('FD', 'Fundraiser');
+
+INSERT INTO ref_gen_led_income_type
+VALUES ('DO', 'Donation');
+
+CREATE TABLE ref_users_type (
+	ref_users_type CHAR (1), 
+	ref_users_desc VARCHAR (15)
+); 
+
+INSERT INTO ref_users_type
+VALUES ('U', 'User');
+
+INSERT into ref_users_type
+VALUES ('A', 'Administrator'); 
 
 
 
