@@ -165,9 +165,19 @@ CREATE TABLE price_list (
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
 VALUES ('P-2017 (3)', '1', 'Theoben', 'Eliminator', 'UARG', 'Gas Spring', '6.35mm', '', '', '1', 'Y22000', '', 'FERE340-1', '', '1', '');
 
+CREATE TABLE ref_member_catg (
+	ref_mem_category_cd CHAR (2) PRIMARY KEY,
+	ref_mem_category_desc VARCHAR (15)
+);
 
+INSERT INTO ref_member_catg
+VALUES ('AD', 'Active Duty');
 
+INSERT INTO ref_member_catg
+VALUES ('LN', 'Local National');
 
+INSERT INTO ref_member_catg
+VALUES ('AV', 'Advisor');
 
 
 
