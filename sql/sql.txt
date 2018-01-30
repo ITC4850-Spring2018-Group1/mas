@@ -108,6 +108,8 @@ CREATE TABLE users (
 	user_password VARCHAR (15)
 );
 
+ALTER TABLE users ADD PRIMARY KEY (user_name); 
+
 INSERT INTO users
 VALUES ('jason.kidder@yahoo.com', '1', 'A', 'jason.kidder@yahoo.com', 'rocketman');
 
