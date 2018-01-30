@@ -10,18 +10,13 @@
 </head>
 <body>  
 <h1>Membership and Accounting System</h1>
-
-
-<p id="message">This application is currently under construction. Information shown is for the purposes of testing.</p>
-
-
 <div class="container">
 <div class="row">
-<h3>View Current Membership</h3>
+		<h3>View Current Membership</h3>
 </div>
 <div class="row">
 		<p>
-		<a href="create.php" class="btn btn-success">Add a New Member</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="create.php" class="btn btn-success">Add a New Member</a>
 		</p>
 		<table class="table table-striped table-bordered">
 					<thead>
@@ -34,7 +29,6 @@
 						</tr>
 					</thead>
 					<tbody>
-					
 <?php
  include 'database.php';
  $pdo = Database::connect();
@@ -45,13 +39,7 @@
 					echo '<td>'. $row['mem_fname'] . '</td>';
 					echo '<td>'. $row['mem_lname'] . '</td>';
 					echo '<td>'. $row['mem_email'] . '</td>';
-					echo '<td width=150>';
-					echo '<a class="btn" href="read.php?mem_no='.$row['mem_no'].'">Read</a>';
-					echo ' ';
-					echo '<a class="btn btn-success" href="update.php?mem_no='.$row['mem_no'].'">Update</a>';
-					echo ' ';
-					echo '<a class="btn btn-danger" href="delete.php?mem_no='.$row['mem_no'].'">Delete</a>';
-					echo '</td>';
+					echo '<td><a class="btn" href="read.php?mem_no='.$row['mem_no'].'">Read</a></td>';
 					echo '</tr>';
  }
  Database::disconnect();

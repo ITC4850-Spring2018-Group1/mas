@@ -1,37 +1,45 @@
 <?php
-	 
-require 'database.php';
+	require 'database.php';
  
-if ( !empty($_POST)) {
-// keep track validation errors
+	$mem_no = null;
+	if ( !empty($_GET['mem_no'])) {
+		$mem_no = $_REQUEST['mem_no'];
+	}
+	 
+	if ( null==$mem_no ) {
+		header("Location: index.php");
+	}
+	 
+	if ( !empty($_POST)) {
+		// keep track validation errors
 		$mem_fnameError = null;
 		$mem_lnameError = null;
 		$mem_emailError = null;
 		$mem_cell_numberError = null;
 		$mem_typeError = null;
 		 
-// keep track post values
+		// keep track post values
 		$mem_fname = $_POST['mem_fname'];
 		$mem_lname = $_POST['mem_lname'];
 		$mem_email = $_POST['mem_email'];
 		$mem_cell_number = $_POST['mem_cell_number'];
 		$mem_type = $_POST['mem_type'];
-		
-// validate input
+		 
+		// validate input
 		$valid = true;
 		if (empty($mem_fname)) {
-			$fnameError = 'Please enter Name';
+			$mem_fnameError = 'Please enter Name';
 			$valid = false;
 		}
 		 
 		$valid = true;
 		if (empty($mem_lname)) {
-			$lnameError = 'Please enter Name';
+			$mem_lnameError = 'Please enter Name';
 			$valid = false;
 		}
 		
 		if (empty($mem_email)) {
-			$emailError = 'Please enter Email Address';
+			$mem_emailError = 'Please enter Email Address';
 			$valid = false;
 			
 		} else if ( !filter_var($mem_email,FILTER_VALIDATE_EMAIL) ) {
@@ -50,17 +58,31 @@ if ( !empty($_POST)) {
 			$mem_typeError = 'Please select membership type';
 			$valid = false;
 		}
-			 
-// insert data
+
+		 
+// update data
 		if ($valid) {
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO member (mem_fname,mem_lname,mem_email,mem_cell_number,mem_type) values(?, ?, ?, ?, ?)";
+			$sql = "UPDATE member set mem_fname = ?, mem_lname = ?, mem_email = ?, mem_cell_number = ?, mem_type = ? WHERE mem_no = ?";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($mem_fname,$mem_lname,$mem_email,$mem_cell_number,$mem_type));
 			Database::disconnect();
 			header("Location: index.php");
 		}
+	} else {
+		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "SELECT * FROM member where mem_no = ?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($mem_no));
+		$data = $q->fetch(PDO::FETCH_ASSOC);
+		$mem_fname = $data['mem_fname'];
+		$mem_lname = $data['mem_lname'];
+		$mem_email = $data['mem_email'];
+		$mem_cell_number = $data['mem_cell_number'];
+		$mem_type = $data['mem_type'];
+		Database::disconnect();
 	}
 ?>
 
@@ -77,7 +99,7 @@ if ( !empty($_POST)) {
 		 
 <div class="span10 offset1">
 		<div class="row">
-		<h3>Add a New Member</h3>
+		<h3>Update this Member</h3>
 		</div>
  
 <form class="form-horizontal" action="create.php" method="post">
@@ -132,7 +154,7 @@ if ( !empty($_POST)) {
 	</div>
 
 	<div class="form-actions"><br>
-	<button type="submit" class="btn btn-success">Create</button><br><br>
+	<button type="submit" class="btn btn-success">Submit</button><br><br>
 	<a class="btn" href="index.php">Back</a>
 	</div>
 </form>
