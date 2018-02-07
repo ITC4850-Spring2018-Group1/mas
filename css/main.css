@@ -1,0 +1,112 @@
+table {
+	border: 1px solid black;
+	border-radius: 1px solid yellow;
+	border-color: red; 
+
+}
+body {
+	margin: 10px;
+	display: block;
+}
+th {
+	background-color: #4CAF50;
+	color: black;
+	padding: 5px;
+	}
+
+td {
+	height: 10px;
+	text-align: left;
+	padding: 5px;
+	border: 1px solid black;
+}
+tr:nth-child(even) {
+	background-color: #D8D8D8;
+}
+p {
+	font-family: helvetica, verdana, times-new-roman;
+	font-weight: 4em;
+}
+.header{
+	font-family: helvetica, verdana, times-new-roman;
+	margin: 20px 0px 10px 0px;
+	width:100%;
+	display: block;
+}
+.headertitle	{
+	width: 50%;
+	float: left;
+	display: inline-block;
+}
+.memberinfo	{
+	width: 50%;
+	display: inline-block;
+}
+.navbox	{
+	position: absolute;
+	left: 34%;
+}
+.wrapper {
+	width: 100%;
+	margin: 10px 0px 10px 0px;
+	padding: 0px;
+	border: 2px;
+	font-family: helvetica, verdana, times-new-roman;
+}
+.formbox {
+	width: 100%;
+	margin: 0px;
+	text-align: right;
+}
+.formheader {
+	text-align: center;
+}
+.row {
+	margin: 10px;
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+	border-color: #f0f5f5;
+}
+.column {
+	float: left;
+	width: 40%;
+	padding: 10px;
+	height: 100%;
+}
+.left {
+	width: 25%;
+}
+.right {
+	width: 75%;
+}
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.bottombuttons	{
+	width: 70%;
+	align-content: center;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 2px;
+	display: block;
+}
+.footer	{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	text-justify: inter-word;
+}
+.copywrite	{
+	text-align: center;
+}
+#copywrite	{
+	font-weight: 4em;
+	font-family: helvetica;
+}
+#message  {
+	color: red;
+	font-weight: bold;
+}
