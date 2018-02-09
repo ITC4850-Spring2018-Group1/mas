@@ -27,6 +27,14 @@ p {
 	font-family: helvetica, verdana, times-new-roman;
 	font-weight: 4em;
 }
+button {
+	vertical-align: middle;
+    padding: 0px;
+    margin: 0px;
+    background-color: inherit;
+    font: inherit;
+    font-family: helvetica, verdana, times-new-roman;
+}
 .header{
 	font-family: helvetica, verdana, times-new-roman;
 	margin: 20px 0px 10px 0px;
@@ -41,14 +49,19 @@ p {
 .memberinfo	{
 	width: 50%;
 	display: inline-block;
+	text-align: right;
 }
 .navbox	{
-	position: absolute;
-	left: 34%;
+	margin: 15px 0px 0px 0px;
+    padding: 0px;
+    border: 2px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .wrapper {
 	width: 100%;
-	margin: 10px 0px 10px 0px;
+	margin: 0px 0px 0px 0px;
 	padding: 0px;
 	border: 2px;
 	font-family: helvetica, verdana, times-new-roman;
@@ -60,18 +73,20 @@ p {
 }
 .formheader {
 	text-align: center;
+	width: 100%;
 }
 .row {
-	margin: 10px;
-	padding: 10px;
-	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	width: 594px;
 	border-radius: 5px;
 	border-color: #f0f5f5;
 }
 .column {
 	float: left;
-	width: 40%;
-	padding: 10px;
+	width: auto;
+	padding: 0px;
 	height: 100%;
 }
 .left {
@@ -86,10 +101,11 @@ p {
 	clear: both;
 }
 .bottombuttons	{
-	width: 70%;
+	width: 10%;
 	align-content: center;
-	margin: 10px;
-	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1px;
 	border-radius: 2px;
 	display: block;
 }
@@ -101,12 +117,62 @@ p {
 }
 .copywrite	{
 	text-align: center;
-}
-#copywrite	{
 	font-weight: 4em;
 	font-family: helvetica;
 }
 #message  {
 	color: red;
 	font-weight: bold;
+}
+.navbutton {
+   border-top: 1px solid #3b3e40;
+   background: #232526;
+   background: -webkit-gradient(linear, left top, left bottom, from(#717578), to(#232526));
+   background: -webkit-linear-gradient(top, #717578, #232526);
+   background: -moz-linear-gradient(top, #717578, #232526);
+   background: -ms-linear-gradient(top, #717578, #232526);
+   background: -o-linear-gradient(top, #717578, #232526);
+   padding: 0px;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 24px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   display: inline-block;
+   }
+.navbutton:hover {
+   border-top-color: #787878;
+   background: #787878;
+   color: #ccc;
+   }
+.navbutton:active {
+   border-top-color: #636163;
+   background: #636163;
+   }
+input.MyButton {
+width: 178px;
+padding: 10px;
+cursor: pointer;
+font-weight: bold;
+font-size: 100%;
+background: #808080;
+color: #fff;
+border: 1px solid #808080;
+border-radius: 10px;
+font-family: inherit;
+-moz-box-shadow:: 6px 6px 5px #999;
+-webkit-box-shadow:: 6px 6px 5px #999;
+box-shadow:: 6px 6px 5px #999;
+}
+input.MyButton:hover {
+color: #ffff00;
+background: #000;
+border: 1px solid #fff;
 }
