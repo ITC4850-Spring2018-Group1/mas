@@ -31,7 +31,7 @@ button {
 	vertical-align: middle;
     padding: 0px;
     margin: 0px;
-    background-color: inherit;
+    border-radius: 9px;
     font: inherit;
     font-family: helvetica, verdana, times-new-roman;
 }
