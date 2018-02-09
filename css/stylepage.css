@@ -1,0 +1,64 @@
+body
+{
+font-family:Verdana;sans serif;
+}
+#container
+{
+   width: 400px;
+   margin: 5px auto;
+   line-height: 130%;
+   font-style: normal;
+}
+#masthead
+{
+   padding-left:30px;
+   padding-top:20px;
+   margin-top: 5px;
+   margin-bottom: 25p
+   word-spacing: 0.3em;
+   letter-spacing: 0.05em;
+font-size:30
+}
+
+#content
+{
+margin-top:20px;
+padding:0;
+max-width:80em;
+color: black;
+Border:0px
+}
+#content p
+{
+padding-left: 20px;
+font-size:12px;
+margin-right:15px
+}
+#content h3
+{
+text-align:center
+}	  
+form
+{
+margin:30px;
+border: 2px solid gray;
+
+padding-left:00px;
+padding-right:50px;
+}
+input
+{
+border:1px solid black;
+padding: 10px;
+}
+#footer
+{
+text-align:center;
+max-width:108em;
+clear:both;
+margin: 0;
+padding: .5em;
+color: #000;
+font-family: "verdana";
+font-size: 12px
+}

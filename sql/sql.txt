@@ -16,7 +16,6 @@ DROP TABLE ref_gen_led_expense_type;
 DROP TABLE ref_gen_led_income_type;
 DROP TABLE ref_users_type; 
 
-
 CREATE TABLE member (
 	mem_no INTEGER (5) PRIMARY KEY AUTO_INCREMENT,
 	mem_fname VARCHAR (30),
@@ -98,7 +97,10 @@ CREATE TABLE general_ledger (
 );
 
 INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type)
-VALUES ('2', 'monthly meeting', 'E', '-', '50.00', 'M', ' ');
+VALUES ('2', 'Meeting cost reimbursement', 'E', '-', '50.00', 'M', ' ');
+
+INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type) 
+VALUES ('2', 'Sales fee', 'I', '+', '10.00', ' ', 'SF');
 
 CREATE TABLE users (
 	user_acct_email VARCHAR (50),
@@ -112,6 +114,7 @@ ALTER TABLE users ADD PRIMARY KEY (user_name);
 
 INSERT INTO users
 VALUES ('jason.kidder@yahoo.com', '1', 'A', 'jason.kidder@yahoo.com', 'rocketman');
+
 
 CREATE TABLE balance (
 	bal_gen_led_id INTEGER (255) PRIMARY KEY,
@@ -132,6 +135,10 @@ ALTER TABLE receipts AUTO_INCREMENT=10001;
 
 INSERT INTO receipts (rec_gen_led_id)
 VALUES ('1');
+
+INSERT INTO receipts (rec_gen_led_id) 
+VALUES ('2');
+
 
 CREATE TABLE family (
 	fam_mem_no INTEGER (255) PRIMARY KEY AUTO_INCREMENT,
@@ -190,7 +197,7 @@ VALUES ('AV', 'Advisor');
 
 CREATE TABLE ref_gen_led_transaction_type (
 	ref_gen_led_transaction_typ CHAR (1) PRIMARY KEY,
-	ref_gen_led_transation_desc VARCHAR (10)
+	ref_gen_led_transaction_desc VARCHAR (10)
 );
 
 INSERT INTO ref_gen_led_transaction_type
