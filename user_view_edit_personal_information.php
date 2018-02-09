@@ -100,7 +100,7 @@
 		<footer>
 			<hr />
 			<div id="copyright">
-				<p>This site is intended for personal use by the members of the Yokota Sportsmen’s Club specifically for conducting club business. <br>All rights reserved. Yokota Sportsmen’s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
+				<p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. <br>All rights reserved. Yokota Sportsmen’s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
 			Copyright &copy; 2018
 			</div>
 			</footer>
