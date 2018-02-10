@@ -35,6 +35,10 @@ button {
     font: inherit;
     font-family: helvetica, verdana, times-new-roman;
 }
+form {
+	display: block;
+	margin-top: 0em;
+}
 .header{
 	font-family: helvetica, verdana, times-new-roman;
 	margin: 20px 0px 10px 0px;
@@ -45,6 +49,8 @@ button {
 	width: 50%;
 	float: left;
 	display: inline-block;
+	text-align: left;
+	text-indent: 15%;
 }
 .memberinfo	{
 	width: 50%;
@@ -108,6 +114,7 @@ button {
 	padding: 1px;
 	border-radius: 2px;
 	display: block;
+	text-align: center;
 }
 .footer	{
 	width: 100%;
