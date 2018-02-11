@@ -97,10 +97,19 @@ CREATE TABLE general_ledger (
 );
 
 INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type)
-VALUES ('2', 'Meeting cost reimbursement', 'E', '-', '50.00', 'M', ' ');
+VALUES ('1', 'Meeting cost reimbursement', 'E', '-', '50.00', 'M', ' ');
 
 INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type) 
 VALUES ('2', 'Sales fee', 'I', '+', '10.00', ' ', 'SF');
+
+INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type)
+VALUES ('1', 'Pizza for meeting', 'E', '-', '100.00', 'M', ' ');
+
+INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type) 
+VALUES ('2', 'Sales fee', 'I', '+', '10.00', ' ', 'SF');
+
+INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type) 
+VALUES ('2', 'Dues Paid', 'I', '+', '50.00', ' ', 'AD');
 
 CREATE TABLE users (
 	user_acct_email VARCHAR (50),
@@ -125,6 +134,18 @@ CREATE TABLE balance (
 INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
 VALUES ('1', '2500.00');
 
+INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
+VALUES ('2', '2510.00');
+
+INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
+VALUES ('3', '2410.00');
+
+INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
+VALUES ('4', '2420.00');
+
+INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
+VALUES ('5', '2470.00');
+
 CREATE TABLE receipts (
 	rec_receipt_no INTEGER (255) PRIMARY KEY AUTO_INCREMENT,
 	rec_gen_led_id INTEGER (255),
@@ -139,6 +160,14 @@ VALUES ('1');
 INSERT INTO receipts (rec_gen_led_id) 
 VALUES ('2');
 
+INSERT INTO receipts (rec_gen_led_id)
+VALUES ('3');
+
+INSERT INTO receipts (rec_gen_led_id)
+VALUES ('4');
+
+INSERT INTO receipts (rec_gen_led_id)
+VALUES ('5');
 
 CREATE TABLE family (
 	fam_mem_no INTEGER (255) PRIMARY KEY AUTO_INCREMENT,
