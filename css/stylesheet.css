@@ -159,8 +159,141 @@ footer {
 	background-color: #EFEFEF;
 	text-align: center;
 }
+/* Added user_view_edit_personal_information.php */
+.formbox {
+	width: 100%;
+	margin: 0px;
+	text-align: right;
+}
+.formheader {
+	text-align: center;
+	width: 100%;
+}
+.row {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	width: 1024px;
+	display: block;
+	border-radius: 0;
+	border-color: #f0f5f5;
+}
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+}
 
+/* Clear floats after the columns */
 
+.bottombuttons	{
+	width: 123px;
+	align-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1px;
+	border-radius: 2px;
+	display: block;
+	text-align: center;
+	clear: both;
+	height: 100%;
+}
+.userinfo {
+	margin: auto;
+	text-align: center;
+	width: max-content;
+}
+* {
+  box-sizing: border-box;
+}
+input[type="text"]
+{
+    border:1px solid #CCCCCC;
+    color:#516064;
+    font-family: Helvetica,arial,sans-serif;
+    font-size:11px;
+    margin-bottom:5px;
+    padding:8px;
+    width:50%;
+}
+input[type="email"]
+	{
+	border:1px solid #CCCCCC;
+    color:#516064;
+    font-family: Helvetica,arial,sans-serif;
+    font-size:11px;
+    margin-bottom:5px;
+    padding:8px;
+    width:50%;
+}
+form {
+	
+	padding: 1em;
+	background: #f9f9f9;
+	border: 1px solid #c1c1c1;
+	margin-top: 2em;
+	width: 434px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em;
+	display: block;
+}
+form input {
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid #9c9c9c;
+}
+form button {
+  background: lightgrey;
+  padding: 0.7em;
+  border: 0;
+}
+form button:hover {
+  background: gold;
+}
 
+label {
+  text-align: right;
+  display: block;
+  padding: 0.5em 1.5em 0.5em 0;
+}
 
+input {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+}
+input:focus {
+  outline: 3px solid gold;
+}
+.form1 {
+	height: 100%;
+}
+.form2 {
+	height: 90%;
+}
+@media (min-width: 400px) {
+  form {
+    overflow: hidden;
+  }
 
+  label {
+    float: left;
+    width: 200px;
+  } 
+
+  input {
+    float: left;
+    width: calc(100% - 200px);
+  }
+}
+@media (max-width: 720px) {
+	.row{
+		display: inline-block;
+	}
+	.column {
+		display: inherit;
+		float: none;
+	}
+}
