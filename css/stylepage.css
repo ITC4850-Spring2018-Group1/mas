@@ -51,14 +51,12 @@ input
 border:1px solid black;
 padding: 10px;
 }
-#footer
-{
-text-align:center;
-max-width:108em;
-clear:both;
-margin: 0;
-padding: .5em;
-color: #000;
-font-family: "verdana";
-font-size: 12px
+footer {
+	font-size: 11px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1em;
+	background-color: #EFEFEF;
 }
