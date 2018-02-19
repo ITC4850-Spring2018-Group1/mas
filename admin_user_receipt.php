@@ -15,7 +15,7 @@
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
-<div class="signout">
+<div class="ReceiptDate">
 	<?php
 echo date("Y/m/d");
 ?>	
@@ -24,37 +24,25 @@ echo date("Y/m/d");
 <br>
 <br>
 <br>
-
-<hr>
 <br>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
 	<h3>Receipt</h3>
 </div>
-<div class="wrapper">
-<div class="formbox">
-		<div class="row">
-			<div class="column">
-			<form action="/user_membership_page.php">
-				Member#: <input type="text" name=fname" value="">
-				<br>
-				Member First Name: <input type="text" name=lname" value="">
-				<br>
-				Member Last Name: <input type="text" name=fname" value="">
-				<br>
-				Street: <input type="text" name=lname" value="">
-				<br>
-				Installation <input type="text" name=fname" value="">
-				<br>
-			</form>
-			</div>
-		</div>
-	</div>
-</div>
+<div class = "ReceiptTable1">
+	
+				<div class = "ReceiptTable">
+				<table>
+				<tr><td align="right">Member #:</td><td></td></tr>
+				<tr><td align="right">Member First Name:</td><td></td></tr>
+				<tr><td align="right">Member Last Name:</td><td></td></tr>
+				<tr><td align="right">Street: </td><td></td></tr>
+				<tr><td align="right">Installation: </td><td></td></tr>
+				</table>
+<br>
 <br>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 
-<center>
 	<table class="user-table"> 
 	<thead>
 		 <th>Transaction Date</th> 
@@ -92,9 +80,10 @@ foreach ($pdo->query($sql) as $row) {
  }
  Database::disconnect();
 ?>
-<tbody>
-</center> 
-
+</tbody>
+</table>
+</div>
+</div>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>Copyright 2018 Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
