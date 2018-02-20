@@ -84,7 +84,7 @@
 <br><br><br><br><br><br>
 <div id="button">
 	<ul>
-		<li><a href="admin_report_quarterly_financial_statement">Print</a></li>
+		<li><a href="admin_view_update_import_price_list">Print</a></li>
 		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
 </div>
