@@ -42,7 +42,10 @@
 <br>
 <div class="main-title">
 <h2>MEMBERSHIP AND ACCOUNTING SYSTEM</h2>
-</div>
+</div><
+<UL>
+
+</UL>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
 	<h3>View/Update Price list</h3>
@@ -56,18 +59,17 @@
 	<thead>
 		 <th>List #</a></th> 
 		 <th>Item #</th> 
-		 <th>Receipt #</th> 
 	 	 <th>Serial #</th> 
-		 <th>Manu</th> 
-		 <th>Mod</th> 
+		 <th>Manufacture</th> 
+		 <th>Model</th> 
 		 <th>kind</th> 
 		 <th>Typ</th> 
-		 <th>Gge</th> 
+		 <th>Gauge</th> 
 		 <th>Bbl</th> 
 		 <th>Chk</th> 
 		 <th>Qty</th> 
 		 <th>Price (Y)</th> 
-		 <th>Desc</th>
+		 <th>Description</th>
 		 <th>Comment</th>
 		 <th>Add date</th>
 		 <th>Update date</th>
