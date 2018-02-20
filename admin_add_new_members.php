@@ -27,7 +27,7 @@
 <br>
 <br>
 <!-- IMPORTANT #1: change the links to the pages in which users should be directed for YOUR specific wireframe as well as the text to display on the button -->
-<div class="nav-user">
+<div class="nav-admin">
 	<ul>
 		<li><a href="admin_post_income_expenses.php">Post Income/Expense</a></li>
 		<li><a href="admin_view_update_members_details.php">View Membership</a></li>
