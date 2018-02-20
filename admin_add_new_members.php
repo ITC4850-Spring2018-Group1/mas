@@ -51,7 +51,7 @@
 <div class="formbox">
 		<div class="row">
 			<div class="column">
-			<form class="form1" action="/user_membership_page.php">
+			<form action="/user_membership_page.php">
 				
 				<label for="firstname">First Name</label>
 				<input id="first-name" type="text" name="fname">

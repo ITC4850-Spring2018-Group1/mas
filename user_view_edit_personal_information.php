@@ -47,61 +47,85 @@
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 
 <div class="formbox">
-		<div class="row">
-			<div class="column">
+	<div class="row">
+		<div class="column">
 			<form action="/user_membership_page.php">
-				First Name <input type="text" name=fname" value="">
-				<br>
-				Middle Name <input type="text" name=lname" value="">
-				<br>
-				Last Name <input type="text" name=fname" value="">
-				<br>
-				Duty Phone <input type="text" name=lname" value="">
-				<br>
-				Cell Number <input type="text" name=fname" value="">
-				<br>
-				Street <input type="text" name=lname" value="">
-				<br>
-				City <input type="text" name=fname" value="">
-				<br>
-				State <input type="text" name=lname" value="">
-				<br>
-				Zip Code <input type="text" name=fname" value="">
-				<br>
-				Email <input type="text" name=lname" value="">
-				<br>
-				Installation <input type="text" name=fname" value="">
-				<br>
-				Remarks <input type="text" name=lname" value="">
-				<br>
-				Position <input type="text" name=fname" value="">
-				<br>
-				Add Date Time <input type="text" name=lname" value="">
-				<br>
-				Last Update <input type="text" name=fname" value="">
-				<br>
-				Updated By <input type="text" name=lname" value="">
-				<br>
+				<label for="firstname">First Name</label>
+				<input id="first-name" type="text" name="fname">
+
+				<label for="middlename">Middle Name</label>
+				<input id="middle-name" type="text" name="fname" value="">
+				
+				<label for="lastame">Last Name</label>
+				<input id="last-name" type="text" name="fname" value="">
+				
+				<label for="dutyphone">Duty Phone</label>
+				<input id="duty-phone" type="text" name="fname" value="">
+				
+				<label for="cellnumber">Cell Number</label>
+				<input id="cellnumber" type="text" name="fname" value="">
+				
+				<label for="street">Street</label>
+				<input id="street" type="text" name="fname" value="">
+				
+				<label for="city">City</label>
+				<input id="city" type="text" name="fname" value="">
+				
+				<label for="state">State</label>
+				<input id="state" type="text" name="fname" value="">
+
+				<label for="zipcode">Zip Code</label>
+				<input id="zipcode" type="text" name="fname" value="">
+				
+				<label for="email">Email</label>
+				<input id="email" type="email" name="fname" value="">
+				
+				<label for="installation">Installation</label>
+				<input id=" installation" type="text" name="fname" value="">
+				
+				<label for="remarks">Remarks</label>
+				<input id="remarks" type="text" name="fname" value="">
+				
+				<label for="position">Position</label>
+				<input id="position" type="text" name="fname" value="">
+
+				<label for="adddatetime">Add Date Time</label>
+				<input id="adddatetime" type="text" name="fname" value="">
+				
+				<label for="lastupdated">Last Updated</label>
+				<input id="lastupdated" type="text" name="fname" value="">
+
+				<label for="updatedby">Updated by</label>
+				<input id="updatedby" type="text" name="fname" value="">
 			</form>
 			</div>
 			<div class="column">
 			<form action="/user_membership_page.php">
-				Family Member # <input type="text" name=fname" value="">
-				<br>
-				First Name      <input type="text" name=lname" value="">
-				<br>
-				Middle Name     <input type="text" name=fname" value="">
-				<br>
-				Last Name       <input type="text" name=lname" value="">
-				<br>
-				Cell Number     <input type="text" name=fname" value="">
-				<br>
-				Email           <input type="text" name=lname" value="">
-				<br>
-				Installation    <input type="text" name=fname" value="">
-				<br>
-				Remarks      <input type="text" name=lname" value="">
-				<br>
+				<label for="familymember">Family Member #</label>
+				<input type="text" name=fname" value="">
+
+				<label for="firstname">First Name</label>
+				<input id="first-name" type="text" name="fname">
+
+				<label for="middlename">Middle Name</label>
+				<input id="middle-name" type="text" name="fname" value="">
+				
+				<label for="lastame">Last Name</label>
+				<input id="last-name" type="text" name="fname" value="">
+
+
+				<label for="cellnumber">Cell Number</label>
+				<input id="cellnumber" type="text" name="fname" value="">
+				
+				<label for="email">Email</label>
+				<input id="email" type="email" name="fname" value="">
+				
+				<label for="installation">Installation</label>
+				<input id=" installation" type="text" name="fname" value="">
+				
+				<label for="remarks">Remarks</label>
+				<input id="remarks" type="text" name="fname" value="">
+				
 			</form>
 			</div>
 		</div>
@@ -112,6 +136,7 @@
 		</div>
 	</div>
 </div>
+</body>
 
 
 
