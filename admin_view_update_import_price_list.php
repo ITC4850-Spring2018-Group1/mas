@@ -34,6 +34,7 @@
 		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
 		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
+		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
 	</ul>
 <br>
 </div>
@@ -53,10 +54,10 @@
 
 <table class="user-table"> 
 	<thead>
-		 <th><a href="admin_view_update_import_price_list.php?sort=id">List #</a></th> 
-		 <th><a href="admin_view_update_import_price_list.php?sort=date">Item #</th> 
+		 <th>List #</a></th> 
+		 <th>Item #</th> 
 		 <th>Receipt #</th> 
-	 	 <th><a href="admin_view_update_import_price_list.php?sort=mem_no">Serial #</th> 
+	 	 <th>Serial #</th> 
 		 <th>Manu</th> 
 		 <th>Mod</th> 
 		 <th>kind</th> 
