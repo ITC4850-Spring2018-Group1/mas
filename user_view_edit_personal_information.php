@@ -29,9 +29,9 @@
 <!-- IMPORTANT #1: change the links to the pages in which users should be directed for YOUR specific wireframe as well as the text to display on the button -->
 <div class="nav-user">
 	<ul>
-		<li><a href="admin_add_new_members.php">View Profile</a></li>
-		<li><a href="admin_post_income_expenses.php">Purchase History</a></li>
-		<li><a href="admin_view_update_ATF_status.php">ATF Status</a></li>
+		<li><a href="user_view_amounts_paid.php">View Profile</a></li>
+		<li><a href="user_view_purchase_history.php">Purchase History</a></li>
+		<li><a href="user_view_update_ATF_status.php">ATF Status</a></li>
 	</ul>
 <br>
 </div>
@@ -133,10 +133,11 @@
 		<div class="bottombuttons">
 			<button type="coolbutton">Save</button>
 			<button type="coolbutton">Clear</button>
+			<br>
 		</div>
 	</div>
 </div>
-
+<br><br>
 
 
 
