@@ -44,7 +44,7 @@
 </div>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
-	<h3>User View and Edit Personal Information</h3>
+	<h3>Add New Members</h3>
 </div>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 
@@ -154,7 +154,6 @@
 			<button type="coolbutton">Add Member</button>
 			<button type="coolbutton">Clear</button>
 		</div>
-	</div>
 </div>
 <br><br>
 
@@ -164,3 +163,6 @@
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
+</footer>
+</body>
+</html>

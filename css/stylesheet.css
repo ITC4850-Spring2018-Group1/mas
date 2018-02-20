@@ -247,13 +247,24 @@ input[type="email"]
     padding:8px;
     width:50%;
 }
+#remarks
+{
+	border:1px solid #CCCCCC;
+    color:#516064;
+    font-family: Helvetica,arial,sans-serif;
+    font-size:11px;
+    margin-bottom:5px;
+    padding:8px;
+    width:70%;
+    height: 120px;
+}
 form {
 	
 	padding: 1em;
 	background: #f9f9f9;
 	border: 1px solid #c1c1c1;
 	margin-top: 2em;
-	width: 434px;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 1em;
@@ -767,6 +778,3 @@ margin-right: auto;
 margin-left: 30px;
 margin-top: 20px;
 }
-
-
->>>>>>> 6e151122671f0e2a344e548f5bf9c0d851b4ab85

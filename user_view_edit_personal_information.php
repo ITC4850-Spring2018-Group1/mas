@@ -136,7 +136,6 @@
 		</div>
 	</div>
 </div>
-</body>
 
 
 
@@ -145,3 +144,6 @@
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
+</footer>
+</body>
+</html>
