@@ -34,6 +34,7 @@
 		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
 		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
+		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
 	</ul>
 <br>
 </div>
@@ -41,7 +42,10 @@
 <br>
 <div class="main-title">
 <h2>MEMBERSHIP AND ACCOUNTING SYSTEM</h2>
-</div>
+</div><
+<UL>
+
+</UL>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
 	<h3>View/Update Price list</h3>
@@ -53,20 +57,19 @@
 
 <table class="user-table"> 
 	<thead>
-		 <th><a href="admin_view_update_import_price_list.php?sort=id">List #</a></th> 
-		 <th><a href="admin_view_update_import_price_list.php?sort=date">Item #</th> 
-		 <th>Receipt #</th> 
-	 	 <th><a href="admin_view_update_import_price_list.php?sort=mem_no">Serial #</th> 
-		 <th>Manu</th> 
-		 <th>Mod</th> 
+		 <th>List #</a></th> 
+		 <th>Item #</th> 
+	 	 <th>Serial #</th> 
+		 <th>Manufacture</th> 
+		 <th>Model</th> 
 		 <th>kind</th> 
 		 <th>Typ</th> 
-		 <th>Gge</th> 
+		 <th>Gauge</th> 
 		 <th>Bbl</th> 
 		 <th>Chk</th> 
 		 <th>Qty</th> 
 		 <th>Price (Y)</th> 
-		 <th>Desc</th>
+		 <th>Description</th>
 		 <th>Comment</th>
 		 <th>Add date</th>
 		 <th>Update date</th>
@@ -79,6 +82,12 @@
 </tbody>
 </table>
 <br><br><br><br><br><br>
+<div id="button">
+	<ul>
+		<li><a href="admin_view_update_import_price_list">Print</a></li>
+		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
+	</ul>
+</div>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
