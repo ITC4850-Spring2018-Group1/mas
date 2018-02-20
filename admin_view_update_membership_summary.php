@@ -44,8 +44,8 @@
 </div>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
-	<h3>[View Membership Summary]</h3>
-</div>
+	<h3>View Membership Summary</h3>
+</div><br>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <center>
 	<table class="user-table"> 
@@ -65,40 +65,8 @@
  	</thead>
 <tbody>
 
-<?php
- include 'database.php';
- $pdo = Database::connect();
- $sql = 'SELECT * 
-FROM general_ledger a
-LEFT JOIN balance b ON a.gen_led_id=b.bal_gen_led_id
-LEFT JOIN receipts c ON a.gen_led_id=c.rec_gen_led_id
-LEFT JOIN ref_gen_led_expense_type d ON a.gen_led_expense_type=d.ref_gen_led_expense_typ
-LEFT JOIN ref_gen_led_transaction_type e ON a.gen_led_transaction_type=e.ref_gen_led_transaction_typ
-LEFT JOIN ref_gen_led_income_type f ON a.gen_led_income_type=f.ref_gen_led_income_typ
-ORDER BY gen_led_id DESC';
-foreach ($pdo->query($sql) as $row) {
-				  <tr>
-    <td height="49" align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-  </tr>';
- }
- Database::disconnect();
-?>
 <tbody>
 </center> 
-
-
-
 
 
 
