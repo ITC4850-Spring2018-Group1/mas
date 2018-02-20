@@ -49,25 +49,20 @@
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <center>
 	<table class="user-table"> 
-    
 	<thead>
-    <th width="49" height="49" align="center" valign="middle" bgcolor="#d9d9d9"><font face="Arial, Helvetica, sans-serif" style="font-size:13px" color="#000000"> <strong>M.No</strong></font></th> 
-   <th width="64" align="center" valign="middle" bgcolor="#d9d9d9"><font color="#000000" face="Arial, Helvetica, sans-serif" style="font-size:13px"><strong>First name</strong></font></th> 
-    <th width="49" align="center" valign="middle" bgcolor="#d9d9d9"><font face="Arial, Helvetica, sans-serif" style="font-size:13px" color="#000000"><strong>Ml</strong></font></th> 
-    <th width="62" align="center" valign="middle" bgcolor="#d9d9d9"><strong><font color="#000000" face="Arial, Helvetica, sans-serif" style="font-size:13px">Last name</font></strong></th> 
-     <td width="84" align="center" valign="middle" bgcolor="#d9d9d9"><font face="Arial, Helvetica, sans-serif" style="font-size:13px" color="#000000"><strong>Email</strong></font></th> 
-    <th width="83" align="center" valign="middle" bgcolor="#d9d9d9"><strong><font color="#000000" face="Arial, Helvetica, sans-serif" style="font-size:13px">Installation</font></strong></th> 
-    <th width="87" align="center" valign="middle" bgcolor="#d9d9d9"><font face="Arial, Helvetica, sans-serif" style="font-size:13px" color="#000000"><strong>category</strong></font></th> 
-    <th width="80" align="center" valign="middle" bgcolor="#d9d9d9"><strong><font color="#000000" face="Arial, Helvetica, sans-serif" style="font-size:13px">Position</font></strong></th> 
-    <th width="82" align="center" valign="middle" bgcolor="#d9d9d9"><strong><font color="#000000" face="Arial, Helvetica, sans-serif" style="font-size:13px">Last <br />
-    Update</font></strong></th> 
-    <th width="78" align="center" valign="middle" bgcolor="#d9d9d9"><strong><font color="#000000" face="Arial, Helvetica, sans-serif" style="font-size:13px">Type of <br />
-    User</font></strong></th> 
-    <th width="101" align="center" valign="middle" bgcolor="#d9d9d9"><font face="Arial, Helvetica, sans-serif" style="font-size:13px" color="#000000"><strong>Update by</strong></font></th> 
-    <th align="center" valign="middle" bgcolor="#d9d9d9"><strong><font color="#000000" face="Arial, Helvetica, sans-serif" style="font-size:13px">Action</font></strong></th> 
-	</thead>
-    
-	
+		 <th>Member Number</th> 
+		 <th>First Name #</th> 
+		 <th>MI</th> 
+		 <th>Last Name</th> 
+		 <th>Email</th> 
+		 <th>Installation</th> 
+		 <th>Category</th> 
+		 <th>Position</th> 
+		 <th>Last Update</th>
+		 <th>Type of User</th>
+		 <th>Update By</th>
+		 <th>Action</th>
+ 	</thead>
 <tbody>
 
 <?php
