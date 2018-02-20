@@ -48,15 +48,6 @@
 </div>
 <br>
 
-<div class="filter-box1">
-	<input type="text" name="from_date" id="from_date" class="form-control" placeholder="&nbsp;&nbsp;From Date"/>
-</div>
-<div class="filter-box2">
-	<input type="text" name="to_date" id="to_date" class="form-control" placeholder="&nbsp;&nbsp;To Date" />
-</div>
-<div class="filter-button">
-	<input type="button" name="filter" id="filter" value="Filter by Date" />
-</div>
 
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 
