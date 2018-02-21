@@ -45,6 +45,9 @@ VALUES ('Jason', 'T', 'Kidder', '225-4225', '080-9158-6594', 'PSC 78 Box 146', '
 INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
 VALUES ('Catherine', 'S', 'Jones', '225-4532', '090-4324-4324', 'PSC 78 Box 111', 'APO', 'AP', '96326', 'csj@gmail.com', 'Yokosuka', 'AV', 'I', 'DEROS 6/2019', ' ');
 
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
+VALUES ('Bob', 'S', 'Rayburn', '225-2232', '090-4334-4324', 'PSC 78 Box 143', 'APO', 'AP', '96326', 'bobr@gmail.com', 'Zama', 'AD', 'I', 'DEROS 3/2019', ' ');
+
 CREATE TABLE ref_member_type (
 		ref_mem_typ CHAR (1) PRIMARY KEY,
 		ref_mem_typ_desc VARCHAR (15) NOT NULL
@@ -67,6 +70,9 @@ VALUES ('1', '2017-10-01', '0000-00-00');
 
 INSERT INTO membership
 VALUES ('2', '2016-10-01', '2017-09-30');
+
+INSERT INTO membership
+VALUES ('3', '2016-10-01', '2017-09-30');
 
 CREATE TABLE atf (
 	atf_serial_no VARCHAR (40) PRIMARY KEY,
@@ -97,19 +103,7 @@ CREATE TABLE general_ledger (
 );
 
 INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type)
-VALUES ('1', 'Meeting cost reimbursement', 'E', '-', '50.00', 'M', ' ');
-
-INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type) 
-VALUES ('2', 'Sales fee', 'I', '+', '10.00', ' ', 'SF');
-
-INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type)
-VALUES ('1', 'Pizza for meeting', 'E', '-', '100.00', 'M', ' ');
-
-INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type) 
-VALUES ('2', 'Sales fee', 'I', '+', '10.00', ' ', 'SF');
-
-INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type) 
-VALUES ('2', 'Dues Paid', 'I', '+', '50.00', ' ', 'AD');
+VALUES ('1', 'Starting Ledger Balance', 'I', ' ', '2550.00', ' ', 'OO');
 
 CREATE TABLE users (
 	user_acct_email VARCHAR (50),
@@ -128,23 +122,15 @@ VALUES ('jason.kidder@yahoo.com', '1', 'A', 'jason.kidder@yahoo.com', 'rocketman
 CREATE TABLE balance (
 	bal_gen_led_id INTEGER (255) PRIMARY KEY,
 	bal_acct_balance DECIMAL(7,2),
-	bal_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	bal_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	bal_trans_type CHAR(1),
+	bal_trans_amount DECIMAL(7,2),
+	bal_previous_balance DECIMAL(7,2)
 );
 
-INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
-VALUES ('1', '2500.00');
+INSERT INTO balance (bal_gen_led_id, bal_acct_balance, bal_trans_type, bal_trans_amount, bal_previous_balance)
+VALUES ('1', '2500.00', 'I', '2500.00', '0.00');
 
-INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
-VALUES ('2', '2510.00');
-
-INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
-VALUES ('3', '2410.00');
-
-INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
-VALUES ('4', '2420.00');
-
-INSERT INTO balance (bal_gen_led_id, bal_acct_balance)
-VALUES ('5', '2470.00');
 
 CREATE TABLE receipts (
 	rec_receipt_no INTEGER (255) PRIMARY KEY AUTO_INCREMENT,
@@ -156,18 +142,6 @@ ALTER TABLE receipts AUTO_INCREMENT=10001;
 
 INSERT INTO receipts (rec_gen_led_id)
 VALUES ('1');
-
-INSERT INTO receipts (rec_gen_led_id) 
-VALUES ('2');
-
-INSERT INTO receipts (rec_gen_led_id)
-VALUES ('3');
-
-INSERT INTO receipts (rec_gen_led_id)
-VALUES ('4');
-
-INSERT INTO receipts (rec_gen_led_id)
-VALUES ('5');
 
 CREATE TABLE family (
 	fam_mem_no INTEGER (255) PRIMARY KEY AUTO_INCREMENT,
@@ -272,6 +246,9 @@ VALUES ('FD', 'Fundraiser');
 INSERT INTO ref_gen_led_income_type
 VALUES ('DO', 'Donation');
 
+INSERT INTO ref_gen_led_income_type
+VALUES ('OO', 'Other');
+
 CREATE TABLE ref_users_type (
 	ref_users_type CHAR (1), 
 	ref_users_desc VARCHAR (15)
@@ -283,6 +260,34 @@ VALUES ('U', 'User');
 INSERT into ref_users_type
 VALUES ('A', 'Administrator'); 
 
+/* this trigger causes the balance table to store the calculated value of the balance */
+DELIMITER //
+
+CREATE TRIGGER `cal_acct_bal` before insert ON `balance` FOR EACH ROW 
+BEGIN
+	DECLARE prev_old_balance DECIMAL(7,2);
+
+	select   bal_acct_balance
+	into     prev_old_balance
+	from     balance
+	order by bal_gen_led_id desc
+	limit 1;
+
+	SET NEW.bal_previous_balance=prev_old_balance;
+	
+	IF NEW.bal_trans_type = 'I'
+	THEN
+	SET NEW.bal_acct_balance=NEW.bal_previous_balance + NEW.bal_trans_amount;
+	END IF;
+	
+	IF NEW.bal_trans_type = 'E'
+	THEN
+	SET NEW.bal_acct_balance=NEW.bal_previous_balance - NEW.bal_trans_amount;
+	END IF;
+	
+end//
+
+DELIMITER ;
 
 
 
