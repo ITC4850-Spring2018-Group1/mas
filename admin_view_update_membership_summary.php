@@ -69,7 +69,7 @@
 <br><br>
 <div class="bottombuttons">
 			<button type="coolbutton">View Membership Expiry Report</button>
-			<button type="coolbutton">View Unpaid Fee Repor</button>
+			<button type="coolbutton">View Unpaid Fee Report</button>
 		</div>
 
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
