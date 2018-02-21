@@ -1,0 +1,33 @@
+DROP TABLE general_ledger;
+DROP TABLE balance;
+DROP TABLE receipts;
+
+CREATE TABLE general_ledger (
+	gen_led_id INTEGER (255) PRIMARY KEY AUTO_INCREMENT,
+	gen_led_users_mem_no INTEGER (5),
+	gen_led_trans_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	gen_led_description VARCHAR (200),
+	gen_led_transaction_type CHAR (1),
+	gen_led_transaction_sign CHAR (1),
+	gen_led_amount DECIMAL(7,2),
+	gen_led_expense_type CHAR (1),
+	gen_led_income_type CHAR (2),
+	gen_led_add_by INTEGER (5)
+);
+
+CREATE TABLE balance (
+	bal_gen_led_id INTEGER (255) PRIMARY KEY,
+	bal_acct_balance DECIMAL(7,2),
+	bal_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	bal_trans_type CHAR(1),
+	bal_trans_amount DECIMAL(7,2), 
+	bal_previous_balance DECIMAL(7,2)
+);
+
+CREATE TABLE receipts (
+	rec_receipt_no INTEGER (255) PRIMARY KEY AUTO_INCREMENT,
+	rec_gen_led_id INTEGER (255),
+	rec_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE receipts AUTO_INCREMENT=10001;

@@ -1,0 +1,100 @@
+********************************************************************
+
+CREATE TRIGGER `cal_acct_bal` BEFORE INSERT ON `balance` FOR EACH ROW begin
+	declare prev_old_balance DECIMAL(7,2);
+
+	select   bal_acct_balance
+	into     prev_old_balance
+	from     balance
+	order by bal_gen_led_id desc
+	limit 1;
+
+	IF (NEW.bal_trans_type = I) THEN
+    	SET NEW.bal_acct_balance=prev_old_balance + NEW.bal_amount;
+    ELSE
+    	SET NEW.bal_acct_balance=prev_old_balance - NEW.bal_amount;
+    END IF;
+END; //
+
+DELIMITER ;
+
+********************************************************************
+
+begin
+	declare prev_old_balance DECIMAL(7,2);
+
+	select   bal_acct_balance
+	into     prev_old_balance
+	from     balance
+	order by bal_gen_led_id desc
+	limit 1;
+
+	set NEW.bal_acct_balance=prev_old_balance + NEW.bal_trans_amount;
+end
+********************************************************************
+
+begin
+	declare prev_old_balance DECIMAL(7,2);
+
+	select   bal_acct_balance
+	into     prev_old_balance
+	from     balance
+	order by bal_gen_led_id desc
+	limit 1;
+
+	set NEW.bal_previous_balance=prev_old_balance;
+	set NEW.bal_acct_balance=NEW.bal_trans_amount + NEW.bal_previous_balance;
+end
+
+works
+********************************************************************
+
+DELIMITER //
+
+create TRIGGER `cal_acct_bal` before insert ON `balance` FOR EACH ROW 
+begin
+	declare prev_old_balance DECIMAL(7,2);
+
+	select   bal_acct_balance
+	into     prev_old_balance
+	from     balance
+	order by bal_gen_led_id desc
+	limit 1;
+
+	set NEW.bal_previous_balance=prev_old_balance;
+	
+	IF NEW.bal_trans_type = 'I'
+	THEN
+	SET NEW.bal_acct_balance=NEW.bal_previous_balance + NEW.bal_trans_amount;
+	END IF;
+	
+	IF NEW.bal_trans_type = 'E'
+	THEN
+	SET NEW.bal_acct_balance=NEW.bal_previous_balance - NEW.bal_trans_amount;
+	END IF;
+	
+end//
+
+DELIMITER ;
+********************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
