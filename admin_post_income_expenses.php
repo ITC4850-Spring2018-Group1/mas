@@ -11,33 +11,36 @@ if(isset($_POST['mem_no'])) {
 	$mem_no = $_POST['mem_no'];
 	$trans_type = $_POST['trans_type'];
 	$expense_type = $_POST['expense_type'];
+	$income_type = $_POST['income_type'];
 	$amount = $_POST['amount'];
 	$description = $_POST['description'];
-	$q = "INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_transaction_type, gen_led_expense_type, gen_led_amount, gen_led_description) VALUES (:mem_no, :trans_type, :expense_type, :amount, :description)";
-	$q2 = "INSERT INTO balance (bal_gen_led_id) VALUES (LAST_INSERT_ID())";
+	$q = "INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_transaction_type, gen_led_expense_type, gen_led_income_type, gen_led_amount, gen_led_description) VALUES (:mem_no, :trans_type, :expense_type, :income_type, :amount, :description)";
+	$q2 = "INSERT INTO balance (bal_gen_led_id, bal_trans_type, bal_trans_amount) VALUES ((LAST_INSERT_ID()), '$trans_type', '$amount')";
 	$q3 = "INSERT INTO receipts (rec_gen_led_id) VALUES (LAST_INSERT_ID())";
+	
 	$query = $pdo->prepare($q);
 	$query2 = $pdo->prepare($q2);
 	$query3 = $pdo->prepare($q3);
+	
 	$result = $query->execute(array(
 	   ":mem_no" => $mem_no,
 	   ":trans_type" => $trans_type,
 	   ":expense_type" => $expense_type,
+	   ":income_type" => $income_type,
 	   ":amount" => $amount,
 	   ":description" => $description
 ));
 	$query2->execute();
 	$query3->execute();
-		Database::disconnect();
-		header("Location: admin_view_general_ledger.php");
-}
-
+	Database::disconnect();
+	header("Location: admin_view_general_ledger.php");
+		}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,9 +93,16 @@ if(isset($_POST['mem_no'])) {
 <div class="select-name">
 	<label>Member Name:</label>
 		<select name="mem_no">
-		<option value="">Select Last/First Name</option>
-		<option value="1">Kidder, Jason</option>
-		<option value="2">Jones, Catherine</option></div><br>
+			<option value="">Select Member Name</option>
+			<?php
+				require_once 'start.php';
+				$usersQuery = "SELECT mem_no, mem_lname, mem_fname FROM member";
+				$users = $db->query($usersQuery);
+			?>
+			<?php foreach($users->fetchAll() as $user): ?>
+				<option value="<?php echo $user['mem_no']; ?>"><?php echo $user['mem_lname']; ?><?php echo ", "; ?><?php echo $user['mem_fname']; ?></option>
+			<?php endforeach; 
+			Database::disconnect();?>		
 		</select>
 </div><br>
 
@@ -105,18 +115,27 @@ if(isset($_POST['mem_no'])) {
 	</select>
 </div><br>
 
-<div class="select-inc-exp-type">
-	<label>Income/Expense Type:</label>
+<div class="select-exp-type">
+	<label>Expense Type:</label>
 	<select name="expense_type">
-		<option value="">Select Type</option>
-		<option value="AD">I - Annual Dues</option>
-		<option value="RD">I - Renewal Dues</option>
-		<option value="FD">I - Fundraiser</option>
-		<option value="DO">I - Donation</option>
+		<option value=" ">Select Expense Type</option>
 		<option value="M">E - Meeting</option>
 		<option value="T">E - Trip Reimbursement</option>
 		<option value="O">E - Other</option>
 		<option value="S">E - Supplies</option>
+	</select>
+</div><br>
+
+<div class="select-inc-type">
+	<label>Income Type:</label>
+	<select name="income_type">
+		<option value=" ">Select Income Type</option>
+		<option value="AD">I - Annual Dues</option>
+		<option value="RD">I - Renewal Dues</option>
+		<option value="FD">I - Fundraiser</option>
+		<option value="DO">I - Donation</option>
+		<option value="OO">I - Other</option>
+
 	</select>
 </div><br>
 
