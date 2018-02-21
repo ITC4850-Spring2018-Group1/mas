@@ -65,9 +65,8 @@
  	</thead>
 <tbody>
 
-<tbody>
-</center> 
 
+<br><br>
 <div class="bottombuttons">
 			<button type="coolbutton">View Membership Expiry Report</button>
 			<button type="coolbutton">View Unpaid Fee Repor</button>
