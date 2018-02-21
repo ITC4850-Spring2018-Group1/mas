@@ -290,14 +290,29 @@ form {
 	font-size: 14px;
 }
 
-.select-inc-exp-type label {
+.select-exp-type label {
 	font-size: 22px;
 	margin-bottom: 15px;
-	margin-left: -45px;
+	margin-left: 32px;
 	margin-right: 3px;
 }
 
-.select-inc-exp-type select {
+.select-exp-type select {
+	padding: 2px;
+	width: 230px;
+	margin-bottom: 15px; 
+	font-size: 14px;
+
+}
+
+.select-inc-type label {
+	font-size: 22px;
+	margin-bottom: 15px;
+	margin-left: 50px;
+	margin-right: 3px;
+}
+
+.select-inc-type select {
 	padding: 2px;
 	width: 230px;
 	margin-bottom: 15px; 
@@ -319,20 +334,19 @@ form {
 	font-size: 14px;
 }
 
+.description {
+	text-align: middle;
+}
+
 .description label {
-	margin-right: 3px;
 	font-size: 22px;
-	margin-bottom: 15px;
-	margin-left: 20px;
+	margin-left: 15px; 
+	vertical-align: middle;
+	padding-bottom: 65px;
 }
 
 .description textarea {
-	padding: 2px; 
-	margin-bottom: 15px; 
-	margin-top: 5px;
 	font-size: 14px;
-	vertical-align: 4px;
-	font-family: Verdana;
 }
 
 .submit-inc-exp button {
