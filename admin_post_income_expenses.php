@@ -140,7 +140,7 @@ if(isset($_POST['mem_no'])) {
 </div><br>
 
 <div class="amount">
-	<label>Amount:</label>
+	<label>Amount ($):</label>
 	<input type="text" name="amount">
 </div><br>
 
@@ -148,7 +148,7 @@ if(isset($_POST['mem_no'])) {
 	<label>Description:</label>
 	<textarea type="text" rows="4" cols="20" wrap="soft" name="description"></textarea>
 </div>
-
+<br>
 <div class="submit-inc-exp"><br>
 	<button type="submit" name="submit" class="submit-inc-exp">Submit</button><br><br><br>
 	<a class="btn" href="admin_main_dashboard.php">Back</a>
