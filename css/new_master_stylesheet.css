@@ -234,6 +234,11 @@ hr {
 	font-weight: bold;
 }
 
+.user-table {
+	text-align: center;
+	margin-left:auto; 
+	margin-right:auto;
+}
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: gray;
@@ -324,7 +329,7 @@ form {
 	margin: 3px;
 	font-size: 22px;
 	margin-bottom: 15px;
-	margin-left: 40px;
+	margin-left: 5px;
 }
 
 .amount input {
@@ -365,6 +370,76 @@ form {
 	font-weight: bold;
 	float: right;
 	margin-right: 90px;
+
+}
+
+/* added styles for admin_post_sales_checkout.php */
+.select-item label {
+	font-size: 22px;
+	margin-bottom: 15px;
+	margin-left: 22px;
+	margin-right: 3px;
+	}
+
+.select-item select {
+	padding: 2px;
+	width: 230px;
+	margin-bottom: 15px;
+	font-size: 14px;
+	}
+	
+#fee-collected h4 {
+	text-align: center;
+	font-size: 18px;
+	border: 1px solid black;
+	padding: 8px 15px;
+	margin: 0 auto;
+	width: 30%;
+	background-color: #e6e6e6;
+	margin-bottom: 15px;
+}
+
+.amount2 label {
+	margin: 3px;
+	font-size: 22px;
+	margin-bottom: 15px;
+
+}
+
+.amount2 input {
+	width: 170px;
+	padding: 2px; 
+	margin-bottom: 15px; 
+	font-size: 14px;
+}
+
+
+.button-checkout button {
+	width: 230px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: #0ca909;
+	font-size: 22px;
+	color: white;
+	font-weight: 300;
+	border: 1px solid black;
+}
+
+.reset2 button {
+	padding: 7.5px 30px; 
+	border-radius: 5px;
+	background-color: #DCDCDC;
+	font-size: 15px;
+	font-weight: bold;
+	float: right;
+	margin-right: 90px;
+}
+
+.success p {
+	text-align: center;
+	margin-top: 125px;
+	color: red;
+	font-weight: bolder;
 
 }
 /* added footer styles for admin_template.php */

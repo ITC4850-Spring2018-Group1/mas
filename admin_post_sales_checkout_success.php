@@ -1,5 +1,3 @@
-<!-- INSTRUCTIONS: this is the header and footer template for the primary ADMIN pages. Code your forms, tables, etc., below the navigation tags. Placeholders have been included where variables will be displayed based on session login information for the user. Leave these "AS IS" for now. To maintain consistency, please do not change the header information other than where indicated with additional comments. -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +29,7 @@
 <div class="nav-admin">
 	<ul>
 		<li><a href="admin_add_new_members.php">Add Membership</a></li>
-		<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
+		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
 		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
@@ -45,14 +43,13 @@
 </div>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
-	<h3>[Enter your page title here]</h3>
+	<h3>Post Sales/Checkout</h3>
 </div>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-
-
-
-
-
+<div class="success">
+<br>
+<p>Your transaction was successful!</p>
+</div>
 
 
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
