@@ -99,7 +99,7 @@
 				</div>
 				<form style="margin: 0px;" class="form2" action="/user_membership_page.php">
 					<label for="username">Username </label>
-					<input id="username" type="text" name=fname" value="">
+					<input id="username" type="text" name="fname" value="">
 					
 		            <label for="firstname">First Name</label>
 		            <input id="firstName" type="text">
