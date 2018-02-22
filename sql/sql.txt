@@ -182,7 +182,20 @@ CREATE TABLE price_list (
 );
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '1', 'Theoben', 'Eliminator', 'UARG', 'Gas Spring', '6.35mm', '', '', '1', 'Y22000', '', 'FERE340-1', '', '1', '');
+VALUES ('P-2017 (3)', '1', 'Theoben', 'Eliminator', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FERE340-1', '', '1', '');
+
+INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
+VALUES ('P-2017 (3)', '1', 'Remington', 'Fourn', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'ERTE340-1', '', '1', '');
+
+INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
+VALUES ('P-2017 (3)', '1', 'Ruger', 'Rapier', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'KIJU340-1', '', '1', '');
+
+INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
+VALUES ('P-2017 (3)', '1', 'Browning', 'BAR MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FFERT340-1', '', '1', '');
+
+INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
+VALUES ('P-2017 (3)', '1', 'Browning', 'MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FREDYJ340-1', '', '1', '');
+
 
 CREATE TABLE ref_member_catg (
 	ref_mem_category_cd CHAR (2) PRIMARY KEY,
