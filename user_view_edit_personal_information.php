@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/chris_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,7 +84,7 @@
 				<input id=" installation" type="text" name="fname" value="">
 				
 				<label for="remarks">Remarks</label>
-				<textarea name="message" style="width:50%; height: 180px;"></textarea>
+				<textarea name="message" style="width: 50%; max-width:50%; height: 180px;"></textarea>
 				
 				<label for="position">Position</label>
 				<input id="position" type="text" name="fname" value="">
@@ -124,7 +124,7 @@
 				<input id=" installation" type="text" name="fname" value="">
 				
 				<label for="remarks">Remarks</label>
-				<textarea name="message" style="width:50%; height: 180px;"></textarea>
+				<textarea name="message" style="width: 50%; max-width:50%; height: 180px;"></textarea>
 				
 			</form>
 			</div>
