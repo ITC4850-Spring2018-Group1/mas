@@ -51,53 +51,53 @@
 <div class="formbox">
 		<div class="row">
 			<div class="column">
-			<form action="/user_membership_page.php">
-				
-				<label for="firstname">First Name</label>
-				<input id="first-name" type="text" name="fname">
+				<form style="margin: 0px;" action="/user_membership_page.php">
+					
+					<label for="firstname">First Name</label>
+					<input id="first-name" type="text" name="fname">
 
-				<label for="middlename">Middle Name</label>
-				<input id="middle-name" type="text" name="fname" value="">
-				
-				<label for="lastame">Last Name</label>
-				<input id="last-name" type="text" name="fname" value="">
-				
-				<label for="dutyphone">Duty Phone</label>
-				<input id="duty-phone" type="text" name="fname" value="">
-				
-				<label for="cellnumber">Cell Number</label>
-				<input id="cellnumber" type="text" name="fname" value="">
-				
-				<label for="street">Street</label>
-				<input id="street" type="text" name="fname" value="">
-				
-				<label for="city">City</label>
-				<input id="city" type="text" name="fname" value="">
-				
-				<label for="state">State</label>
-				<input id="state" type="text" name="fname" value="">
+					<label for="middlename">Middle Name</label>
+					<input id="middle-name" type="text" name="fname" value="">
+					
+					<label for="lastame">Last Name</label>
+					<input id="last-name" type="text" name="fname" value="">
+					
+					<label for="dutyphone">Duty Phone</label>
+					<input id="duty-phone" type="text" name="fname" value="">
+					
+					<label for="cellnumber">Cell Number</label>
+					<input id="cellnumber" type="text" name="fname" value="">
+					
+					<label for="street">Street</label>
+					<input id="street" type="text" name="fname" value="">
+					
+					<label for="city">City</label>
+					<input id="city" type="text" name="fname" value="">
+					
+					<label for="state">State</label>
+					<input id="state" type="text" name="fname" value="">
 
-				<label for="zipcode">Zip Code</label>
-				<input id="zipcode" type="text" name="fname" value="">
-				
-				<label for="email">Email</label>
-				<input id="email" type="email" name="fname" value="">
-				
-				<label for="installation">Installation</label>
-				<input id=" installation" type="text" name="fname" value="">
-				
-				<label for="remarks">Remarks</label>
-				<input id="remarks" type="text" name="fname" value="">
-				
-				<label for="position">Position</label>
-				<input id="position" type="text" name="fname" value="">
-			</form>
+					<label for="zipcode">Zip Code</label>
+					<input id="zipcode" type="text" name="fname" value="">
+					
+					<label for="email">Email</label>
+					<input id="email" type="email" name="fname" value="">
+					
+					<label for="installation">Installation</label>
+					<input id=" installation" type="text" name="fname" value="">
+					
+					<label for="remarks">Remarks</label>
+					<textarea name="message" style="width:50%; height: 180px;"></textarea>
+					
+					<label for="position">Position</label>
+					<input id="position" type="text" name="fname" value="">
+				</form>
 			</div>
 			<div class="column">
 				<div class="userinfo">
 					<h3>User Information</h3>
 				</div>
-				<form class="form2" action="/user_membership_page.php">
+				<form style="margin: 0px;" class="form2" action="/user_membership_page.php">
 					<label for="username">Username </label>
 					<input id="username" type="text" name=fname" value="">
 					
@@ -125,7 +125,7 @@
 				<div class="userinfo">
 					<h3>Family Member</h3>
 				</div>
-				<form class="form2" action="/user_membership_page.php">
+				<form style="margin: 0px;" class="form2" action="/user_membership_page.php">
 					<label for="firstname">First Name </label>
 					<input type="text" name="fname">
 					
@@ -145,7 +145,7 @@
 		            <input id="email" type="text">
 
 		            <label for="remarks">Remarks</label>
-		            <input id="remarks" type="text">
+		            <textarea name="message" style="width:50%; height: 180px;"></textarea>
 				</form>
 			</div>
 		</div>

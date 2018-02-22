@@ -49,7 +49,7 @@
 <div class="formbox">
 	<div class="row">
 		<div class="column">
-			<form action="/user_membership_page.php">
+			<form style="margin: 0px;" action="/user_membership_page.php">
 				<label for="firstname">First Name</label>
 				<input id="first-name" type="text" name="fname">
 
@@ -84,7 +84,7 @@
 				<input id=" installation" type="text" name="fname" value="">
 				
 				<label for="remarks">Remarks</label>
-				<input id="remarks" type="text" name="fname" value="">
+				<textarea name="message" style="width:50%; height: 180px;"></textarea>
 				
 				<label for="position">Position</label>
 				<input id="position" type="text" name="fname" value="">
@@ -100,7 +100,7 @@
 			</form>
 			</div>
 			<div class="column">
-			<form action="/user_membership_page.php">
+			<form style="margin: 0px;" action="/user_membership_page.php">
 				<label for="familymember">Family Member #</label>
 				<input type="text" name=fname" value="">
 
@@ -124,7 +124,7 @@
 				<input id=" installation" type="text" name="fname" value="">
 				
 				<label for="remarks">Remarks</label>
-				<input id="remarks" type="text" name="fname" value="">
+				<textarea name="message" style="width:50%; height: 180px;"></textarea>
 				
 			</form>
 			</div>
