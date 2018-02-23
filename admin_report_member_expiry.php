@@ -45,7 +45,7 @@
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
 	<h3>Membership Expiry Report</h3>
-</div
+</div><br>
 
 
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
