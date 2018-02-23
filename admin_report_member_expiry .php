@@ -53,7 +53,6 @@
 
 <table class="user-table"> 
 	<thead> 
-		 <th><a href="admin_view_general_ledger.php?sort=date">Transaction Date</th> 
 		 <th>M. no.</th> 
 		 <th>First Name</th> 
 		 <th>MI</th> 
@@ -61,7 +60,7 @@
 		 <th>Member Category</th> 
                  <th>Member Type</th> 
 		 <th>Effective Date</th> 
-            <th>Term Date</th> 
+                 <th>Term Date</th> 
 	      
  	</thead>
 
