@@ -49,7 +49,7 @@
 
 
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-
+<center>
 
 <table class="user-table"> 
 	<thead> 
@@ -68,6 +68,7 @@
 </tbody>
 </table>
 <br><br><br><br><br><br>
+<center>
 <div id="button">
 	<ul>
 		        <li><a href="admin_report_member_expiry">Print</a></li>
