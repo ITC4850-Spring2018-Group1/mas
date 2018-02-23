@@ -59,7 +59,7 @@
 		 <th>MI</th> 
 		 <th>Last Name</th> 
 		 <th>Member Category</th> 
-            <th>Member Type</th> 
+                 <th>Member Type</th> 
 		 <th>Effective Date</th> 
             <th>Term Date</th> 
 	      
@@ -71,8 +71,8 @@
 <br><br><br><br><br><br>
 <div id="button">
 	<ul>
-		<li><a href="admin_report_member_expiry">Print</a></li>
-		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
+		        <li><a href="admin_report_member_expiry">Print</a></li>
+		        <li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
 </div>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
