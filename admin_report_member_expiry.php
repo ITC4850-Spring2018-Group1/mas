@@ -29,8 +29,8 @@
 <!-- IMPORTANT #1: change the links to the pages in which users should be directed for YOUR specific wireframe as well as the text to display on the button -->
 <div class="nav-admin">
 	<ul>
-		<li><a href="admin_add_new_members.php">Add Membership</a></li>
 		<li><a href="admin_view_update_membership_summary.php">View Membership</a></li>
+		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
 		<li><a href="admin_view_update_ATF_status.php">ATF Status</a></li>
 		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
 		<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
@@ -64,11 +64,10 @@
 	      
  	</thead>
 
-
+<center>
 </tbody>
 </table>
 <br><br><br><br><br><br>
-<center>
 <div id="button">
 	<ul>
 		        <li><a href="admin_report_member_expiry">Print</a></li>
