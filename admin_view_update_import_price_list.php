@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,60 +34,88 @@
 		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
 		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
-		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
 	</ul>
 <br>
 </div>
 <hr>
 <br>
+
 <div class="main-title">
 <h2>MEMBERSHIP AND ACCOUNTING SYSTEM</h2>
-</div><
-<UL>
+</div>
 
-</UL>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
-	<h3>View/Update Price list</h3>
+	<h3>View/Update Price List</h3>
 </div>
 <br>
 
-
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-
-<table class="user-table"> 
+<table class="user-table">
 	<thead>
-		 <th>List #</a></th> 
-		 <th>Item #</th> 
-	 	 <th>Serial #</th> 
-		 <th>Manufacture</th> 
-		 <th>Model</th> 
-		 <th>kind</th> 
-		 <th>Typ</th> 
-		 <th>Gauge</th> 
-		 <th>Bbl</th> 
-		 <th>Chk</th> 
-		 <th>Qty</th> 
-		 <th>Price (Y)</th> 
-		 <th>Description</th>
-		 <th>Comment</th>
-		 <th>Add date</th>
-		 <th>Update date</th>
-		 <th>Action</th>
-		 
+	 <th>List #</th>
+	 <th>Item #</th>
+	 <th>Serial #</th>
+	 <th>Manufacturer</th>
+	 <th>Model</th> 
+	 <th>Kind</th> 
+	 <th>Type</th> 
+	 <th>Gauge</th> 
+	 <th>Bbl</th> 
+	 <th>Choke</th> 
+	 <th>Quantity</th> 
+	 <th>Price (Y)</th> 
+	 <th>Description</th>
+	 <th>Comment</th>
+	 <th>Add Date</th>
+	 <th>Update Date</th>
+	 <th>Action</th>
  	</thead>
-
 <tbody>
+<?php
+ include 'database.php';
+ $pdo = Database::connect();
+ $sql = 'SELECT *
+FROM price_list
+ORDER BY pri_li_item_no';
+foreach ($pdo->query($sql) as $row) {
+	echo '<tr>';
+	echo '<td>'. $row['pri_li_no'] . '</td>';
+	echo '<td>'. $row['pri_li_item_no'] . '</td>';
+	echo '<td>'. $row['pri_li_serial_no'] . '</td>';
+	echo '<td>'. $row['pri_li_manufacturer'] . '</td>';
+	echo '<td>'. $row['pri_li_model'] . '</td>';
+	echo '<td>'. $row['pri_li_kind'] . '</td>';
+	echo '<td>'. $row['pri_li_type'] . '</td>';
+	echo '<td>'. $row['pri_li_gauge'] . '</td>';
+	echo '<td>'. $row['pri_li_bbl'] . '</td>';
+	echo '<td>'. $row['pri_li_choke'] . '</td>';
+	echo '<td>'. $row['pri_li_quantity'] . '</td>';
+	echo '<td>'. $row['pri_li_price'] . '</td>';
+	echo '<td>'. $row['pri_li_description'] . '</td>';
+	echo '<td>'. $row['pri_li_comment'] . '</td>';
+	echo '<td>'. $row['pri_li_add_date'] . '</td>';
+	echo '<td>'. $row['pri_li_update_date'] . '</td>';
+	echo '<td><a class="btn" href="admin_view_update_import_price_list.php?pri_li_serial_no='.$row['pri_li_serial_no'].'">Update</a></td>';
+	echo ' ';
+	echo '</tr>';
+ }
 
+ Database::disconnect();
+?>
 </tbody>
 </table>
+
 <br><br><br><br><br><br>
-<div id="button">
-	<ul>
-		<li><a href="admin_view_update_import_price_list">Print</a></li>
-		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
+<div id="button1">
+<ul>
+<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
+<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
+<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
 </div>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
+</body>
+</html>
