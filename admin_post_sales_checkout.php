@@ -113,7 +113,9 @@ if(isset($_POST['mem_no'])) {
 	<option value="">Select Serial Number</option>
 	<?php
 		require_once 'start.php';
-		$serialQuery = "SELECT * FROM price_list ORDER BY pri_li_serial_no";
+		$serialQuery = "SELECT * 
+		FROM price_list
+		WHERE pri_li_serial_no NOT IN (SELECT atf_serial_no from atf)";
 		$serials = $db->query($serialQuery);
 	?>
 	<?php foreach($serials->fetchAll() as $serial): ?>
