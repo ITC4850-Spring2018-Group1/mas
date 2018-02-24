@@ -35,7 +35,7 @@
 		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
 	</ul>
-<br>
+	<br>
 </div>
 <hr>
 <br>
@@ -50,8 +50,8 @@
 <center>
 	<table class="user-table"> 
 	<thead>
-		 <th>Member Number</th> 
-		 <th>First Name #</th> 
+		 <th>Member #</th> 
+		 <th>First Name</th> 
 		 <th>MI</th> 
 		 <th>Last Name</th> 
 		 <th>Email</th> 
@@ -64,14 +64,50 @@
 		 <th>Action</th>
  	</thead>
 <tbody>
+<?php
+ include 'database.php';
+ $pdo = Database::connect();
+ $sql = 'SELECT *
+FROM member a
+LEFT JOIN users b ON a.mem_no=b.user_mem_no
+LEFT JOIN ref_member_catg c ON a.mem_category_cd=c.ref_mem_category_cd
+LEFT JOIN ref_users_type d ON b.user_type=d.ref_users_type
+ORDER BY mem_no';
+foreach ($pdo->query($sql) as $row) {
+					echo '<tr>';
+					echo '<td>'. $row['mem_no'] . '</td>';
+					echo '<td>'. $row['mem_fname'] . '</td>';
+					echo '<td>'. $row['mem_mi'] . '</td>';
+					echo '<td>'. $row['mem_lname'] . '</td>';
+					echo '<td>'. $row['mem_email'] . '</td>';
+					echo '<td>'. $row['mem_installation'] . '</td>';
+					echo '<td>'. $row['ref_mem_category_desc'] . '</td>';
+					echo '<td>'. $row['mem_position'] . '</td>';
+					echo '<td>'. $row['mem_last_updated'] . '</td>';
+					echo '<td>'. $row['ref_users_desc'] . '</td>';
+					echo '<td>'. $row['mem_updated_by'] . '</td>';
+					echo '<td><a class="btn" href="admin_view_update_members_details.php?mem_no='.$row['mem_no'].'">View | Update</a></td>';
+					echo ' ';
+					echo '</tr>';
+ }
+ Database::disconnect();
 
+?>
+</tbody>
+</table>
+<br>
 
-<br><br>
-<div class="bottombuttons">
-			<button type="coolbutton">View Membership Expiry Report</button>
-			<button type="coolbutton">View Unpaid Fee Report</button>
-		</div>
+<div id="button">
+	<ul>
+		<li><a href="admin_report_member_expiry">View Membership Expiry Report</a></li>
+		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
+		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
+	</ul>
+</div>
+
 
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
+</body>
+</html>
