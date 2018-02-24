@@ -121,7 +121,7 @@ foreach ($pdo->query($sql) as $row) {
 					echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
 					echo '<td>'. $row['bal_acct_balance'] . '</td>';
 					echo '<td>'. $row['user_name'] . '</td>';
-					echo '<td><a class="btn" href="admin_user_receipt.php?mem_no='.$row['mem_no'].'">Print</a></td>';
+					echo '<td><a class="btn" href="admin_user_receipt.php?rec_receipt_no='.$row['rec_receipt_no'].'">Print</a></td>';
 					echo ' ';
 					echo '</tr>';
  }
