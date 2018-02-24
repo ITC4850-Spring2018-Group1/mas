@@ -43,10 +43,25 @@ INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, 
 VALUES ('Jason', 'T', 'Kidder', '225-4225', '080-9158-6594', 'PSC 78 Box 146', 'APO', 'AP', '96326', 'jason.kidder@yahoo.com', 'Yokota', 'AD', 'I', ' ', 'President');
 
 INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Catherine', 'S', 'Jones', '225-4532', '090-4324-4324', 'PSC 78 Box 111', 'APO', 'AP', '96326', 'csj@gmail.com', 'Yokosuka', 'AV', 'I', 'DEROS 6/2019', ' ');
+VALUES ('Catherine', 'S', 'Jones', '225-4532', '090-4324-4324', 'PSC 78 Box 111', 'APO', 'AP', '96326', 'csj@gmail.com', 'Yokosuka', 'AV', 'I', 'DEROS 6/2019', '');
 
 INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Bob', 'S', 'Rayburn', '225-2232', '090-4334-4324', 'PSC 78 Box 143', 'APO', 'AP', '96326', 'bobr@gmail.com', 'Zama', 'AD', 'I', 'DEROS 3/2019', ' ');
+VALUES ('Bob', 'S', 'Rayburn', '225-2232', '090-4334-4324', 'PSC 78 Box 143', 'APO', 'AP', '96326', 'bobr@gmail.com', 'Zama', 'AD', 'I', 'DEROS 3/2019', '');
+
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
+VALUES ('Harry', 'S', 'Harrison', '225-2112', '090-2234-4324', 'PSC 78 Box 113', 'APO', 'AP', '96326', 'harryworks@gmail.com', 'Yokota', 'AD', 'I', 'DEROS 12/2019', '');
+
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
+VALUES ('Makoto', '', 'Sato', '', '080-3334-4424', '東京都中央区八重洲一丁目5番3号', '東京', '中央郵便局', '〒100-8994', 'msato11@gmail.com', 'Yokota', 'LN', 'I', '', '');
+
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
+VALUES ('Joe', 'E', 'Johnson', '225-2232', '090-2234-4552', 'PSC 78 Box 103', 'APO', 'AP', '96326', 'maverick@gmail.com', 'Yokota', 'AD', 'I', 'DEROS 9/2019', 'Vice President');
+
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
+VALUES ('Alan', 'P', 'Lambert', '225-2212', '090-9994-4324', 'PSC 78 Box 3443', 'APO', 'AP', '96326', 'sunnyday@gmail.com', 'Zama', 'AD', 'F', 'DEROS 3/2020', '');
+
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
+VALUES ('Yuki', '', 'Naganosawa', '', '090-8754-4478', '東京都中央区八重洲一丁目5番3号', '東京', '中央郵便局', '〒100-8994', 'yukismiles@gmail.com', 'Yokota', 'LN', 'I', '', '');
 
 CREATE TABLE ref_member_type (
 		ref_mem_typ CHAR (1) PRIMARY KEY,
@@ -103,7 +118,7 @@ CREATE TABLE general_ledger (
 );
 
 INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_transaction_sign, gen_led_amount, gen_led_expense_type, gen_led_income_type)
-VALUES ('1', 'Starting Ledger Balance', 'I', ' ', '2550.00', ' ', 'OO');
+VALUES ('1', 'Starting balance', 'I', ' ', '2550.00', ' ', 'OO');
 
 CREATE TABLE users (
 	user_acct_email VARCHAR (50),
