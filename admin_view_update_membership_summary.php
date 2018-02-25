@@ -99,7 +99,7 @@ foreach ($pdo->query($sql) as $row) {
 
 <div id="button">
 	<ul>
-		<li><a href="admin_report_member_expiry">View Membership Expiry Report</a></li>
+		<li><a href="admin_report_member_expiry.php">View Membership Expiry Report</a></li>
 		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
