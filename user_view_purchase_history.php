@@ -58,8 +58,8 @@
 		 <th>Gauge</th> 
 		 <th>Price (Y)</th> 
 		 <th>Description</th> 
-		 <th>Reciept Number</th>
-		 <th>Reciept Date/Time</th>
+		 <th>Receipt Number</th>
+		 <th>Receipt Date/Time</th>
  	</thead>
 <tbody>
 
