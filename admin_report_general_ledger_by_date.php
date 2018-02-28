@@ -52,7 +52,7 @@
 </div>
 
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-
+<br><br><br><center>
 <table class="user-table"> 
 	<thead> 
 		 <th><a href="admin_view_general_ledger.php?sort=date">Transaction Date</th> 
@@ -113,6 +113,7 @@ foreach ($pdo->query($sql) as $row) {
 
 </tbody>
 </table>
+</center>
 <br><br><br><br><br><br>
 <div id="button">
 	<ul>
