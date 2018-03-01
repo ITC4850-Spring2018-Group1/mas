@@ -107,7 +107,7 @@ foreach ($pdo->query($sql) as $row) {
 </table>
 
 <br><br><br><br><br><br>
-<div id="button1">
+<div id="button">
 <ul>
 <li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
 <li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
