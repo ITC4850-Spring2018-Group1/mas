@@ -64,8 +64,31 @@
 	      
  	</thead>
 
-<center>
-</tbody>
+<tbody>
+
+<?php
+ include 'database.php';
+ $pdo = Database::connect();
+ $sql = 'SELECT * 
+FROM member a
+LEFT JOIN Membership b ON a.mem_no=b.membership_no';
+
+
+foreach ($pdo->query($sql) as $row) {
+					echo '<tr>';
+					echo '<td>'. $row['mem_no'] . '</td>';
+					echo '<td>'. $row['mem_fname'] . '</td>';
+					echo '<td>'. $row['mem_mi'] . '</td>';
+					echo '<td>'. $row['mem_lname'] . '</td>';
+					echo '<td>'. $row['mem_category_cd'] . '</td>';
+					echo '<td>'. $row['mem_type'] . '</td>';
+					echo '<td>'. $row['membership_eff_date'] . '</td>';
+					echo '<td>'. $row['membership_term_date'] . '</td>';
+					echo ' ';
+					echo '</tr>';
+ }
+ Database::disconnect();
+?>
 </table>
 <br><br><br><br><br><br>
 <div id="button">
