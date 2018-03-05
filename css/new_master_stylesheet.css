@@ -215,7 +215,7 @@ hr {
 	}
 
 .filter-box2 input {
-	margin-left: 10px;
+	margin-left: -840px;
 	margin-bottom: 20px;
 	border-radius: 5px;
 	height: 30px;
@@ -224,14 +224,15 @@ hr {
 	background-color: #f0f0f5;
 }
 
-.filter-button input[type=button] {
+.filter-button input {
 	padding: 5px 20px;
-	margin-left: 440px;
-	margin-top: -50px;
+	margin-left: 470px;
+	margin-top: -48px;
 	margin-bottom: 20px;
 	float: left;
 	background-color: #d1e0e0;
 	font-weight: bold;
+
 }
 
 .user-table {
