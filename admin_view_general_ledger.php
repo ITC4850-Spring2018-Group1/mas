@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+  <script>
   $( function() {
     $( ".datepicker" ).datepicker({
     	"dateFormat" : 'yy-mm-dd'
@@ -91,16 +91,14 @@
 
 <tbody>
 <?php
-/*
-LEFT JOIN ref_gen_led_expense_type d ON a.gen_led_expense_type=d.ref_gen_led_expense_typ
-LEFT JOIN ref_gen_led_transaction_type e ON a.gen_led_transaction_type=e.ref_gen_led_transaction_typ
-LEFT JOIN ref_gen_led_income_type f ON a.gen_led_income_type=f.ref_gen_led_income_typ
-*/
  include 'database.php';
  $pdo = Database::connect();
  $sql = 'SELECT * FROM general_ledger a
 LEFT JOIN balance b ON a.gen_led_id=b.bal_gen_led_id
 LEFT JOIN receipts c ON a.gen_led_id=c.rec_gen_led_id
+LEFT JOIN ref_gen_led_expense_type d ON a.gen_led_expense_type=d.ref_gen_led_expense_typ
+LEFT JOIN ref_gen_led_transaction_type e ON a.gen_led_transaction_type=e.ref_gen_led_transaction_typ
+LEFT JOIN ref_gen_led_income_type f ON a.gen_led_income_type=f.ref_gen_led_income_typ
 LEFT JOIN member g ON a.gen_led_users_mem_no=g.mem_no
 LEFT JOIN balance h ON a.gen_led_id=h.bal_gen_led_id
 LEFT JOIN users i ON a.gen_led_add_by=i.user_mem_no';
@@ -124,33 +122,30 @@ if(isset($_GET['sort'])){
 	}
 }
 foreach ($pdo->query($sql) as $row) {
-					echo '<tr>';
-					echo '<td>'. $row['gen_led_id'] . '</td>';
-					echo '<td>'. $row['gen_led_trans_date'] . '</td>';
-					echo '<td>'. $row['rec_receipt_no'] . '</td>';
-					echo '<td>'. $row['mem_no'] . '</td>';
-					echo '<td>'. $row['mem_fname'] . '</td>';
-					echo '<td>'. $row['mem_lname'] . '</td>';
-					echo '<td>'. $row['gen_led_description'] . '</td>';
-					//echo '<td>'. $row['ref_gen_led_transaction_desc'] . '</td>';
-					echo '<td></td>';
-					echo '<td>'. $row['gen_led_amount'] . '</td>';
-					//echo '<td>'. $row['ref_gen_led_expense_desc'] . '</td>';
-					//echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
-					echo '<td></td>';
-					echo '<td></td>';
-					echo '<td>'. $row['bal_acct_balance'] . '</td>';
-					echo '<td>'. $row['user_name'] . '</td>';
-					echo '<td><a class="btn" href="admin_user_receipt.php?rec_receipt_no='.$row['rec_receipt_no'].'">Print</a></td>';
-					echo ' ';
-					echo '</tr>';
+		echo '<tr>';
+		echo '<td>'. $row['gen_led_id'] . '</td>';
+		echo '<td>'. $row['gen_led_trans_date'] . '</td>';
+		echo '<td>'. $row['rec_receipt_no'] . '</td>';
+		echo '<td>'. $row['mem_no'] . '</td>';
+		echo '<td>'. $row['mem_fname'] . '</td>';
+		echo '<td>'. $row['mem_lname'] . '</td>';
+		echo '<td>'. $row['gen_led_description'] . '</td>';
+		echo '<td>'. $row['ref_gen_led_transaction_desc'] . '</td>';
+		echo '<td>'. $row['gen_led_amount'] . '</td>';
+		echo '<td>'. $row['ref_gen_led_expense_desc'] . '</td>';
+		echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
+		echo '<td>'. $row['bal_acct_balance'] . '</td>';
+		echo '<td>'. $row['user_name'] . '</td>';
+		echo '<td><a class="btn" href="admin_user_receipt.php?rec_receipt_no='.$row['rec_receipt_no'].'">Print</a></td>';
+		echo ' ';
+		echo '</tr>';
  }
  Database::disconnect();
 ?>
 
 </tbody>
 </table>
-<br>
+<br><br><br>
 <div id="button">
 	<ul>
 		<li><a href="admin_report_quarterly_financial_statement">Print Financial Statement</a></li>
