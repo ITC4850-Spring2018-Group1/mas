@@ -27,7 +27,29 @@ td {
 
 }
 
-tr:nth-child(even) {background-color: #D8D8D8;}
+tr:nth-child(even) {
+	background-color: #D8D8D8;
+}
+
+tr:nth-child(odd) {
+	background-color: white;
+}
+
+body {
+	background-color: #e4fcfc;
+}
+
+h6 {
+	color: red;
+}
+
+.login h3 {
+	text-align: center;
+}
+
+.form-control input {
+	width: 300px;
+}
 
 /* main header display rules-----------------------------------------------------------*/
 .main-heading h1 {
@@ -172,6 +194,13 @@ hr {
 	color: #33334d;
 	font-size: 22px;
 }
+
+.individual-page-title p {
+	text-align: center;
+	color: #33334d;
+	font-size: 16px;
+}
+
 
 /* added button styles for admin_view_general_ledger.php */
 #button ul {
@@ -443,6 +472,184 @@ form {
 	font-weight: bolder;
 
 }
+
+/* added styles for admin_main_dashboard.php */
+
+.center-columns {
+	text-align: center;
+	box-sizing: inherit;
+	margin: 0px auto;
+}
+
+.column1 {
+	width: 320px;
+	margin-left: 310px;
+}
+
+.column1 ul {
+	list-style-type: none;
+	overflow: hidden;
+	margin: 0px auto;
+	width: 480px;
+	text-align: center;
+
+}
+
+.column1 a {
+	display: block;
+	width: 300px;
+	height: 80px;
+	line-height: 70px;
+	text-decoration: none;
+	text-align: center;
+
+}
+
+.dashboard-button1 li {
+	width: 300px;
+	height: 80px;
+	margin: 0px 0px;
+	border: 1px solid #000;
+	float: left;
+	background-color: #DDD;
+	border-radius: 5px;
+	text-align: center;
+
+}
+
+.dashboard-button1 li:hover {
+	background-color: #ffeb99;
+}
+
+.dashboard-button2 li {
+	width: 300px;
+	height: 80px;
+	margin: 0px 0px;
+	border: 1px solid #000;
+	float: left;
+	background-color: #DDD;
+	border-radius: 5px;
+}
+
+.dashboard-button2 li:hover {
+	background-color: #ffeb99;
+}
+
+
+.dashboard-button3 li {
+	width: 300px;
+	height: 80px;
+	margin: 0px 0px;
+	border: 1px solid #000;
+	float: left;
+	background-color: #DDD;
+	border-radius: 5px;
+}
+
+.dashboard-button3 li:hover {
+	background-color: #ffeb99;
+}
+
+.column2 {
+	width: 300px;
+	margin-left: 670px;
+	margin-top: -310px;
+}
+
+.column2 ul {
+	list-style-type: none;
+	overflow: hidden;
+	margin: 0px auto;
+	width: 480px;
+}
+
+.column2 a {
+	display: block;
+	width: 300px;
+	height: 80px;
+	line-height: 70px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.dashboard-button4 li {
+	width: 300px;
+	height: 80px;
+	margin: 0px 0px;
+	border: 1px solid #000;
+	float: left;
+	background-color: #DDD;
+	border-radius: 5px;
+}
+
+.dashboard-button4 li:hover {
+	background-color: #ffeb99;
+}
+
+.dashboard-button5 li {
+	width: 300px;
+	height: 80px;
+	margin: 0px 0px;
+	border: 1px solid #000;
+	float: left;
+	background-color: #DDD;
+	border-radius: 5px;
+}
+
+.dashboard-button5 li:hover {
+	background-color: #ffeb99;
+}
+
+.dashboard-button6 li {
+	width: 300px;
+	height: 80px;
+	margin: 0px 0px;
+	border: 1px solid #000;
+	float: left;
+	background-color: #DDD;
+	border-radius: 5px;
+}
+
+.dashboard-button6 li:hover {
+	background-color: #ffeb99;
+}
+
+.dashboard-button7 {
+
+
+}
+
+.dashboard-button7 li {
+	width: 300px;
+	height: 80px;
+	margin: 0px 0px;
+	border: 1px solid #000;
+	float: left;
+	background-color: #DDD;
+	border-radius: 5px;
+}
+
+.dashboard-button7 a {
+	display: block;
+	width: 300px;
+	height: 80px;
+	line-height: 70px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.dashboard-button7 ul {
+	list-style-type: none;
+	overflow: hidden;
+	margin: 0px auto;
+	width: 320px;
+	text-align: center;
+}
+
+.dashboard-button7 li:hover {
+	background-color: #ffeb99;
+}
+
 /* added footer styles for admin_template.php */
 footer {
 	font-size: 12px;
