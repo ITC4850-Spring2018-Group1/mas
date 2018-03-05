@@ -1,3 +1,23 @@
+<br>
+<?php  
+session_start();
+if(isset($_SESSION["sess_username"]))  
+ {  
+	echo '<h6>Your session is currently ACTIVE '.$_SESSION["sess_username"].'</h6>';    
+ }  
+ else  
+ {  
+	header("location:index.php");  
+ }  
+if( $_SESSION['sess_user_type'] == "A") {
+		
+		  }
+	else {
+		header('Location: index.php');
+		}
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +35,12 @@
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
 <div class="signout">
-	<a href="signout.php">Sign Out</a>	
+	<a href="logout.php">Sign Out</a>	
 </div>
 
 <div class="logininfo">
-	<p>[placeholder][placeholder] you are logged in as an ADMIN</p>
+	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an ADMIN</p>'; ?> 
+
 </div>
 <br>
 <br>
@@ -29,9 +50,9 @@
 <div class="nav-admin">
 	<ul>
 		<li><a href="admin_add_new_members.php">Add Membership</a></li>
-		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
-		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
+		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
+		<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
 	</ul>
 <br>
@@ -43,7 +64,7 @@
 </div>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
-	<h3>Post Sales/Checkout</h3>
+	<h3>Post Sales / Income / Expenses</h3>
 </div>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <div class="success">

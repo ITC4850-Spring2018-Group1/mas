@@ -1,3 +1,22 @@
+<br>
+<?php  
+ session_start();
+if(isset($_SESSION["sess_username"]))  
+ {  
+	echo '<h6>Your session is currently ACTIVE '.$_SESSION["sess_username"].'</h6>';    
+ }  
+ else  
+ {  
+	header("location:index.php");  
+ }  
+
+if( $_SESSION['sess_user_type'] == "U") {
+		
+		  }
+	else {
+		header('Location: index.php');
+		}
+?>
 <!-- INSTRUCTIONS: this is the header and footer template for the primary USER pages. Code your forms, tables, etc., below the navigation tags. Placeholders have been included where variables will be displayed based on session login information for the user. Leave these "AS IS" for now. To maintain consistency, please do not change the header information other than where indicated with additional comments. -->
 
 <!DOCTYPE html>
@@ -16,11 +35,11 @@
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
 <div class="signout">
-	<a href="signout.php">Sign Out</a>	
+	<a href="logout.php">Sign Out</a>	
 </div>
 
 <div class="logininfo">
-	<p>[placeholder][placeholder] you are logged in as an MEMBER</p>
+	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as a MEMBER</p>'; ?> 
 </div>
 <br>
 <br>
@@ -42,7 +61,7 @@
 </div>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
-	<h3>Sales/Purchase History</h3>
+	<h3>Sales / Purchase History</h3>
 </div>
 <br>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
@@ -50,8 +69,10 @@
 <center>
 	<table class="user-table"> 
 	<thead>
+		 <th>Member Number</th>
+		 <th>User Name</th>
 		 <th>Serial Number</th> 
-		 <th>Manufacture</th> 
+		 <th>Manufacturer</th> 
 		 <th>Model</th> 
 		 <th>Kind</th> 
 		 <th>Type</th> 
@@ -64,14 +85,23 @@
 <tbody>
 
 <?php
- include 'database.php';
+echo $_SESSION["sess_username"];
+$member = $_SESSION["sess_username"];
+echo $member;
+include 'database.php';
  $pdo = Database::connect();
  $sql = 'SELECT * 
-FROM price_list
-ORDER BY pri_li_serial_no DESC';
+FROM price_list a
+LEFT JOIN atf b ON a.pri_li_serial_no=b.atf_serial_no
+LEFT JOIN users c ON b.atf_mem_no=c.user_mem_no
+LEFT JOIN general_ledger d ON a.pri_li_serial_no=d.gen_led_description
+LEFT JOIN receipts e ON e.rec_gen_led_id=d.gen_led_id
+WHERE username = "kitty2"';
 
 foreach ($pdo->query($sql) as $row) {
 					echo '<tr>';
+					echo '<td>'. $row['atf_mem_no'] . '</td>';
+					echo '<td>'. $row['username'] . '</td>';
 					echo '<td>'. $row['pri_li_serial_no'] . '</td>';
 					echo '<td>'. $row['pri_li_manufacturer'] . '</td>';
 					echo '<td>'. $row['pri_li_model'] . '</td>';
@@ -80,11 +110,12 @@ foreach ($pdo->query($sql) as $row) {
 					echo '<td>'. $row['pri_li_gauge'] . '</td>';
 					echo '<td>'. $row['pri_li_price'] . '</td>';
 					echo '<td>'. $row['pri_li_description'] . '</td>';
-					echo '<td></td>';
-					echo '<td></td>';
+					echo '<td>'. $row['rec_receipt_no'] . '</td>';
+					echo '<td>'. $row['rec_date_time'] . '</td>';
 					echo ' ';
 					echo '</tr>';
  }
+
  Database::disconnect();
 ?>
 <tbody>

@@ -1,3 +1,23 @@
+<br>
+<?php  
+session_start();
+if(isset($_SESSION["sess_username"]))  
+ {  
+	echo '<h6>Your session is currently ACTIVE '.$_SESSION["sess_username"].'</h6>';    
+ }  
+ else  
+ {  
+	header("location:index.php");  
+ }  
+
+if( $_SESSION['sess_user_type'] == "A") {
+		
+		  }
+	else {
+		header('Location: index.php');
+		}
+
+?>
 <!-- INSTRUCTIONS: this is the header and footer template for the primary ADMIN pages. Code your forms, tables, etc., below the navigation tags. Placeholders have been included where variables will be displayed based on session login information for the user. Leave these "AS IS" for now. To maintain consistency, please do not change the header information other than where indicated with additional comments. -->
 
 <!DOCTYPE html>
@@ -16,11 +36,11 @@
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
 <div class="signout">
-	<a href="signout.php">Sign Out</a>	
+	<a href="logout.php">Sign Out</a>	
 </div>
 
 <div class="logininfo">
-	<p>[placeholder][placeholder] you are logged in as an ADMIN</p>
+	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an ADMIN</p>'; ?> 
 </div>
 <br>
 <br>
