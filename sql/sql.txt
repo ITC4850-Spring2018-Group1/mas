@@ -99,7 +99,7 @@ CREATE TABLE atf (
 	atf_gen_led_id INTEGER (255),
 	atf_date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	atf_last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	atf_updated_by INTEGER (5)
+	atf_updated_by VARCHAR (50)
 );
 
 CREATE TABLE general_ledger (
