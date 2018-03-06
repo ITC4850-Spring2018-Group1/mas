@@ -26,7 +26,7 @@ CREATE TABLE member (
 	mem_add_street VARCHAR (50),
 	mem_add_city VARCHAR (50),
 	mem_add_state VARCHAR (30),
-	mem_add_zip VARCHAR (5),
+	mem_add_zip VARCHAR (15),
 	mem_email VARCHAR (50),
 	mem_installation VARCHAR (15),
 	mem_category_cd CHAR (2),
@@ -96,13 +96,11 @@ CREATE TABLE atf (
 	atf_form_approval_date DATE,
 	atf_comment VARCHAR (130),
 	atf_mem_no INTEGER (5),
+	atf_gen_led_id INTEGER (255),
 	atf_date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	atf_last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	atf_updated_by INTEGER (5)
 );
-
-INSERT INTO atf (atf_serial_no, atf_status_cd, atf_form_sent_date, atf_form_approval_date, atf_comment, atf_mem_no)
-VALUES ('FERE340-1', 'Y', '2017-11-02', '2017-12-24', ' ', '1');
 
 CREATE TABLE general_ledger (
 	gen_led_id INTEGER (255) PRIMARY KEY AUTO_INCREMENT,
@@ -208,16 +206,16 @@ INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_m
 VALUES ('P-2017 (3)', '1', 'Theoben', 'Eliminator', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FERE340-1', '', '1', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '1', 'Remington', 'Fourn', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'ERTE340-1', '', '1', '');
+VALUES ('P-2017 (3)', '2', 'Remington', 'Fourn', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'ERTE340-1', '', '1', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '1', 'Ruger', 'Rapier', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'KIJU340-1', '', '1', '');
+VALUES ('P-2017 (3)', '3', 'Ruger', 'Rapier', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'KIJU340-1', '', '1', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '1', 'Browning', 'BAR MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FFERT340-1', '', '1', '');
+VALUES ('P-2017 (3)', '4', 'Browning', 'BAR MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FFERT340-1', '', '1', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '1', 'Browning', 'MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FREDYJ340-1', '', '1', '');
+VALUES ('P-2017 (3)', '5', 'Browning', 'MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FREDYJ340-1', '', '1', '');
 
 
 CREATE TABLE ref_member_catg (
