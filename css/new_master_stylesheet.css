@@ -201,7 +201,6 @@ hr {
 	font-size: 16px;
 }
 
-
 /* added button styles for admin_view_general_ledger.php */
 #button ul {
 	list-style-type: none;
@@ -650,6 +649,84 @@ form {
 	background-color: #ffeb99;
 }
 
+.member-portal-link a {
+	text-align: center;
+	text-decoration: none;
+}
+
+.member-portal-link li {
+	text-align: center;
+}
+
+.member-portal-link ul {
+	list-style-type: none;
+}
+
+#button-one input {
+	padding: 14px; 
+	width: 120px;
+	background-color: lightblue;
+	font-size: 14px;
+	font-family: Helvetica;
+	float: none;
+}
+
+#button-one input:hover {
+	background-color: #ffeb99;
+}
+
+#button-one form {
+	margin: 0;
+	border: none;
+	padding-left: none;
+	padding-right: none;
+	background: none;
+	text-align: center;
+}
+/* added more styles for admin_user_receipt.php */
+
+.receipt-label {
+	text-align: left;
+	margin-left: 150px;
+	margin-right: auto;
+	width: 180px;
+	margin-top: -5px;
+	padding: 1px; 
+}
+
+.receipt-info {
+	width: 310px;
+	margin-top: -5px;
+	padding: 1px; 
+	text-align: left;
+	margin-left: 15px; 
+
+}
+
+.back ul {
+	list-style-type: none;
+
+}
+
+.back li {
+	text-align: right;
+	margin-right: 150px;
+
+}
+
+.back a {
+
+}
+
+.back button {
+	height: 35px; 
+	padding: 2px 2px;
+	width: 70px;
+	background-color: orange;
+}
+.back button:hover {
+	background-color: lightblue;
+}
 /* added footer styles for admin_template.php */
 footer {
 	font-size: 12px;
