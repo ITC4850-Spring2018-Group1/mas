@@ -262,7 +262,7 @@ VALUES ('S', 'Supplies');
 
 CREATE TABLE ref_gen_led_income_type (
 	ref_gen_led_income_typ CHAR (2) PRIMARY KEY,
-	ref_gen_led_income_desc VARCHAR (15)
+	ref_gen_led_income_desc VARCHAR (20)
 );
  
 INSERT INTO ref_gen_led_income_type
@@ -282,6 +282,10 @@ VALUES ('DO', 'Donation');
 
 INSERT INTO ref_gen_led_income_type
 VALUES ('OO', 'Other');
+
+INSERT INTO ref_gen_led_income_type
+VALUES ('IN', 'Interest payment');
+
 
 CREATE TABLE ref_users_type (
 	ref_users_type CHAR (1), 
