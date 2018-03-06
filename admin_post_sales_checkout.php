@@ -35,7 +35,7 @@ if(isset($_POST['mem_no'])) {
 	$username = $_SESSION["sess_username"];
 	$q = "INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_description, gen_led_transaction_type, gen_led_income_type, gen_led_amount, gen_led_add_by) VALUES (:mem_no, '$serial_no', '$trans_type', 'SF', :amount, '$username')";
 	$q2 = "INSERT INTO balance (bal_gen_led_id, bal_trans_type, bal_trans_amount) VALUES ((LAST_INSERT_ID()), '$trans_type', '$amount')";
-	$q3 = "INSERT INTO atf (atf_mem_no, atf_serial_no, atf_status_cd, atf_gen_led_id) VALUES ('$mem_no', '$serial_no', 'N', (LAST_INSERT_ID()))";
+	$q3 = "INSERT INTO atf (atf_updated_by, atf_mem_no, atf_serial_no, atf_status_cd, atf_gen_led_id) VALUES ('$username', '$mem_no', '$serial_no', 'N', (LAST_INSERT_ID()))";
 	$q4 = "INSERT INTO receipts (rec_gen_led_id) VALUES (LAST_INSERT_ID())";
 	
 	$query = $pdo->prepare($q);
