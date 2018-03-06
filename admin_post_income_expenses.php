@@ -155,6 +155,7 @@ if(isset($_POST['mem_no'])) {
 		<option value="FD">I - Fundraiser</option>
 		<option value="DO">I - Donation</option>
 		<option value="OO">I - Other</option>
+		<option value="IN">I - Interest Payment</option>
 
 	</select>
 </div><br>
