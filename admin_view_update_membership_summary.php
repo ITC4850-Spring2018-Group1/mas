@@ -117,7 +117,7 @@ foreach ($pdo->query($sql) as $row) {
 </tbody>
 </table>
 <br>
-
+<br><br><br><br>
 <div id="button">
 	<ul>
 		<li><a href="admin_report_member_expiry.php">View Membership Expiry Report</a></li>

@@ -98,15 +98,25 @@ else {
 		<ul>
 			<li><a href="admin_view_update_import_price_list.php">Import Inventory/Price List</a></li>
 		</ul>
-	</div>					
+	</div>
 </div>
 </div>
 <br>
 <br>
 <div class="dashboard-button7">
 	<ul>
-		<li><a href="admin_post_sales_checkout.php">Sales/Checkout</a></li>	</ul>
+		<li><a href="admin_post_sales_checkout.php">Sales/Checkout</a></li>	
+	</ul>
 </div>			
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="member-portal-link">
+	<ul>
+	<li><a href="user_view_edit_personal_information.php">Access Personal Member Portal</a></li>
+	</ul>
 </div>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>

@@ -10,7 +10,7 @@ if(isset($_SESSION["sess_username"]))
 	header("location:index.php");  
  }  
   
-if( $_SESSION['sess_user_type'] == "U") {
+if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 		
 		  }
 	else {

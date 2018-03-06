@@ -116,7 +116,7 @@ foreach ($pdo->query($sql) as $row) {
 	echo '<td>'. $row['pri_li_comment'] . '</td>';
 	echo '<td>'. $row['pri_li_add_date'] . '</td>';
 	echo '<td>'. $row['pri_li_update_date'] . '</td>';
-	echo '<td><a class="btn" href="admin_view_update_import_price_list.php?pri_li_serial_no='.$row['pri_li_serial_no'].'">Update</a></td>';
+	echo '<td><a class="btn" href="">Update</a></td>';
 	echo ' ';
 	echo '</tr>';
  }

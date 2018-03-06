@@ -124,10 +124,6 @@ LEFT JOIN member g ON a.gen_led_users_mem_no=g.mem_no
 LEFT JOIN balance h ON a.gen_led_id=h.bal_gen_led_id
 LEFT JOIN users i ON a.gen_led_add_by=i.user_mem_no';
 
-if (isset($_GET['from_date']) && isset($_GET['to_date']) && $_GET['from_date'] != "" && $_GET['to_date'] != ""){
-	$sql .= " WHERE a.gen_led_trans_date BETWEEN '".$_GET['from_date']."' AND '".$_GET['to_date']."'";
-}
-
 if(isset($_GET['sort'])){
 	if ($_GET['sort'] == 'id')
 	{
@@ -142,6 +138,7 @@ if(isset($_GET['sort'])){
 		$sql .= " ORDER BY mem_no";
 	}
 }
+
 foreach ($pdo->query($sql) as $row) {
 		echo '<tr>';
 		echo '<td>'. $row['gen_led_id'] . '</td>';
@@ -157,10 +154,15 @@ foreach ($pdo->query($sql) as $row) {
 		echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
 		echo '<td>'. $row['bal_acct_balance'] . '</td>';
 		echo '<td>'. $row['gen_led_add_by'] . '</td>';
-		echo '<td><a class="btn" href="admin_user_receipt.php?rec_receipt_no='.$row['rec_receipt_no'].'">Print</a></td>';
+		echo '<td><a class="btn" href="admin_user_receipt.php?rec_receipt_no='.$row['rec_receipt_no'].'">View Receipt</a></td>';
 		echo ' ';
 		echo '</tr>';
  }
+
+if (isset($_GET['from_date']) && isset($_GET['to_date']) && $_GET['from_date'] != "" && $_GET['to_date'] != ""){
+	$sql .= " WHERE a.gen_led_trans_date BETWEEN '".$_GET['from_date']."' AND '".$_GET['to_date']."'";
+}
+
  Database::disconnect();
 ?>
 
