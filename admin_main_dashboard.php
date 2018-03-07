@@ -61,8 +61,7 @@ else {
 	<p>Please select an option:</p>
 </div>
 <br>
-<br>
-<br>
+
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <div class="center-columns">
 <div class="column1">
@@ -101,15 +100,13 @@ else {
 	</div>
 </div>
 </div>
-<br>
-<br>
+<div class="last-button">
 <div class="dashboard-button7">
 	<ul>
 		<li><a href="admin_post_sales_checkout.php">Sales/Checkout</a></li>	
 	</ul>
-</div>			
-<br>
-<br>
+</div>	
+</div>		
 <br>
 <br>
 <br>
