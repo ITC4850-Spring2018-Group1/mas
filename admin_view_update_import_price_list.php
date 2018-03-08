@@ -84,9 +84,10 @@ if( $_SESSION['sess_user_type'] == "A") {
 	 <th>Bbl</th> 
 	 <th>Choke</th> 
 	 <th>Quantity</th> 
-	 <th>Price (Y)</th> 
+	 <th>Price (&yen;)</th> 
 	 <th>Description</th>
 	 <th>Comment</th>
+	 <th>Associated<br>Member #</th>
 	 <th>Add Date</th>
 	 <th>Update Date</th>
 	 <th>Action</th>
@@ -96,7 +97,8 @@ if( $_SESSION['sess_user_type'] == "A") {
  include 'database.php';
  $pdo = Database::connect();
  $sql = 'SELECT *
-FROM price_list
+FROM price_list a
+LEFT JOIN atf b ON a.pri_li_serial_no=b.atf_serial_no
 ORDER BY pri_li_item_no';
 foreach ($pdo->query($sql) as $row) {
 	echo '<tr>';
@@ -114,6 +116,7 @@ foreach ($pdo->query($sql) as $row) {
 	echo '<td>'. $row['pri_li_price'] . '</td>';
 	echo '<td>'. $row['pri_li_description'] . '</td>';
 	echo '<td>'. $row['pri_li_comment'] . '</td>';
+	echo '<td>'. $row['atf_mem_no'] . '</td>';
 	echo '<td>'. $row['pri_li_add_date'] . '</td>';
 	echo '<td>'. $row['pri_li_update_date'] . '</td>';
 	echo '<td><a class="btn" href="">Update</a></td>';
