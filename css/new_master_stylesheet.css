@@ -410,6 +410,36 @@ form {
 
 }
 
+.container {
+	text-align: center;
+	width: 400px;
+	padding: 3px;
+	box-sizing: border-box;
+	height: 35px;
+	margin: 0px auto;
+}
+
+.col-md-3 input {
+	float: left;
+	margin-right: 13px; 
+	box-sizing: border-box;
+	width: 155px;
+	height: 20px;
+
+}
+
+.col-md-5 input button {
+	float: left;
+	margin-right: 13px; 
+	box-sizing: border-box;
+	border: 1px solid green;
+	width:	60px;
+}
+
+.col-md-5 input:hover {
+	background-color: #DCDCDC;
+}
+
 /* added styles for admin_post_sales_checkout.php */
 .select-item label {
 	font-size: 22px;
