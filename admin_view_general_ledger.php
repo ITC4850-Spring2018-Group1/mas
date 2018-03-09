@@ -1,6 +1,7 @@
 <br>
 <?php  
  session_start();
+
 if(isset($_SESSION["sess_username"]))  
  {  
 	echo '<h6>Your session is currently ACTIVE '.$_SESSION["sess_username"].'</h6>';    
@@ -16,7 +17,6 @@ if( $_SESSION['sess_user_type'] == "A") {
 	else {
 		header('Location: index.php');
 		}
-
 ?> 
 
 <!-- INSTRUCTIONS: this is the header and footer template for the primary ADMIN pages. Code your forms, tables, etc., below the navigation tags. Placeholders have been included where variables will be displayed based on session login information for the user. Leave these "AS IS" for now. To maintain consistency, please do not change the header information other than where indicated with additional comments. -->
@@ -24,23 +24,11 @@ if( $_SESSION['sess_user_type'] == "A") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
+	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( ".datepicker" ).datepicker({
-    	"dateFormat" : 'yy-mm-dd'
-    });
-  } );
-  </script>
-</head>
-
+	</head>
 <body>
 <div class="main-heading">
 	<h1>Yokota Sportsmen&#39;s Club</h1>
@@ -79,20 +67,8 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<h3>General Ledger (view only)</h3>
 </div>
 <br>
-<form action="" method="">
-<div class="filter-box1">
-	<input type="text" name="from_date" id="from_date" class="form-control datepicker" placeholder="&nbsp;&nbsp;From Date"/>
-</div>
-<div class="filter-box2">
-	<input type="text" name="to_date" id="to_date" class="form-control datepicker" placeholder="&nbsp;&nbsp;To Date" />
-</div>
-<div class="filter-button">
-	<input type="submit" name="filter" id="filter" value="Filter by Date" />
-</div>
-</form>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-
-<table class="user-table"> 
+<table id="example" class="user-table"> 
 	<thead>
 		 <th><a href="admin_view_general_ledger.php?sort=id">ID</a></th> 
 		 <th><a href="admin_view_general_ledger.php?sort=date">Date</th> 
@@ -109,7 +85,6 @@ if( $_SESSION['sess_user_type'] == "A") {
 		 <th>Added By</th> 
 		 <th>Action</th>
  	</thead>
-
 <tbody>
 <?php
  include 'database.php';
@@ -127,7 +102,7 @@ LEFT JOIN users i ON a.gen_led_add_by=i.user_mem_no';
 if(isset($_GET['sort'])){
 	if ($_GET['sort'] == 'id')
 	{
-		$sql .= " ORDER BY gen_led_id";
+		$sql .= " ORDER BY gen_led_id DESC";
 	}
 	elseif ($_GET['sort'] == 'date')
 	{
@@ -159,15 +134,11 @@ foreach ($pdo->query($sql) as $row) {
 		echo '</tr>';
  }
 
-if (isset($_GET['from_date']) && isset($_GET['to_date']) && $_GET['from_date'] != "" && $_GET['to_date'] != ""){
-	$sql .= " WHERE a.gen_led_trans_date BETWEEN '".$_GET['from_date']."' AND '".$_GET['to_date']."'";
-}
-
- Database::disconnect();
+Database::disconnect();
 ?>
-
 </tbody>
 </table>
+
 <br><br><br>
 <div id="button">
 	<ul>
@@ -176,9 +147,36 @@ if (isset($_GET['from_date']) && isset($_GET['to_date']) && $_GET['from_date'] !
 		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
 </div>
-<br><br><br>
+<br><br><br><br><br>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
