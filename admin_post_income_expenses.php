@@ -20,12 +20,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 <!-- INSTRUCTIONS: this is the header and footer template for the primary ADMIN pages. Code your forms, tables, etc., below the navigation tags. Placeholders have been included where variables will be displayed based on session login information for the user. Leave these "AS IS" for now. To maintain consistency, please do not change the header information other than where indicated with additional comments. -->
 
 <?php
-
 require 'database.php';
-
-
-
-
 if(isset($_POST['mem_no'])) {
 	$pdo = Database::connect();
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -33,6 +28,7 @@ if(isset($_POST['mem_no'])) {
 	$mem_no = $_POST['mem_no'];
 	$trans_type = $_POST['trans_type'];
 	$income_type = $_POST['income_type'];
+	$expense_type = $_POST['expense_type'];
 	$amount = $_POST['amount'];
 	$description = $_POST['description'];
 	$username = $_SESSION["sess_username"];
