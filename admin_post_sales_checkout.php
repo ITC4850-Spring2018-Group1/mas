@@ -111,7 +111,7 @@ if(isset($_POST['mem_no'])) {
 <form action="" method="post">
 <div class="select-name">
 	<label>Last/First:</label>
-		<select name="mem_no">
+		<select name="mem_no" required>
 			<option value="">Select Member Name</option>
 			<?php
 				require_once 'start.php';
@@ -131,7 +131,7 @@ if(isset($_POST['mem_no'])) {
 
 <div class="select-item">
 <label>Serial #:</label>
-<select name="serial_no">
+<select name="serial_no" required>
 	<option value="">Select Serial Number</option>
 	<?php
 		require_once 'start.php';
@@ -154,7 +154,7 @@ if(isset($_POST['mem_no'])) {
 
 <div class="amount2">
 	<label>Amount ($):</label>
-	<input type="text" name="amount">
+	<input type="text" required name="amount">
 </div><br>
 
 <div class="button-checkout"><br>
