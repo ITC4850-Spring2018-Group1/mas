@@ -277,6 +277,12 @@ hr {
 	margin-right:auto;
 }
 
+.table {
+	text-align: center;
+	margin-left:auto; 
+	margin-right:auto;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: gray;
 	opacity: 1; /* Firefox */
@@ -410,35 +416,9 @@ form {
 
 }
 
-.container {
+#date_filter {
 	text-align: center;
-	width: 400px;
-	padding: 3px;
-	box-sizing: border-box;
-	height: 35px;
-	margin: 0px auto;
-}
-
-.col-md-3 input {
-	float: left;
-	margin-right: 13px; 
-	box-sizing: border-box;
-	width: 155px;
-	height: 20px;
-
-}
-
-.col-md-5 input button {
-	float: left;
-	margin-right: 13px; 
-	box-sizing: border-box;
-	border: 1px solid green;
-	width:	60px;
-}
-
-.col-md-5 input:hover {
-	background-color: #DCDCDC;
-}
+} 
 
 /* added styles for admin_post_sales_checkout.php */
 .select-item label {
