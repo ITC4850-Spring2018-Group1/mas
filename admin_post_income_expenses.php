@@ -112,8 +112,8 @@ if(isset($_POST['mem_no'])) {
 <form action="" method="post">
 <div class="select-name">
 	<label>Member Name:</label>
-		<select name="mem_no">
-			<option value="">Select Member Name</option>
+		<select required name="mem_no" class="required">
+			<option value=""></option>
 			<?php
 				require_once 'start.php';
 				$usersQuery = "SELECT mem_no, mem_lname, mem_fname FROM member";
@@ -128,8 +128,8 @@ if(isset($_POST['mem_no'])) {
 
 <div class="select-trans">
 	<label>Transaction Type:</label>
-	<select name="trans_type">
-		<option value="">Select Transaction Type</option>
+	<select required name="trans_type">
+		<option value=""></option>
 		<option value="I">Income</option>
 		<option value="E">Expense</option>
 	</select>
@@ -156,7 +156,6 @@ if(isset($_POST['mem_no'])) {
 		<option value="DO">I - Donation</option>
 		<option value="OO">I - Other</option>
 		<option value="IN">I - Interest Payment</option>
-
 	</select>
 </div><br>
 
@@ -181,7 +180,18 @@ if(isset($_POST['mem_no'])) {
 
 </form>
 
-
+<script language="javascript">
+	function validate()
+	{
+		if(document.form.)
+	}
+	
+	
+	
+	
+	
+	
+</script>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
