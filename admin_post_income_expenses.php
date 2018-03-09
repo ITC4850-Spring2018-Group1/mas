@@ -23,13 +23,15 @@ if( $_SESSION['sess_user_type'] == "A") {
 
 require 'database.php';
 
+
+
+
 if(isset($_POST['mem_no'])) {
 	$pdo = Database::connect();
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
 	$mem_no = $_POST['mem_no'];
 	$trans_type = $_POST['trans_type'];
-	$expense_type = $_POST['expense_type'];
 	$income_type = $_POST['income_type'];
 	$amount = $_POST['amount'];
 	$description = $_POST['description'];
@@ -161,7 +163,7 @@ if(isset($_POST['mem_no'])) {
 
 <div class="amount">
 	<label>Amount ($):</label>
-	<input type="text" name="amount">
+	<input type="text" required name="amount">
 </div><br>
 
 <div class="description">
