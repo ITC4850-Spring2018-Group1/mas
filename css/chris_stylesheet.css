@@ -302,11 +302,7 @@ input {
 input:focus {
   outline: 3px solid gold;
 }
-.form1 {
-	height: 100%;
-}
-.form2 {
-	height: 90%;
+
 }
 @media (min-width: 400px) {
   form {

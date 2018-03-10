@@ -118,7 +118,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 				<div class="userinfo">
 					<h3>User Information</h3>
 				</div>
-				<form style="margin: 0px;" class="form2" action="/user_membership_page.php">
+				<form style="margin: 0px;" action="/user_membership_page.php">
 					<label for="username">Username </label>
 					<input id="username" type="text" name="fname" value="">
 					
@@ -146,7 +146,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 				<div class="userinfo">
 					<h3>Family Member</h3>
 				</div>
-				<form style="margin: 0px;" class="form2" action="/user_membership_page.php">
+				<form style="margin: 0px;" action="/user_membership_page.php">
 					<label for="firstname">First Name </label>
 					<input type="text" name="fname">
 					
