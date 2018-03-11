@@ -58,7 +58,7 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 <hr>
 <br>
 <div class="main-title">
-<h2>MEMBERSHIP AND ACCOUNTING SYSTEM</h2>
+<h2>Membership and Accounting System</h2>
 </div>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	

@@ -61,7 +61,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 <hr>
 <br>
 <div class="main-title">
-	<h2>MEMBERSHIP AND ACCOUNTING SYSTEM</h2>
+	<h2>Membership And Accounting System</h2>
 </div>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
@@ -72,6 +72,9 @@ if( $_SESSION['sess_user_type'] == "A") {
 <div class="formbox">
 		<div class="row">
 			<div class="column">
+				<div class="userinfo">
+					<h3>Member Information</h3>
+				</div>
 				<form style="margin: 0px;" action="/user_membership_page.php">
 					
 					<label for="firstname">First Name</label>
@@ -159,11 +162,11 @@ if( $_SESSION['sess_user_type'] == "A") {
 		            <label for="job">Cell Number</label>
 		            <input id="job" type="text">
 
-		            <label for="age">Email</label>
-		            <input id="age" type="email">
+		            <label for="email">Email</label>
+		            <input id="email" type="email">
 
-		            <label for="email">Installation</label>
-		            <input id="email" type="text">
+		            <label for="installation">Installation</label>
+		            <input id="installation" type="text">
 
 		            <label for="remarks">Remarks</label>
 		            <textarea name="message" style="width: 50%; max-width:50%; height: 180px;"></textarea>
@@ -176,10 +179,8 @@ if( $_SESSION['sess_user_type'] == "A") {
 			<button type="coolbutton">Clear</button>
 		</div>
 </div>
-<br><br>
-
-
-
+<br>
+<br>
 
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
