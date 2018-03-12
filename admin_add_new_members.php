@@ -111,7 +111,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 					<input id=" installation" type="text" name="fname" value="">
 					
 					<label for="remarks">Remarks</label>
-					<textarea name="message" style="width: 50%; max-width:50%; height: 180px;"></textarea>
+					<textarea name="message" style="min-width: 50%; max-width:50%; height: 90px;"></textarea>
 					
 					<label for="position">Position</label>
 					<input id="position" type="text" name="fname" value="">
@@ -169,13 +169,33 @@ if( $_SESSION['sess_user_type'] == "A") {
 		            <input id="installation" type="text">
 
 		            <label for="remarks">Remarks</label>
-		            <textarea name="message" style="width: 50%; max-width:50%; height: 180px;"></textarea>
+		            <textarea name="message" style="min-width: 50%; max-width:50%; height: 90px;"></textarea>
 				</form>
 			</div>
 		</div>
 		<br><br>
 		<div class="bottombuttons">
+<?php
+session_start();
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+
+$conn->close();
+?> 
 			<button type="coolbutton">Add Member</button>
+
 			<button type="coolbutton">Clear</button>
 		</div>
 </div>

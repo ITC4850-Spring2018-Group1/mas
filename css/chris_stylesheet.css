@@ -6,29 +6,6 @@
 	box-sizing: border-box;
 }
 
-input[type="text"]
-{
-    border:1px solid #CCCCCC;
-    color:#516064;
-    font-family: Helvetica,arial,sans-serif;
-    font-size:11px;
-    margin-bottom:5px;
-    padding:8px;
-    width:50%;
-}
-input[type="email"]
-	{
-	border:1px solid #CCCCCC;
-    color:#516064;
-    font-family: Helvetica,arial,sans-serif;
-    font-size:11px;
-    margin-bottom:5px;
-    padding:8px;
-    width:50%;
-}
-h6	{
-	color: red;
-}
 body {
 	font-family: Helvetica;
 	margin-left: 30px;
@@ -41,24 +18,18 @@ body {
 	margin-right: 30px;
 	padding: 0;
 	box-sizing: border-box;
-	}
+}
+
+h6	{
+	color: red;
+}
 
 hr {
 	border-top: 2px solid #333;
 	float: center;
 }
-footer {
-	font-size: 12px;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	padding: 1em;
-	background-color: #EFEFEF;
-	text-align: center;
-}
+
 form {
-	
 	padding: 1em;
 	background: #f9f9f9;
 	border: 1px solid #c1c1c1;
@@ -69,16 +40,19 @@ form {
 	padding: 1em;
 	display: block;
 }
+
 form input {
   margin-bottom: 1rem;
   background: #fff;
   border: 1px solid #9c9c9c;
 }
+
 form button {
   background: lightgrey;
   padding: 0.7em;
   border: 0;
 }
+
 form button:hover {
   background: gold;
 }
@@ -97,10 +71,38 @@ input {
   width: 50%;
 }
 
+input[type="text"]
+{
+    border:1px solid #CCCCCC;
+    color:#516064;
+    font-family: Helvetica,arial,sans-serif;
+    font-size:11px;
+    margin-bottom:5px;
+    padding:8px;
+    width:50%;
+}
+
+input[type="email"]
+	{
+	border:1px solid #CCCCCC;
+    color:#516064;
+    font-family: Helvetica,arial,sans-serif;
+    font-size:11px;
+    margin-bottom:5px;
+    padding:8px;
+    width:50%;
+}
+
 input:focus {
   outline: 3px solid gold;
 }
 
+textarea {
+    font-family: Helvetica,arial,sans-serif;
+    font-size:11px;
+    margin-bottom:5px;
+    padding:8px;
+}
 @media (min-width: 400px) {
   form {
     overflow: hidden;
@@ -151,6 +153,7 @@ td {
 tr:nth-child(even) {background-color: #D8D8D8;}
 
 /* added footer styles for admin_template.php */
+
 footer {
 	font-size: 12px;
 	position: fixed;
@@ -161,7 +164,6 @@ footer {
 	background-color: #EFEFEF;
 	text-align: center;
 }
-
 
 /* main header display rules-----------------------------------------------------------*/
 .main-heading h1 {
@@ -352,7 +354,6 @@ footer {
 	display: block;
 	text-align: center;
 	clear: both;
-	height: 100%;
 }
 .userinfo {
 	margin: auto;

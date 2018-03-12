@@ -104,7 +104,7 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 				<input id=" installation" type="text" name="fname" value="">
 				
 				<label for="remarks">Remarks</label>
-				<textarea name="message" style="width: 50%; max-width:50%; height: 90px;"></textarea>
+				<textarea name="message" style="min-width: 50%; max-width:50%; height: 90px;"></textarea>
 				
 				<label for="position">Position</label>
 				<input id="position" type="text" name="fname" value="">
@@ -144,7 +144,7 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 				<input id=" installation" type="text" name="fname" value="">
 				
 				<label for="remarks">Remarks</label>
-				<textarea name="message" style="width: 50%; max-width:50%; height: 90px;"></textarea>
+				<textarea name="message" style="min-width: 50%; max-width:50%; height: 90px;"></textarea>
 				
 			</form>
 			</div>
