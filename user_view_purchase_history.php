@@ -49,7 +49,7 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 	<ul>
 		<li><a href="user_view_edit_personal_information.php">View Profile</a></li>
 		<li><a href="user_view_amounts_paid.php">Amounts Paid</a></li>
-		<li><a href="user_view_update_atf_status.php">ATF Status</a></li>
+		<li><a href="user_view_update_ATF_status.php">ATF Status</a></li>
 	</ul>
 <br>
 </div>
