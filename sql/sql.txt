@@ -35,7 +35,7 @@ CREATE TABLE member (
 	mem_position VARCHAR (20),
 	mem_add_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	mem_last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	mem_updated_by INTEGER (5)
+	mem_updated_by VARCHAR (55)
  );
 
 /* this statement is to add data into table after its created */
@@ -139,6 +139,18 @@ VALUES ('3', 'U', 'kitty2', 'user');
 INSERT INTO users
 VALUES ('4', 'A', 'rocketman', 'admin');
 
+INSERT INTO users
+VALUES ('5', 'U', 'msato', 'admin');
+
+INSERT INTO users
+VALUES ('6', 'U', 'jjohnson', 'admin');
+
+INSERT INTO users
+VALUES ('7', 'U', 'alambert', 'admin');
+
+INSERT INTO users
+VALUES ('8', 'U', 'ynaganosawa', 'admin');
+
 
 CREATE TABLE balance (
 	bal_gen_led_id INTEGER (255) PRIMARY KEY,
@@ -227,10 +239,14 @@ INSERT INTO ref_member_catg
 VALUES ('AD', 'Active Duty');
 
 INSERT INTO ref_member_catg
+VALUES ('CV', 'Civilian');
+
+INSERT INTO ref_member_catg
 VALUES ('LN', 'Local National');
 
 INSERT INTO ref_member_catg
 VALUES ('AV', 'Advisor');
+
 
 CREATE TABLE ref_gen_led_transaction_type (
 	ref_gen_led_transaction_typ CHAR (1) PRIMARY KEY,
