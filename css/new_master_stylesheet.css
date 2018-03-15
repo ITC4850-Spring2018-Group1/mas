@@ -420,6 +420,105 @@ form {
 	text-align: center;
 } 
 
+/* added styles for admin_add_new_members.php */
+
+.form {
+	text-align: center;
+}
+
+#add_members {
+	width: 809px;
+	height: 700px;
+	margin: 20px auto;
+	background: lightgray;
+	border: 2px solid black;
+}
+
+.left_column h3 {
+	margin-top: 4px; 
+}
+
+.left_column {
+	float: left; 
+	width: 420px;
+	margin-right: 0px; 
+	border: 1px solid black;
+	height: 698px;
+}
+
+.left_column label {
+	width: 160px; 
+	margin-right: 7px;
+	padding: 2px; 
+}
+
+.left_column select {
+	text-align: left;
+	width: 160px; 
+	height: 20px;
+	font-size: 12px;
+}
+
+.left_column input {
+	height: 20px;
+	font-size: 12px;
+	padding: 2px; 
+	border: 1px solid gray;
+}
+
+.right_column {
+	float: left;
+	width: 385px; 
+	height: 698px;
+	border: 1px solid black;
+}
+
+.right_column h3 {
+	margin-top: 4px; 
+}
+
+.right_column label {
+	text-align: left;
+	width: 160px;
+	margin-right: 7px;
+	padding: 2px;  
+}
+
+.right_column select {
+	text-align: left;
+	width: 160px; 
+	height: 20px;
+}
+
+.right_column input {
+	height: 20px;
+	font-size: 12px;
+	margin-right: 10px; 
+	padding: 2px;
+	border: 1px solid gray;
+}
+
+#button5 {
+	height: 45px; 
+	text-align: center;
+}
+
+#button5 input {
+	height: 30px;
+	background-color: #DCDCDC;
+	border-radius: 2px; 
+	font-size: 15px;
+	margin-left: 20px;  
+	font-size: 15px;
+}
+
+#button5 input:hover {
+	height: 30px;
+	background-color: #ffeb99;
+	border-radius: 5px; 
+
+}
+
 /* added styles for admin_post_sales_checkout.php */
 .select-item label {
 	font-size: 22px;
