@@ -83,7 +83,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 		 <th>Form Sent</th> 
          <th>Sent Date</th>
          <th>Approval Date</th>
-         <th>Comment (ATF)</th>
+         <th>Comment</th>
          <th>Date Added</th>
          <th>Last Updated</th>
          <th>Updated By</th>
