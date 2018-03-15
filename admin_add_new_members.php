@@ -3,7 +3,7 @@
 session_start();
 if(isset($_SESSION["sess_username"]))  
  {  
-	echo '<h6>Your session is currently ACTIVE '.$_SESSION["sess_username"].'</h6>';    
+	echo '<h6>Your session is currently ACTIVE '.$_SESSION["sess_username"].'</h6><br>';    
  }  
  else  
  {  
@@ -20,10 +20,73 @@ if( $_SESSION['sess_user_type'] == "A") {
 ?> 
 <!-- INSTRUCTIONS: this is the header and footer template for the primary USER pages. Code your forms, tables, etc., below the navigation tags. Placeholders have been included where variables will be displayed based on session login information for the user. Leave these "AS IS" for now. To maintain consistency, please do not change the header information other than where indicated with additional comments. -->
 
+<?php
+if(isset($_POST['submit'])) {
+	try {
+		$pdoConnect = new PDO("mysql:host=localhost;dbname=yokotasp_mas1","root","root");
+		} 
+		catch (PDOException $exc) {
+			echo $exc->getMessage();
+			exit();
+	}
+	
+// get values from input text and number
+	$fname = $_POST['mem_fname'];
+	$mi = $_POST['mname'];
+	$lname = $_POST['lname'];
+	$duty = $_POST['duty'];
+	$cell = $_POST['cell'];
+	$street = $_POST['street'];
+	$city = $_POST['city'];
+	$state = $_POST['state'];
+	$zip = $_POST['zip'];
+	$email = $_POST['email'];
+	$installation = $_POST['installation'];
+	$remarks = $_POST['remarks'];
+	$category = $_POST['category'];
+	$memberType = $_POST['memberType'];
+	$position = $_POST['position'];
+	$sess_username = $_SESSION["sess_username"];
+	
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$role = $_POST['role'];
+	
+// mysql query to insert data
+$pdoQuery = "INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by) VALUES (:fname, :mi, :lname, :duty, :cell, :street, :city, :state, :zip, :email, :installation, :category, :role, :remarks, :position, '$sess_username')";
+$pdoQuery2 = "INSERT INTO users (user_mem_no, user_type, username, password) VALUES ((LAST_INSERT_ID()), :role, :username, :password)";
+$pdoResult = $pdoConnect->prepare($pdoQuery);
+$pdoResult1 = $pdoConnect->prepare($pdoQuery2);
+
+$pdoExec = $pdoResult->execute(array(":fname"=>$fname,":mi"=>$mi,":lname"=>$lname,":duty"=>$duty,":cell"=>$cell,":street"=>$street,":city"=>$city,":state"=>$state,":zip"=>$zip,":email"=>$email,":installation"=>$installation,":remarks"=>$remarks,":category"=>$category,":role"=>$memberType,":position"=>$position));
+$pdoExec2 = $pdoResult1->execute(array(":role"=>$role,":username"=>$username,"password"=>$password));
+
+// check if mysql insert query successful
+	if($pdoExec)
+	{
+		echo "<script type= 'text/javascript'>alert('Member has been added successfully');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('Member has not been added. Please confirm entry.');</script>";
+	}
+	
+	if($pdoExec2)
+	{
+		echo "<script type= 'text/javascript'>alert('Credentials have been added');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('Credentials were not added. Please verify username is unique.');</script>";
+	}
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/chris_stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +116,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 		<li><a href="admin_post_income_expenses.php">Post Income/Expense</a></li>
 		<li><a href="admin_view_update_membership_summary.php">View Membership</a></li>
 		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
-		<li><a href="admin_post_income_expenses.php">Import Inventory</a></li>
+		<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
 	</ul>
 	<br>
@@ -68,137 +131,119 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<h3>Add New Members</h3>
 </div>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
+<div class="form">
+<form id="add_members" method="post" action="">
+<div class="left_column"><br>
+		<h3>Member Information</h3><br>
+		<label for="mem_fname">First Name:</label>
+		<input id="mem_fname" required type="text" name="mem_fname" value=""><br><br>
 
-<div class="formbox">
-		<div class="row">
-			<div class="column">
-				<div class="userinfo">
-					<h3>Member Information</h3>
-				</div>
-				<form style="margin: 0px;" action="/user_membership_page.php">
-					
-					<label for="firstname">First Name</label>
-					<input id="first-name" type="text" name="fname">
+		<label for="mname">Middle Name:</label>
+		<input id="mname" type="text" name="mname" value=""><br><br>
+		
+		<label for="lname">Last Name:</label>
+		<input id="lname" required type="text" name="lname" value=""><br><br>
+		
+		<label for="duty">Duty Phone:</label>
+		<input id="duty" required type="tel" name="duty" placeholder="22x-xxxx" value=""><br><br>
+		
+		<label for="cell">Cell Number:</label>
+		<input id="cell" required type="text" name="cell" value=""><br><br>
+		
+		<label for="street">Street:</label>
+		<input id="street" required type="text" name="street" value=""><br><br>
+		
+		<label for="city">City:</label>
+		<input id="city" required type="text" name="city" value=""><br><br>
+		
+		<label for="state">State:</label>
+		<input id="state" required type="text" name="state" value=""><br><br>
 
-					<label for="middlename">Middle Name</label>
-					<input id="middle-name" type="text" name="fname" value="">
-					
-					<label for="lastame">Last Name</label>
-					<input id="last-name" type="text" name="fname" value="">
-					
-					<label for="dutyphone">Duty Phone</label>
-					<input id="duty-phone" type="text" name="fname" value="">
-					
-					<label for="cellnumber">Cell Number</label>
-					<input id="cellnumber" type="text" name="fname" value="">
-					
-					<label for="street">Street</label>
-					<input id="street" type="text" name="fname" value="">
-					
-					<label for="city">City</label>
-					<input id="city" type="text" name="fname" value="">
-					
-					<label for="state">State</label>
-					<input id="state" type="text" name="fname" value="">
-
-					<label for="zipcode">Zip Code</label>
-					<input id="zipcode" type="text" name="fname" value="">
-					
-					<label for="email">Email</label>
-					<input id="email" type="email" name="fname" value="">
-					
-					<label for="installation">Installation</label>
-					<input id=" installation" type="text" name="fname" value="">
-					
-					<label for="remarks">Remarks</label>
-					<textarea name="message" style="min-width: 50%; max-width:50%; height: 90px;"></textarea>
-					
-					<label for="position">Position</label>
-					<input id="position" type="text" name="fname" value="">
-				</form>
-			</div>
-			<div class="column">
-				<div class="userinfo">
-					<h3>User Information</h3>
-				</div>
-				<form style="margin: 0px;" action="/user_membership_page.php">
-					<label for="username">Username </label>
-					<input id="username" type="text" name="fname" value="">
-					
-		            <label for="firstname">First Name</label>
-		            <input id="firstName" type="text">
-
-		            <label for="lastname">Last Name</label>
-		            <input id="lastName" type="text">
-
-		            <label for="job">Job</label>
-		            <input id="job" type="text">
-
-		            <label for="age">Age</label>
-		            <input id="age" type="text">
-
-		            <label for="email">Email</label>
-		            <input id="email" type="email">
-        			
-        			<label for="password">Password</label>
-        			<input id="password" type="text">
-
-        			<label for="user-role">User Role</label>
-        			<input id="user-role" type="text">
-				</form>
-				<div class="userinfo">
-					<h3>Family Member</h3>
-				</div>
-				<form style="margin: 0px;" action="/user_membership_page.php">
-					<label for="firstname">First Name </label>
-					<input type="text" name="fname">
-					
-		            <label for="middleinitial">Middle Initial</label>
-		            <input id="firstName" type="text">
-
-		            <label for="lastname">Last Name</label>
-		            <input id="lastName" type="text">
-
-		            <label for="job">Cell Number</label>
-		            <input id="job" type="text">
-
-		            <label for="email">Email</label>
-		            <input id="email" type="email">
-
-		            <label for="installation">Installation</label>
-		            <input id="installation" type="text">
-
-		            <label for="remarks">Remarks</label>
-		            <textarea name="message" style="min-width: 50%; max-width:50%; height: 90px;"></textarea>
-				</form>
-			</div>
-		</div>
-		<br><br>
-		<div class="bottombuttons">
-<?php
-session_start();
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . $conn->error;
-}
-
-$conn->close();
-?> 
-			<button type="coolbutton">Add Member</button>
-
-			<button type="coolbutton">Clear</button>
-		</div>
+		<label for="zip">Zip Code:</label>
+		<input id="zip" required type="text" name="zip" value=""><br><br>
+		
+		<label for="email">Email:</label>
+		<input id="email" required type="email" name="email" value=""><br><br>
+		
+		<label for="installation">Installation:</label>
+		<select required name="installation" type="text">
+			<option value=""></option>
+			<option value="Yokota">Yokota</option>
+			<option value="Zama">Zama</option>
+			<option value="Yokosuka">Yokosuka</option>
+			<option value="Other">Other</option>
+		</select><br><br>
+		
+		<label for="remarks">Remarks:</label>
+		<textarea name="remarks" style="height: 60px;"></textarea><br><br>
+		
+		<label for="position">Position:</label>
+		<input id="position" type="text" name="position" value=""><br><br>
+		
+		<label for="category">Category:</label>
+		<select required name="category" type="text">
+			<option value=""></option>
+			<option value="AD">Active Duty</option>
+			<option value="AD">Civilian</option>
+			<option value="LN">Local National</option>
+			<option value="AD">Advisor</option>
+		</select><br><br>
+		
+		<label for="memberType">Member Type:</label>
+		<select required name="memberType" type="text">
+			<option value=""></option>
+			<option value="I">Individual</option>
+			<option value="F">Family</option>
+		</select><br><br>
 </div>
+<div class="right_column"><br>
+		<h3>User Information</h3><br>
+		<label for="username">Username:</label>
+		<input id="username" required type="text" name="username" value=""><br><br>
+               			
+        <label for="password">Password:</label>
+        <input id="password" required name="password" type="text"><br><br>
+
+        <label for="role">User Role:</label>
+        <select required name="role" id="role" type="text">
+			<option value=""></option>
+			<option value="U">User</option>
+			<option value="A">Admin</option>
+		 </select><br><br><br>
+		
+		<h3>Family Member</h3><br>
+		<label for="fam_fname">First Name: </label>
+		<input id="fam_fname" type="text" name="fam_fname"><br><br>
+            
+		<label for="fam_mi">Middle Initial:</label>
+        <input id="fam_mi" name="fam_mi" type="text"><br><br>
+
+        <label for="fam_lname">Last Name:</label>
+        <input id="fam_lname" name="fam_lname" type="text"><br><br>
+
+        <label for="fam_email">Email:</label>
+        <input id="fam_email" name="fam_email" type="email"><br><br>
+
+        <label for="fam_installation">Installation:</label>
+		<select name="fam_installation" id="fam_installation "type="text">
+			<option value=""></option>
+			<option value="Yokota">Yokota</option>
+			<option value="Zama">Zama</option>
+			<option value="Yokosuka">Yokosuka</option>
+			<option value="Other">Other</option>
+		</select><br><br>
+
+       <label for="fam_remarks">Remarks:</label>
+       <textarea name="fam_remarks" id="fam_remarks" style="height: 60px;"></textarea><br><br>
+</div>
+</div>
+<div id="button5">
+<input id="submit" type="submit" name="submit" value="Add Member" style="width:150px";>
+<input id="reset" type="reset" name="reset" value="Clear" style="width:150px";>
+</div>
+</form>
+</div>
+
 <br>
 <br>
 
@@ -208,3 +253,26 @@ $conn->close();
 </footer>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
