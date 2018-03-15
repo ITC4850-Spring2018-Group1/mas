@@ -90,7 +90,7 @@ else {
 	</div><br><br>
 	<div class="dashboard-button5">
 		<ul>
-			<li><a href="admin_view_update_atf_status.php">View ATF Status</a></li>
+			<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
 		</ul>
 	</div><br><br>
 	<div class="dashboard-button6">
