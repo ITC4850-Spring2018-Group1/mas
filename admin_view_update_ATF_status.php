@@ -74,15 +74,15 @@ if( $_SESSION['sess_user_type'] == "A") {
 
 <table class="user-table"> 
 	<thead> 
-		 <th>M. no.</th> 
+		 <th>Member<br>#</th> 
 		 <th>First Name</th> 
 		 <th>MI</th> 
 		 <th>Last Name</th> 
 		 <th>Serial #</th> 
-		 <th>ATF Form Sent</th> 
+		 <th>ATF Form<br>Sent</th> 
          <th>Sent Date</th>
          <th>Approval Date</th>
-         <th>Comment (ATF)</th>
+         <th>Comment</th>
          <th>Date Added</th>
          <th>Last Updated</th>
          <th>Updated By</th>
@@ -125,7 +125,7 @@ foreach ($pdo->query($sql) as $row) {
 <div id="button">
 	<ul>
 		 <li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
-		 <li><a href="admin_report_ATF_accountability.php">Print Report</a></li>
+		 <li><a href="admin_report_ATF_accountability.php">Print ATF Report</a></li>
 		 <li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
 </div>
