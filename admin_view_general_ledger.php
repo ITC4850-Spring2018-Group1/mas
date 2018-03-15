@@ -1,7 +1,6 @@
 <br>
 <?php  
  session_start();
-
 if(isset($_SESSION["sess_username"]))  
  {  
 	echo '<h6>Your session is currently ACTIVE '.$_SESSION["sess_username"].'</h6>';    
@@ -28,7 +27,9 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
+
+</head>
+
 <body>
 <div class="main-heading">
 	<h1>Yokota Sportsmen&#39;s Club</h1>
@@ -67,8 +68,16 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<h3>General Ledger (view only)</h3>
 </div>
 <br>
+<form method="post">
+	<input type="date" name="txtStartDate" style="margin-right: 5px";>
+	<input type="date" name="txtEndDate" style="margin-right: 5px";>
+	<input type="submit" name="search" value="Search">
+<br><br>
+
+</form>
+
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-<table id="example" class="user-table"> 
+<table class="user-table"> 
 	<thead>
 		 <th><a href="admin_view_general_ledger.php?sort=id">ID</a></th> 
 		 <th><a href="admin_view_general_ledger.php?sort=date">Date</th> 
@@ -85,6 +94,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 		 <th>Added By</th> 
 		 <th>Action</th>
  	</thead>
+
 <tbody>
 <?php
  include 'database.php';
