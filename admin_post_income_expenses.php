@@ -52,7 +52,8 @@ if(isset($_POST['mem_no'])) {
 	$query3->execute();
 	Database::disconnect();
 	header("Location: admin_post_sales_checkout_success.php");
-		}
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -183,12 +184,6 @@ if(isset($_POST['mem_no'])) {
 	{
 		if(document.form.)
 	}
-	
-	
-	
-	
-	
-	
 </script>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
