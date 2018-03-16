@@ -142,6 +142,7 @@ if(isset($_POST['mem_no'])) {
 		<option value="T">E - Trip Reimbursement</option>
 		<option value="O">E - Other</option>
 		<option value="S">E - Supplies</option>
+		<option value="X">E - Clerical Error</option>
 	</select>
 </div><br>
 
@@ -155,6 +156,7 @@ if(isset($_POST['mem_no'])) {
 		<option value="DO">I - Donation</option>
 		<option value="OO">I - Other</option>
 		<option value="IN">I - Interest Payment</option>
+		<option value="CE">I - Clerical Error</option>
 	</select>
 </div><br>
 
