@@ -52,14 +52,28 @@ if(isset($_POST['submit'])) {
 	$password = $_POST['password'];
 	$role = $_POST['role'];
 	
+	$fam_fname = $_POST['fam_fname'];
+	$fam_mi = $_POST['fam_mi'];
+	$fam_lname = $_POST['fam_lname'];
+	$fam_cell = $_POST['fam_cell'];
+	$fam_email = $_POST['fam_email'];
+	$fam_installation = $_POST['installation'];
+	$fam_remarks = $_POST['fam_remarks'];
+
 // mysql query to insert data
 $pdoQuery = "INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by) VALUES (:fname, :mi, :lname, :duty, :cell, :street, :city, :state, :zip, :email, :installation, :category, :role, :remarks, :position, '$sess_username')";
 $pdoQuery2 = "INSERT INTO users (user_mem_no, user_type, username, password) VALUES ((LAST_INSERT_ID()), :role, :username, :password)";
+$pdoQuery3 = "INSERT INTO family (fam_fname, fam_mi, fam_lname, fam_cell_number, fam_email, fam_installation, fam_remarks, fam_assoc_mem_no) VALUES (:f_fname, :f_mi, :f_lname, :f_cell, :f_email, :f_install, :f_remarks, (LAST_INSERT_ID()))";
+
 $pdoResult = $pdoConnect->prepare($pdoQuery);
 $pdoResult1 = $pdoConnect->prepare($pdoQuery2);
+$pdoResult2 = $pdoConnect->prepare($pdoQuery3);
 
 $pdoExec = $pdoResult->execute(array(":fname"=>$fname,":mi"=>$mi,":lname"=>$lname,":duty"=>$duty,":cell"=>$cell,":street"=>$street,":city"=>$city,":state"=>$state,":zip"=>$zip,":email"=>$email,":installation"=>$installation,":remarks"=>$remarks,":category"=>$category,":role"=>$memberType,":position"=>$position));
+
 $pdoExec2 = $pdoResult1->execute(array(":role"=>$role,":username"=>$username,"password"=>$password));
+
+$pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,":f_lname"=>$fam_lname,":f_cell"=>$fam_cell,":f_email"=>$fam_email,":f_install"=>$fam_installation,":f_remarks"=>$fam_remarks));
 
 // check if mysql insert query successful
 	if($pdoExec)
@@ -135,20 +149,22 @@ $pdoExec2 = $pdoResult1->execute(array(":role"=>$role,":username"=>$username,"pa
 <form id="add_members" method="post" action="">
 <div class="left_column"><br>
 		<h3>Member Information</h3><br>
+		<div id="label-right-justify">
 		<label for="mem_fname">First Name:</label>
 		<input id="mem_fname" required type="text" name="mem_fname" value=""><br><br>
-
+		
 		<label for="mname">Middle Name:</label>
 		<input id="mname" type="text" name="mname" value=""><br><br>
-		
+				
 		<label for="lname">Last Name:</label>
 		<input id="lname" required type="text" name="lname" value=""><br><br>
 		
 		<label for="duty">Duty Phone:</label>
 		<input id="duty" required type="tel" name="duty" placeholder="22x-xxxx" value=""><br><br>
-		
+				
 		<label for="cell">Cell Number:</label>
 		<input id="cell" required type="text" name="cell" value=""><br><br>
+		
 		
 		<label for="street">Street:</label>
 		<input id="street" required type="text" name="street" value=""><br><br>
@@ -195,9 +211,11 @@ $pdoExec2 = $pdoResult1->execute(array(":role"=>$role,":username"=>$username,"pa
 			<option value="I">Individual</option>
 			<option value="F">Family</option>
 		</select><br><br>
+		</div>
 </div>
 <div class="right_column"><br>
 		<h3>User Information</h3><br>
+		<div id="label-right-justify1">
 		<label for="username">Username:</label>
 		<input id="username" required type="text" name="username" value=""><br><br>
                			
@@ -210,8 +228,9 @@ $pdoExec2 = $pdoResult1->execute(array(":role"=>$role,":username"=>$username,"pa
 			<option value="U">User</option>
 			<option value="A">Admin</option>
 		 </select><br><br><br>
-		
+		</div>
 		<h3>Family Member</h3><br>
+		<div id="label-right-justify1">
 		<label for="fam_fname">First Name: </label>
 		<input id="fam_fname" type="text" name="fam_fname"><br><br>
             
@@ -220,6 +239,9 @@ $pdoExec2 = $pdoResult1->execute(array(":role"=>$role,":username"=>$username,"pa
 
         <label for="fam_lname">Last Name:</label>
         <input id="fam_lname" name="fam_lname" type="text"><br><br>
+
+		<label for="fam_email">Cell:</label>
+		<input id="fam_cell" name="fam_cell" type="tel"><br><br>
 
         <label for="fam_email">Email:</label>
         <input id="fam_email" name="fam_email" type="email"><br><br>
@@ -235,6 +257,7 @@ $pdoExec2 = $pdoResult1->execute(array(":role"=>$role,":username"=>$username,"pa
 
        <label for="fam_remarks">Remarks:</label>
        <textarea name="fam_remarks" id="fam_remarks" style="height: 60px;"></textarea><br><br>
+	   </div>
 </div>
 </div>
 <div id="button5">
@@ -242,6 +265,10 @@ $pdoExec2 = $pdoResult1->execute(array(":role"=>$role,":username"=>$username,"pa
 <input id="reset" type="reset" name="reset" value="Clear" style="width:150px";>
 </div>
 </form>
+<br>
+<div id="button-back">
+<a class="btn" href="admin_main_dashboard.php">Return to Dashboard</a>
+</div>
 </div>
 
 <br>
