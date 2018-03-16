@@ -10,36 +10,36 @@
 		header("location:index.php");  
 	 }  
 
-	if( $_SESSION['sess_user_type'] == "A") {
+	if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 			
 			  }
 		else {
 			header('Location: index.php');
 			}
 			
-	require 'database.php';
-	$rec_receipt_no = null;
-	if ( !empty($_GET['rec_receipt_no'])) {
-			$rec_receipt_no = $_REQUEST['rec_receipt_no'];
-	}
-	 
-	if ( null==$rec_receipt_no ) {
-			header("Location: index.php");
-	} 
-	
-	else {
-	$pdo = Database::connect();
-	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "SELECT * 
-	FROM receipts a
-	LEFT JOIN general_ledger b ON a.rec_gen_led_id=b.gen_led_id
-	LEFT JOIN member c ON b.gen_led_users_mem_no=c.mem_no
-	WHERE rec_receipt_no = ?";
-	$q = $pdo->prepare($sql);
-	$q->execute(array($rec_receipt_no));
-	$data = $q->fetch(PDO::FETCH_ASSOC);
-	Database::disconnect();
-	}
+require 'database.php';
+$rec_receipt_no = null;
+if ( !empty($_GET['rec_receipt_no'])) {
+		$rec_receipt_no = $_REQUEST['rec_receipt_no'];
+}
+ 
+if ( null==$rec_receipt_no ) {
+		header("Location: index.php");
+} 
+
+else {
+$pdo = Database::connect();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "SELECT * 
+FROM receipts a
+LEFT JOIN general_ledger b ON a.rec_gen_led_id=b.gen_led_id
+LEFT JOIN member c ON b.gen_led_users_mem_no=c.mem_no
+WHERE rec_receipt_no = ?";
+$q = $pdo->prepare($sql);
+$q->execute(array($rec_receipt_no));
+$data = $q->fetch(PDO::FETCH_ASSOC);
+Database::disconnect();
+}
 ?>
 
 <!-- INSTRUCTIONS: this is the header and footer template for the primary USER pages. Code your forms, tables, etc., below the navigation tags. Placeholders have been included where variables will be displayed based on session login information for the user. Leave these "AS IS" for now. To maintain consistency, please do not change the header information other than where indicated with additional comments. -->

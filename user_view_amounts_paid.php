@@ -47,8 +47,9 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 <div class="nav-user">
 	<ul>
 		<li><a href="user_view_edit_personal_information.php">View Profile</a></li>
-		<li><a href="user_view_purchase_history.php">Purchase History</a></li>
-		<li><a href="user_view_update_ATF_status.php">ATF Status</a></li>
+		<li><a href="user_view_amounts_paid.php">View Amounts Paid</a></li>
+		<li><a href="user_view_purchase_history.php">View Purchase History</a></li>
+		<li><a href="user_view_update_ATF_status.php">View ATF Status</a></li>
 	</ul>
 <br>
 </div>

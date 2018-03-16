@@ -115,7 +115,7 @@ if(isset($_POST['mem_no'])) {
 			<option value=""></option>
 			<?php
 				require_once 'start.php';
-				$usersQuery = "SELECT mem_no, mem_lname, mem_fname FROM member";
+				$usersQuery = "SELECT mem_no, mem_lname, mem_fname FROM member ORDER BY mem_lname";
 				$users = $db->query($usersQuery);
 			?>
 			<?php foreach($users->fetchAll() as $user): ?>

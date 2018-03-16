@@ -4,7 +4,7 @@
  session_start();  
  if(isset($_SESSION["sess_username"]))  
  {  
-	echo '<h6>You logged in successfully!</h6>';  
+	echo '<h6>You logged in successfully (Member #) ' . $_SESSION["sess_user_id"].'</h6>';  
  }  
  else  
  {  
