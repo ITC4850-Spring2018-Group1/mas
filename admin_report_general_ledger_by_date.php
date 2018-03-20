@@ -41,39 +41,40 @@
 <br>
 <div class="main-title">
 <h2>MEMBERSHIP AND ACCOUNTING SYSTEM</h2>
-</div>
+</div><br>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
 	<h3>General Ledger Report</h3>
 </div>
-<br>
 <div class="individual-page-title">	
 	<h3>YYYY/MM/FF - YYYY/MM/DD</h3>
 </div>
 
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-<br><br><br><center>
+<br><center>
 <table class="user-table"> 
 	<thead> 
-		 <th><a href="admin_view_general_ledger.php?sort=date">Transaction Date</th> 
-		 <th>Receipt #</th> 
-		 <th>Description</th> 
-		 <th>Expense</th> 
-		 <th>Income</th> 
-		 <th>Balance</th> 
+		 <th width="190px">Transaction Date</th> 
+		 <th width="130px">Receipt #</th> 
+		 <th width="230px">Description</th>
+		 <th width="130px">Transaction Type</th>
+		 <th width="130px">Expense</th> 
+		 <th width="130px">Income</th> 
+		 <th width="130px">Balance</th> 
  	</thead>
  	<tfoot>
  		<tr><td colspan="3" align="right">Total</td>
  			<td></td>
  			<td></td>
  			<td></td>
+			<td></td>
  		</tr></tfoot>
 
 <tbody>
 <?php
  include 'database.php';
  $pdo = Database::connect();
- $sql = 'SELECT *
+ $sql = 'SELECT a.gen_led_trans_date, c.rec_receipt_no, a.gen_led_description, a.gen_led_transaction_type, a.gen_led_amount, a.gen_led_amount, b.bal_acct_balance
 FROM general_ledger a
 LEFT JOIN balance b ON a.gen_led_id=b.bal_gen_led_id
 LEFT JOIN receipts c ON a.gen_led_id=c.rec_gen_led_id
@@ -102,8 +103,9 @@ foreach ($pdo->query($sql) as $row) {
 					echo '<td>'. $row['gen_led_trans_date'] . '</td>';
 					echo '<td>'. $row['rec_receipt_no'] . '</td>';
 					echo '<td>'. $row['gen_led_description'] . '</td>';
-					echo '<td>'. $row['ref_gen_led_expense_desc'] . '</td>';
-					echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
+					echo '<td>'. $row['gen_led_transaction_type'] . '</td>';
+					echo '<td>'. $row['gen_led_amount'] . '</td>';
+					echo '<td>'. $row['gen_led_amount'] . '</td>';
 					echo '<td>'. $row['bal_acct_balance'] . '</td>';
 					echo ' ';
 					echo '</tr>';

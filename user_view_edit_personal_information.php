@@ -24,6 +24,7 @@ require 'database.php';
 	$id = $_SESSION["sess_user_id"];
 	$sql = "SELECT * FROM member a
 	LEFT JOIN family b ON a.mem_no=b.fam_assoc_mem_no
+	LEFT JOIN membership c ON a.mem_no=c.membership_no
 	WHERE mem_no = $id";
 	$q = $pdo->prepare($sql);
 	$q->execute();
@@ -161,8 +162,14 @@ require 'database.php';
 
         <label for="fam_installation">Installation:</label>
 		 <input id="fam_installation" readonly="readonly" style="background-color: #F3F2F2" name="fam_installation" type="text" value="<?php echo $data['fam_installation'];?>"><br><br>
-
 	   </div>
+		<br>
+		<h3>Membership</h3><br>
+		<label for="eff_date">Effective Date: </label>
+		<input id="eff_date" readonly="readonly" type="text" style="background-color: #F3F2F2" name="eff_date" value="<?php echo $data['membership_eff_date'];?>"><br><br>
+		
+		<label for="eff_date">Termination Date: </label>
+		<input id="eff_date" readonly="readonly" type="text" style="background-color: #F3F2F2" name="eff_date" value="<?php echo $data['membership_term_date'];?>"><br><br>
 </div>
 </div>
 <!-- I<div id="button5">

@@ -59,21 +59,41 @@ if(isset($_POST['submit'])) {
 	$fam_email = $_POST['fam_email'];
 	$fam_installation = $_POST['installation'];
 	$fam_remarks = $_POST['fam_remarks'];
+	
+	$eff_membership = $_POST['eff-membership'];
+	$term_membership = $_POST['term-membership'];
 
 // mysql query to insert data
-$pdoQuery = "INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by) VALUES (:fname, :mi, :lname, :duty, :cell, :street, :city, :state, :zip, :email, :installation, :category, :role, :remarks, :position, '$sess_username')";
-$pdoQuery2 = "INSERT INTO users (user_mem_no, user_type, username, password) VALUES ((LAST_INSERT_ID()), :role, :username, :password)";
-$pdoQuery3 = "INSERT INTO family (fam_fname, fam_mi, fam_lname, fam_cell_number, fam_email, fam_installation, fam_remarks, fam_assoc_mem_no) VALUES (:f_fname, :f_mi, :f_lname, :f_cell, :f_email, :f_install, :f_remarks, (LAST_INSERT_ID()))";
+$pdoQuery = "INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by) VALUES(:fname, :mi, :lname, :duty, :cell, :street, :city, :state, :zip, :email, :installation, :category, :role, :remarks, :position, '$sess_username')";
 
+$pdoQuery2 = "INSERT INTO users (user_mem_no, user_type, username, password) VALUES ((LAST_INSERT_ID()), :role, :username, :password)";
+
+$pdoQuery4 = "INSERT INTO membership (membership_no, membership_eff_date, membership_term_date) VALUES ((LAST_INSERT_ID()), :effdate, :termdate)";
+
+// mysql prepare queries
 $pdoResult = $pdoConnect->prepare($pdoQuery);
 $pdoResult1 = $pdoConnect->prepare($pdoQuery2);
-$pdoResult2 = $pdoConnect->prepare($pdoQuery3);
+$pdoResult3 = $pdoConnect->prepare($pdoQuery4);
 
+// mysql execute queries
 $pdoExec = $pdoResult->execute(array(":fname"=>$fname,":mi"=>$mi,":lname"=>$lname,":duty"=>$duty,":cell"=>$cell,":street"=>$street,":city"=>$city,":state"=>$state,":zip"=>$zip,":email"=>$email,":installation"=>$installation,":remarks"=>$remarks,":category"=>$category,":role"=>$memberType,":position"=>$position));
 
 $pdoExec2 = $pdoResult1->execute(array(":role"=>$role,":username"=>$username,"password"=>$password));
 
-$pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,":f_lname"=>$fam_lname,":f_cell"=>$fam_cell,":f_email"=>$fam_email,":f_install"=>$fam_installation,":f_remarks"=>$fam_remarks));
+$pdoExec4 = $pdoResult3->execute(array(":effdate"=>$eff_membership, ":termdate"=>$term_membership));
+
+// if family member names are BOTH empty; if one or the other is present, post a message; otherwise, if both are present, enter a family member record
+if(empty($fam_fname) || empty($fam_lname)) {
+	
+}
+else {
+	$pdoQuery3 = "INSERT INTO family (fam_fname, fam_mi, fam_lname, fam_cell_number, fam_email, fam_installation, fam_remarks, fam_assoc_mem_no) VALUES (:f_fname, :f_mi, :f_lname, :f_cell, :f_email, :f_install, :f_remarks, (LAST_INSERT_ID()))";
+
+	$pdoResult2 = $pdoConnect->prepare($pdoQuery3);
+
+	$pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,":f_lname"=>$fam_lname,":f_cell"=>$fam_cell,":f_email"=>$fam_email,":f_install"=>$fam_installation,":f_remarks"=>$fam_remarks));
+	
+}
 
 // check if mysql insert query successful
 	if($pdoExec)
@@ -92,6 +112,24 @@ $pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,"
 	else
 	{
 		echo "<script type= 'text/javascript'>alert('Credentials were not added. Please verify username is unique.');</script>";
+	}
+	
+	if($pdoExec4)
+	{
+		echo "<script type= 'text/javascript'>alert('Membership details have been added.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('Membership details were NOT added. Please verify membership information and update if necessary.');</script>";
+	}
+	
+	if($pdoExec3)
+	{
+		echo "<script type= 'text/javascript'>alert('Family information has been added.');</script>";
+	}
+	else 
+	{
+		echo "<script type= 'text/javascript'>alert('Family member details were NOT added. Please verify family information and update if necessary.');</script>";
 	}
 }
 
@@ -151,13 +189,13 @@ $pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,"
 		<h3>Member Information</h3><br>
 		<div id="label-right-justify">
 		<label for="mem_fname">First Name:</label>
-		<input id="mem_fname" required type="text" name="mem_fname" value=""><br><br>
+		<input id="mem_fname" required type="text" name="mem_fname" value="" style="text-transform: capitalize;"><br><br>
 		
 		<label for="mname">Middle Name:</label>
-		<input id="mname" type="text" name="mname" value=""><br><br>
+		<input id="mname" type="text" name="mname" value="" style="text-transform: capitalize;"><br><br>
 				
 		<label for="lname">Last Name:</label>
-		<input id="lname" required type="text" name="lname" value=""><br><br>
+		<input id="lname" required type="text" name="lname" value="" style="text-transform: capitalize;"><br><br>
 		
 		<label for="duty">Duty Phone:</label>
 		<input id="duty" required type="tel" name="duty" placeholder="22x-xxxx" value=""><br><br>
@@ -165,18 +203,17 @@ $pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,"
 		<label for="cell">Cell Number:</label>
 		<input id="cell" required type="text" name="cell" value=""><br><br>
 		
-		
 		<label for="street">Street:</label>
 		<input id="street" required type="text" name="street" value=""><br><br>
 		
 		<label for="city">City:</label>
-		<input id="city" required type="text" name="city" value=""><br><br>
+		<input id="city" required type="text" name="city" value="" autocomplete="on"><br><br>
 		
 		<label for="state">State:</label>
-		<input id="state" required type="text" name="state" value=""><br><br>
+		<input id="state" required type="text" name="state" value="" autocomplete="on"><br><br>
 
 		<label for="zip">Zip Code:</label>
-		<input id="zip" required type="text" name="zip" value=""><br><br>
+		<input id="zip" required type="text" name="zip" value="" autocomplete="on"><br><br>
 		
 		<label for="email">Email:</label>
 		<input id="email" required type="email" name="email" value=""><br><br>
@@ -194,7 +231,7 @@ $pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,"
 		<textarea name="remarks" style="height: 60px;"></textarea><br><br>
 		
 		<label for="position">Position:</label>
-		<input id="position" type="text" name="position" value=""><br><br>
+		<input id="position" type="text" name="position" value="" style="text-transform: capitalize;"><br><br>
 		
 		<label for="category">Category:</label>
 		<select required name="category" type="text">
@@ -232,13 +269,13 @@ $pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,"
 		<h3>Family Member</h3><br>
 		<div id="label-right-justify1">
 		<label for="fam_fname">First Name: </label>
-		<input id="fam_fname" type="text" name="fam_fname"><br><br>
+		<input id="fam_fname" type="text" name="fam_fname" style="text-transform: capitalize;"><br><br>
             
 		<label for="fam_mi">Middle Initial:</label>
-        <input id="fam_mi" name="fam_mi" type="text"><br><br>
+        <input id="fam_mi" name="fam_mi" type="text" style="text-transform: capitalize;"><br><br>
 
         <label for="fam_lname">Last Name:</label>
-        <input id="fam_lname" name="fam_lname" type="text"><br><br>
+        <input id="fam_lname" name="fam_lname" type="text" style="text-transform: capitalize;"><br><br>
 
 		<label for="fam_email">Cell:</label>
 		<input id="fam_cell" name="fam_cell" type="tel"><br><br>
@@ -257,6 +294,25 @@ $pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,"
 
        <label for="fam_remarks">Remarks:</label>
        <textarea name="fam_remarks" id="fam_remarks" style="height: 60px;"></textarea><br><br>
+	   </div><br>
+		<h3>Membership</h3><br>
+		<div id="label-right-justify1">
+		<label for="eff-membership">Effective Date:</label>
+		<select name="eff-membership" required id="eff-membership "type="text">
+			<option value=""></option>
+			<option value="2016/10/01">2016/10/01</option>
+			<option value="2017/10/01">2017/10/01</option>
+			<option value="2018/10/01">2018/10/01</option>
+		</select><br><br>
+		
+		<label for="term-membership">Termination Date:</label>
+		<select name="term-membership" required id="term-membership "type="text">
+			<option value=""></option>
+			<option value="2017/09/30">2017/09/30</option>
+			<option value="2018/09/30">2018/09/30</option>
+			<option value="2019/09/30">2019/09/30</option>
+		</select><br><br>
+		</div>
 	   </div>
 </div>
 </div>
@@ -270,10 +326,11 @@ $pdoExec3 = $pdoResult2->execute(array(":f_fname"=>$fam_fname,":f_mi"=>$fam_mi,"
 <a class="btn" href="admin_main_dashboard.php">Return to Dashboard</a>
 </div>
 </div>
-
 <br>
 <br>
-
+<br>
+<br>
+<br>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>

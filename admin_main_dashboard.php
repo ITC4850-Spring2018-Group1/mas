@@ -4,7 +4,7 @@
  session_start();  
  if(isset($_SESSION["sess_username"]))  
  {  
-	echo '<h6>You logged in successfully (Member #) ' . $_SESSION["sess_user_id"].'</h6>';  
+	echo '<h6>You logged in successfully ' . $_SESSION["sess_username"]. '</h6>';  
  }  
  else  
  {  
@@ -115,6 +115,7 @@ else {
 	<li><a href="user_view_edit_personal_information.php">Access Personal Member Portal</a></li>
 	</ul>
 </div>
+<br><br><br><br><br>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
