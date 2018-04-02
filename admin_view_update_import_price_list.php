@@ -25,8 +25,11 @@ if( $_SESSION['sess_user_type'] == "A") {
 <head>
 	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -130,13 +133,47 @@ foreach ($pdo->query($sql) as $row) {
 </table>
 
 <br><br><br><br><br><br>
-<div id="button">
-<ul>
-<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
-<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
-<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
-	</ul>
+<?php
+//load the database configuration file
+include 'dbConfig.php';
+
+if(!empty($_GET['status'])){
+    switch($_GET['status']){
+        case 'succ':
+            $statusMsgClass = 'alert-success';
+            $statusMsg = 'Members data has been inserted successfully.';
+            break;
+        case 'err':
+            $statusMsgClass = 'alert-danger';
+            $statusMsg = 'Some problem occurred, please try again.';
+            break;
+        case 'invalid_file':
+            $statusMsgClass = 'alert-danger';
+            $statusMsg = 'Please upload a valid CSV file.';
+            break;
+        default:
+            $statusMsgClass = '';
+            $statusMsg = '';
+    }
+}
+?>
+<div class="container">
+    <?php if(!empty($statusMsg)){
+        echo '<div class="alert '.$statusMsgClass.'">'.$statusMsg.'</div>';
+    } ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="javascript:void(0);" onclick="$('#importFrm').slideToggle();">Import Inventory</a>
+        </div>
+        <div class="panel-body">
+            <form action="importData.php" method="post" enctype="multipart/form-data" id="importFrm">
+                <input type="file" name="file" />
+                <input type="submit" class="btn btn-primary" name="importSubmit" value="IMPORT">
+            </form>
+        </div>
+    </div>
 </div>
+<br><br><br><br><br>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
