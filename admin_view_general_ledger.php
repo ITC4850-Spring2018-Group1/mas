@@ -9,7 +9,6 @@ if(isset($_SESSION["sess_username"]))
  {  
 	header("location:index.php");  
  }  
-
 if( $_SESSION['sess_user_type'] == "A") {
 		
 		  }
@@ -27,9 +26,18 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
+<!-- files needed for datatables installation -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>	
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#datatable').dataTable();
+		});
+	</script>
 </head>
-
 <body>
 <div class="main-heading">
 	<h1>Yokota Sportsmen&#39;s Club</h1>
@@ -68,18 +76,8 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<h3>General Ledger (view only)</h3>
 </div>
 <br>
-<!-- This is my form -->
-<form name="frmSearch" id="frmSearch" method="post" action="">
- <p class="search_input">
-<input type="text" placeholder="Enter From Date" id="from_date" name="from_date" class="input-control" value=""/>
-<input type="text" placeholder="Enter To Date" id="to_date" name="to_date" style="margin-left:10px"  class="input-control" value=""/>             
-<input type="submit" name="go" value="Refresh" >
-</p>
-</form>
-<br>
-<iframe id="txtArea1" style="display:none"></iframe>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-<table class="user-table" id="table"> 
+<table class="user-table" id="datatable"> 
 	<thead>
 		 <th>ID</a></th> 
 		 <th>Date</th> 
@@ -109,88 +107,36 @@ LEFT JOIN ref_gen_led_transaction_type e ON a.gen_led_transaction_type=e.ref_gen
 LEFT JOIN ref_gen_led_income_type f ON a.gen_led_income_type=f.ref_gen_led_income_typ
 LEFT JOIN member g ON a.gen_led_users_mem_no=g.mem_no
 LEFT JOIN balance h ON a.gen_led_id=h.bal_gen_led_id
-LEFT JOIN users i ON a.gen_led_add_by=i.user_mem_no
+LEFT JOIN users i ON a.gen_led_add_by=i.user_mem_no';
 
-WHERE a.gen_led_trans_date >= :from_date && 
-a.gen_led_trans_date <= :to_date';
-
-//if(isset($_GET['sort'])){
-//	if ($_GET['sort'] == 'id')
-//	{
-//		$sql .= " ORDER BY gen_led_id DESC";
-//	}
-//	elseif ($_GET['sort'] == 'date')
-//	{
-//		$sql .= " ORDER BY gen_led_trans_date";
-//	}
-//	elseif ($_GET['sort'] == 'mem_no')
-//	{
-//		$sql .= " ORDER BY mem_no";
-//	}
-//}
-
-$stmt = $pdo->prepare($sql);
-
-$stmt->bindParam(":from_date", date('Y-m-d 00:00:00', strtotime($_POST['from_date'])));
-$stmt->bindParam(":to_date", date('Y-m-d 23:59:59', strtotime($_POST['to_date'])));
-
-$stmt->execute();
-
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-while ($row = $stmt->fetch()) {
-
-	echo '<tr>';
-	echo '<td>'. $row['gen_led_id'] . '</td>';
-	echo '<td>'. $row['gen_led_trans_date'] . '</td>';
-	echo '<td>'. $row['rec_receipt_no'] . '</td>';
-	echo '<td>'. $row['mem_no'] . '</td>';
-	echo '<td>'. $row['mem_fname'] . '</td>';
-	echo '<td>'. $row['mem_lname'] . '</td>';
-	echo '<td>'. $row['gen_led_description'] . '</td>';
-	echo '<td>'. $row['ref_gen_led_transaction_desc'] . '</td>';
-	echo '<td>'. $row['gen_led_amount'] . '</td>';
-	echo '<td>'. $row['ref_gen_led_expense_desc'] . '</td>';
-	echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
-	echo '<td>'. $row['bal_acct_balance'] . '</td>';
-	echo '<td>'. $row['gen_led_add_by'] . '</td>';
-	echo '<td><a class="btn" href="admin_user_receipt.php?rec_receipt_no='.$row['rec_receipt_no'].'">View    Receipt</a></td>';
-	echo ' ';
-	echo '</tr>';
-} 
-	
-
+foreach ($pdo->query($sql) as $row) {
+		echo '<tr>';
+		echo '<td>'. $row['gen_led_id'] . '</td>';
+		echo '<td>'. $row['gen_led_trans_date'] . '</td>';
+		echo '<td>'. $row['rec_receipt_no'] . '</td>';
+		echo '<td>'. $row['mem_no'] . '</td>';
+		echo '<td>'. $row['mem_fname'] . '</td>';
+		echo '<td>'. $row['mem_lname'] . '</td>';
+		echo '<td>'. $row['gen_led_description'] . '</td>';
+		echo '<td>'. $row['ref_gen_led_transaction_desc'] . '</td>';
+		echo '<td>'. $row['gen_led_amount'] . '</td>';
+		echo '<td>'. $row['ref_gen_led_expense_desc'] . '</td>';
+		echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
+		echo '<td>'. $row['bal_acct_balance'] . '</td>';
+		echo '<td>'. $row['gen_led_add_by'] . '</td>';
+		echo '<td><a class="btn" href="admin_user_receipt.php?rec_receipt_no='.$row['rec_receipt_no'].'">View Receipt</a></td>';
+		echo ' ';
+		echo '</tr>';
+ }
 Database::disconnect();
 ?>
 </tbody>
 </table>
 
-<!-- This is my script which does display the datepicker when the input boxes are clicked -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<script>
-$.datepicker.setDefaults({
-	showOn: "button",
-	buttonImage: "datepicker.png",
-	buttonText: "Date Picker",
-	buttonImageOnly: true,
-	dateFormat: 'yy-mm-dd',
-	changeMonth: true,
-	changeYear: true  
-	});
-
-$(function() {
-$("#from_date").datepicker();
-$("#to_date").datepicker();
-});
-</script>
-
-
-<br><br><br><br><br>
+<br><br><br>
 <div id="button">
 	<ul>
-		<li><a href="admin_report_quarterly_financial_statement.php">Print Financial Statement</a></li>
+		<li><a href="admin_report_quarterly_financial_statement">Print Financial Statement</a></li>
 		<li><a href="admin_report_general_ledger_by_date.php">Print General Ledger</a></li>
 		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
@@ -201,6 +147,7 @@ $("#to_date").datepicker();
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
 </body>
 </html>
+
 
 
 
