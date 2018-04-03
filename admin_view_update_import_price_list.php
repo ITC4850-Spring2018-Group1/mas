@@ -25,7 +25,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 <head>
 	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -141,7 +141,7 @@ if(!empty($_GET['status'])){
     switch($_GET['status']){
         case 'succ':
             $statusMsgClass = 'alert-success';
-            $statusMsg = 'Members data has been inserted successfully.';
+            $statusMsg = 'Data has been inserted and/or updated successfully.';
             break;
         case 'err':
             $statusMsgClass = 'alert-danger';
@@ -157,21 +157,23 @@ if(!empty($_GET['status'])){
     }
 }
 ?>
+<div class="block-center">
 <div class="container">
     <?php if(!empty($statusMsg)){
         echo '<div class="alert '.$statusMsgClass.'">'.$statusMsg.'</div>';
     } ?>
-    <div class="panel panel-default">
+    <div class="panel-default">
         <div class="panel-heading">
             <a href="javascript:void(0);" onclick="$('#importFrm').slideToggle();">Import Inventory</a>
-        </div>
+        </div><br>
         <div class="panel-body">
             <form action="importData.php" method="post" enctype="multipart/form-data" id="importFrm">
-                <input type="file" name="file" />
-                <input type="submit" class="btn btn-primary" name="importSubmit" value="IMPORT">
+                <input type="file" name="file" /><br><br><br>
+                <input type="submit" class="btn-primary" name="importSubmit" value="IMPORT">
             </form>
         </div>
     </div>
+</div>
 </div>
 <br><br><br><br><br>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
