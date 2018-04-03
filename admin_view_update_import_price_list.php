@@ -158,7 +158,7 @@ if(!empty($_GET['status'])){
 }
 ?>
 <div class="block-center">
-<div class="container">
+<div class="container1">
     <?php if(!empty($statusMsg)){
         echo '<div class="alert '.$statusMsgClass.'">'.$statusMsg.'</div>';
     } ?>
