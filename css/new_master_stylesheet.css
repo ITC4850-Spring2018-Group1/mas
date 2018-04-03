@@ -858,7 +858,7 @@ form {
 	margin: 0px auto;
 }
 
-div.container {
+div.container1 {
 	border: 1px solid green;
 	text-align: center;
 	background-color: #f5f5f5;
@@ -869,7 +869,7 @@ div.container {
 	width: 600px;
 }
 
-div.container a {
+div.container1 a {
 	color: #337ab7;
 	background-color: transparent;
 	box-sizing: border-box;
