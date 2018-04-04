@@ -1,3 +1,22 @@
+<br>
+<?php  
+ session_start();
+if(isset($_SESSION["sess_username"]))  
+ {  
+	echo '<h6>Your session is currently ACTIVE '.$_SESSION["sess_username"].'</h6>';    
+ }  
+ else  
+ {  
+	header("location:index.php");  
+ }  
+if( $_SESSION['sess_user_type'] == "A") {
+		
+		  }
+	else {
+		header('Location: index.php');
+		}
+?>
+
 <!-- INSTRUCTIONS: this is the header and footer template for the primary ADMIN pages. Code your forms, tables, etc., below the navigation tags. Placeholders have been included where variables will be displayed based on session login information for the user. Leave these "AS IS" for now. To maintain consistency, please do not change the header information other than where indicated with additional comments. -->
 
 <!DOCTYPE html>
