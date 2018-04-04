@@ -21,7 +21,8 @@ if( $_SESSION['sess_user_type'] == "A") {
 
 <?php
 require 'database.php';
-if(isset($_POST['mem_no'])) {
+if(isset($_POST['mem_no'])) 
+{
 	$pdo = Database::connect();
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
