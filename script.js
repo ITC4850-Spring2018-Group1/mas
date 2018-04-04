@@ -1,65 +1,39 @@
-$(function() {
-	var oTable = $('#datatable').DataTable({
-		"oLanguage": {
-			"sSearch": "Filter Data"
-		},
-	});
+// The plugin function for adding a new filtering routine
+			$.fn.dataTableExt.afnFiltering.push(
+			function(oSettings, aData, iDataIndex){
+				var dateStart = parseDateValue($("#min").val());
+				var dateEnd = parseDateValue($("#max").val());
+				
+// aData represents the table structure as an array of columns, so the script accesses the date value 
+// in the second column of the table via aData[1]
+				var evalDate= parseDateValue(aData[1]);
 
-	$("#datepicker_from").datepicker({
-		showOn: "button",
-		buttonImage: "datepicker.png",
-		buttonImageOnly: false,
-		dateFormat: 'yy-mm-dd',
-		changeMonth: true,
-		changeYear: true,
-		"onSelect": function(date) {
-			minDateFilter = new Date(date).getTime();
-			oTable.Draw();
-		}
-	}).keyup(function() {
-		minDateFilter = new Date(this.value).getTime();
-		oTable.Draw();
-	});
+				if (evalDate >= dateStart && evalDate <= dateEnd) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			});
 
-	$("#datepicker_to").datepicker({
-		showOn: "button",
-		buttonImage: "datepicker.png",
-		buttonImageOnly: false,
-		dateFormat: 'yy-mm-dd',
-		changeMonth: true,
-		changeYear: true,
-		"onSelect": function(date) {
-			maxDateFilter = new Date(date).getTime();
-			oTable.Draw();
-		}
-	}).keyup(function() {
-		maxDateFilter = new Date(this.value).getTime();
-		oTable.Draw();
-	});
-
-});
-
-// Date range filter
-minDateFilter = "";
-maxDateFilter = "";
-
-$.fn.dataTableExt.afnFiltering.push(
-	function(oSettings, aData, iDataIndex) {
-		if (typeof aData._date == 'undefined') {
-			aData._date = new Date(aData[0]).getTime();
-		}
-
-		if (minDateFilter && !isNaN(minDateFilter)) {
-			if (aData._date < minDateFilter) {
-				return false;
-			}
-		}
-
-		if (maxDateFilter && !isNaN(maxDateFilter)) {
-			if (aData._date > maxDateFilter) {
-				return false;
-			}
-		}
-		return true;
-	}
-);
+			$(document).ready(function(){			
+				var oTable = $('#datatable').dataTable({
+			
+				});
+				
+				$('#min,#max').datepicker({
+					dateFormat: "yy-mm-dd",
+					showOn: "button",
+					buttonImageOnly: "true",
+					buttonImage: "datepicker.png",
+					weekStart: 1,
+					changeMonth: "true",
+					changeYear: "true",
+					daysOfWeekHighlighted: "0",
+					autoclose: true,
+					todayHighlight: true
+				});
+				
+// Add event listeners to the two range filtering inputs
+				$('#min,#max').change(function(){ oTable.fnDraw(); });
+			});
