@@ -38,6 +38,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 
 <!-- additional files needed for datatables styling -->
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js" data-server="2.0.3" data-require="jquery"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.12.4.js" data-server="1.12.4" data-require="jquery"></script>
 	<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
 	<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
@@ -153,7 +154,7 @@ Database::disconnect();
 <div id="button">
 	<ul>
 		<li><a href="admin_report_quarterly_financial_statement.php">Print Financial Statement</a></li>
-		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
+		<li><a href="admin_view_update_import_price_list.php">View Inventory</a></li>
 		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
 </div>

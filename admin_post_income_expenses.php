@@ -88,7 +88,7 @@ if(isset($_POST['mem_no'])) {
 		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 		<li><a href="admin_view_update_membership_summary.php">View Membership</a></li>
 		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
-		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
+		<li><a href="admin_view_update_import_price_list.php">View Inventory</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
 	</ul>
 <br>
@@ -171,8 +171,13 @@ if(isset($_POST['mem_no'])) {
 </div>
 <br>
 <div class="submit-inc-exp"><br>
-	<button type="submit" name="submit" class="submit-inc-exp">Submit</button><br><br><br>
-	<a class="btn" href="admin_main_dashboard.php">Back</a>
+	<button type="submit" name="submit" class="submit-inc-exp">Submit</button><br><br><br><br>
+	<div id="bottom-return-to-dashboard">
+	<div id="button-back">
+	<a class="btn" href="admin_main_dashboard.php">Return to Dashboard</a>
+	</div>
+	</div>
+
 	</div>
 	
 <div class="reset">
