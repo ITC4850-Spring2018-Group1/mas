@@ -47,12 +47,48 @@ if(isset($_POST['mem_no'])) {
 	   ":mem_no" => $mem_no,
 	   ":amount" => $amount,
 ));
-	$query2->execute();
-	$query3->execute();
-	$query4->execute();
-	
-	Database::disconnect();
-	header("Location: admin_post_sales_checkout_success.php");
+	$result2 = $query2->execute();
+	$result3 = $query3->execute();
+	$result4 = $query4->execute();
+
+// check if mysql insert query successful
+	if($result)
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger has been updated');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger has not been updated. Please confirm entry.');</script>";
+	}
+
+	if($result2)
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger balance has been updated');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger balance has not been updated. Please confirm entry.');</script>";
+	}
+
+	if($result3)
+	{
+		echo "<script type= 'text/javascript'>alert('ATF table has been updated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('ATF table has not been updated. Please confirm entry.');</script>";
+	}
+
+	if($result4)
+	{
+		echo "<script type= 'text/javascript'>alert('Receipt has been generated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('Receipt has not been generated. Please confirm entry.');</script>";
+	}
+
+Database::disconnect();
 		}
 ?>
 

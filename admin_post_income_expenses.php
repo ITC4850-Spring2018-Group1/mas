@@ -48,11 +48,38 @@ if(isset($_POST['mem_no'])) {
 	   ":amount" => $amount,
 	   ":description" => $description
 ));
-	$query2->execute();
-	$query3->execute();
-	Database::disconnect();
-	header("Location: admin_post_sales_checkout_success.php");
+	$result1 = $query2->execute();
+	$result2 = $query3->execute();
+	
+	// check if mysql insert query successful
+	if($result)
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger has been updated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger has not been updated. Please verify submission.');</script>";
+	}
+	
+	if($result1)
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger balance has been updated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger balance has not been updated. Please verify submission.');</script>";
+	}
 
+	if($result2)
+	{
+		echo "<script type= 'text/javascript'>alert('Receipt has been generated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('Receipt has not been generated. Please verify submission.');</script>";
+	}
+	
+	Database::disconnect();
 }
 ?>
 
@@ -143,6 +170,7 @@ if(isset($_POST['mem_no'])) {
 		<option value="O">E - Other</option>
 		<option value="S">E - Supplies</option>
 		<option value="X">E - Clerical Error</option>
+		<option value="R">E - Sales fee refund</option>
 	</select>
 </div><br>
 

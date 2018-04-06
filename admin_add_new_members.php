@@ -84,7 +84,7 @@ $pdoExec4 = $pdoResult3->execute(array(":effdate"=>$eff_membership, ":termdate"=
 
 // if family member names are BOTH empty; if one or the other is present, post a message; otherwise, if both are present, enter a family member record
 if(empty($fam_fname) || empty($fam_lname)) {
-	
+	echo "<script type= 'text/javascript'>alert('Please enter a first and last name.');</script>";
 }
 else {
 	$pdoQuery3 = "INSERT INTO family (fam_fname, fam_mi, fam_lname, fam_cell_number, fam_email, fam_installation, fam_remarks, fam_assoc_mem_no) VALUES (:f_fname, :f_mi, :f_lname, :f_cell, :f_email, :f_install, :f_remarks, (LAST_INSERT_ID()))";
@@ -131,7 +131,9 @@ else {
 	{
 		echo "<script type= 'text/javascript'>alert('Family member details were NOT added. Please verify family information and update if necessary.');</script>";
 	}
+Database::disconnect();
 }
+
 
 ?>
 
@@ -198,22 +200,22 @@ else {
 		<input id="lname" required type="text" name="lname" value="" style="text-transform: capitalize;"><br><br>
 		
 		<label for="duty">Duty Phone:</label>
-		<input id="duty" required type="tel" name="duty" placeholder="22x-xxxx" value=""><br><br>
+		<input id="duty" required type="tel" name="duty" placeholder="22x-xxxx" value="225-"><br><br>
 				
 		<label for="cell">Cell Number:</label>
-		<input id="cell" required type="text" name="cell" value=""><br><br>
+		<input id="cell" type="tel" required type="text" name="cell" value="" placeholder="000-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br><br>
 		
 		<label for="street">Street:</label>
-		<input id="street" required type="text" name="street" value=""><br><br>
+		<input id="street" required type="text" name="street" value="PSC 78 Box"><br><br>
 		
 		<label for="city">City:</label>
-		<input id="city" required type="text" name="city" value="" autocomplete="on"><br><br>
+		<input id="city" required type="text" name="city" value="APO" autocomplete="on"><br><br>
 		
 		<label for="state">State:</label>
-		<input id="state" required type="text" name="state" value="" autocomplete="on"><br><br>
+		<input id="state" required type="text" name="state" value="AP" autocomplete="on"><br><br>
 
 		<label for="zip">Zip Code:</label>
-		<input id="zip" required type="text" name="zip" value="" autocomplete="on"><br><br>
+		<input id="zip" required type="text" name="zip" value="96326" autocomplete="on"><br><br>
 		
 		<label for="email">Email:</label>
 		<input id="email" required type="email" name="email" value=""><br><br>
@@ -260,7 +262,7 @@ else {
         <input id="password" required name="password" type="text"><br><br>
 
         <label for="role">User Role:</label>
-        <select required name="role" id="role" type="text">
+        <select required name="role" id="role" type="text" value="U">
 			<option value=""></option>
 			<option value="U">User</option>
 			<option value="A">Admin</option>
