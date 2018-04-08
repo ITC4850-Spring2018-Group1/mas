@@ -5,7 +5,6 @@
  $password = "root";  
  $database = "yokotasp_mas1";  
  $message = "";  
-
 try  {  
 $connect = new PDO("mysql:host=$host; dbname=$database", $username, $password);  
 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
@@ -25,7 +24,7 @@ if(isset($_POST["login"]))
 		$statement->execute(array('username'=>$_POST["username"],'password'=>$_POST["password"]));
 		
 		if ($statement->rowCount() == 0) {
-			header('Location: index.php');
+			header('Location: index.php?message=Invalid username and/or password combination.');
 					}	
 		else {
 			$row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -52,7 +51,6 @@ if(isset($_POST["login"]))
  {  
 		$message = $error->getMessage();  
  }  
-
  ?>  
  <!DOCTYPE html>  
  <html>  
@@ -61,7 +59,6 @@ if(isset($_POST["login"]))
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
  <link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
- <link rel=""
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
 </head>  
 <body>  
@@ -72,9 +69,9 @@ if(isset($_POST["login"]))
 <br />  
  <div class="container" style="width:500px;">  
 	<?php  
-	if(isset($message))  
+if(isset($_GET['message']))  
 	{  
-			 echo '<label class="text-danger">'.$message.'</label>';  
+			 echo '<label class="text-danger">'.$_GET['message'].'</label>';  
 	}  
 	?>
 <br>
