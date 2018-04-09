@@ -84,7 +84,7 @@ $pdoExec4 = $pdoResult3->execute(array(":effdate"=>$eff_membership, ":termdate"=
 
 // if family member names are BOTH empty; if one or the other is present, post a message; otherwise, if both are present, enter a family member record
 if(empty($fam_fname) || empty($fam_lname)) {
-	echo "<script type= 'text/javascript'>alert('Please enter a first and last name.');</script>";
+	
 }
 else {
 	$pdoQuery3 = "INSERT INTO family (fam_fname, fam_mi, fam_lname, fam_cell_number, fam_email, fam_installation, fam_remarks, fam_assoc_mem_no) VALUES (:f_fname, :f_mi, :f_lname, :f_cell, :f_email, :f_install, :f_remarks, (LAST_INSERT_ID()))";
@@ -131,7 +131,7 @@ else {
 	{
 		echo "<script type= 'text/javascript'>alert('Family member details were NOT added. Please verify family information and update if necessary.');</script>";
 	}
-Database::disconnect();
+
 }
 
 
