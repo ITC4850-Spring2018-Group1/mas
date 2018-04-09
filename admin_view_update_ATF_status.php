@@ -56,11 +56,11 @@ href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataT
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
 <div class="signout">
-	<a href="signout.php">Sign Out</a>	
+	<a href="logout.php">Sign Out</a>	
 </div>
 
 <div class="logininfo">
-	<p>[placeholder][placeholder] you are logged in as an ADMIN</p>
+	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an ADMIN</p>'; ?> 
 </div>
 <br>
 <br>
