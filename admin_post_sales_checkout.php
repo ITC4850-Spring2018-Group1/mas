@@ -47,12 +47,48 @@ if(isset($_POST['mem_no'])) {
 	   ":mem_no" => $mem_no,
 	   ":amount" => $amount,
 ));
-	$query2->execute();
-	$query3->execute();
-	$query4->execute();
-	
-	Database::disconnect();
-	header("Location: admin_post_sales_checkout_success.php");
+	$result2 = $query2->execute();
+	$result3 = $query3->execute();
+	$result4 = $query4->execute();
+
+// check if mysql insert query successful
+	if($result)
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger has been updated');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger has not been updated. Please confirm entry.');</script>";
+	}
+
+	if($result2)
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger balance has been updated');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger balance has not been updated. Please confirm entry.');</script>";
+	}
+
+	if($result3)
+	{
+		echo "<script type= 'text/javascript'>alert('ATF table has been updated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('ATF table has not been updated. Please confirm entry.');</script>";
+	}
+
+	if($result4)
+	{
+		echo "<script type= 'text/javascript'>alert('Receipt has been generated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('Receipt has not been generated. Please confirm entry.');</script>";
+	}
+
+Database::disconnect();
 		}
 ?>
 
@@ -89,7 +125,7 @@ if(isset($_POST['mem_no'])) {
 		<li><a href="admin_view_update_membership_summary.php">View Membership</a></li>
 		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
-		<li><a href="admin_view_update_import_price_list.php">View Price Listing</a></li>
+		<li><a href="admin_view_update_import_price_list.php">View Inventory</a></li>
 	</ul>
 <br>
 </div>
@@ -158,8 +194,12 @@ if(isset($_POST['mem_no'])) {
 </div><br>
 
 <div class="button-checkout"><br>
-	<button type="submit" name="submit" class="button-checkout">Complete Checkout</button><br><br>
-	<a class="btn2" href="admin_main_dashboard.php">Back</a>
+	<button type="submit" name="submit" class="button-checkout">Complete Checkout</button><br><br><br><br><br><br>
+	<div id="bottom-return-to-dashboard">
+	<div id="button-back">
+	<a class="btn" href="admin_main_dashboard.php">Return to Dashboard</a>
+	</div>
+	</div>
 	</div>
 	
 <div class="reset2">

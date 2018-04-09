@@ -23,13 +23,33 @@ if( $_SESSION['sess_user_type'] == "A") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
-<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+<!-- files needed for datatables installation -->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
+<link rel="stylesheet" 
+href="https://code.jquery.com/ui/1.10.13/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" 
+href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="script1.js"></script>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table_jui.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link data-require="jqueryui@*" data-server="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+
+
+
+
 </head>
 
 <body>
@@ -69,32 +89,53 @@ if( $_SESSION['sess_user_type'] == "A") {
 
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
-	<h3>View/Update Price List</h3>
+	<h3>View/Update Inventory</h3>
 </div>
 <br>
 
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-<table class="user-table">
+<table class="user-table" id="datatable">
 	<thead>
-	 <th>List #</th>
-	 <th>Item #</th>
-	 <th>Serial #</th>
-	 <th>Manufacturer</th>
-	 <th>Model</th> 
-	 <th>Kind</th> 
-	 <th>Type</th> 
-	 <th>Gauge</th> 
-	 <th>Bbl</th> 
-	 <th>Choke</th> 
-	 <th>Quantity</th> 
-	 <th>Price (&yen;)</th> 
-	 <th>Description</th>
-	 <th>Comment</th>
-	 <th>Associated<br>Member #</th>
-	 <th>Add Date</th>
-	 <th>Update Date</th>
-	 <th>Action</th>
- 	</thead>
+		 <th>List #</th>
+	<!-- <th>Item #</th> -->
+		 <th>Serial #</th>
+		 <th>Manu</th>
+		 <th>Mod</th> 
+		 <th>Knd</th> 
+		 <th>Typ</th> 
+		 <th>Gauge</th> 
+		 <th>Bbl</th> 
+		 <th>Chk</th> 
+		 <th>Qty</th> 
+		 <th>Price (&yen;)</th> 
+		 <th>Desc</th>
+		 <th>Comment</th>
+		 <th>Assoc<br>Member #</th>
+		 <th>Added</th>
+		 <th>Updated</th>
+		 <th>Action</th>
+	 	</thead>
+	<tfoot>
+		<th>List #</th>
+		<!-- <th>Item #</th> -->
+			 <th>Serial #</th>
+			 <th>Manu</th>
+			 <th>Mod</th> 
+			 <th>Knd</th> 
+			 <th>Typ</th> 
+			 <th>Gauge</th> 
+			 <th>Bbl</th> 
+			 <th>Chk</th> 
+			 <th>Qty</th> 
+			 <th>Price (&yen;)</th> 
+			 <th>Desc</th>
+			 <th>Comment</th>
+			 <th>Assoc<br>Member #</th>
+			 <th>Added</th>
+			 <th>Updated</th>
+			 <th>Action</th>
+		 	</thead>
+	</tfoot>
 <tbody>
 <?php
  include 'database.php';
@@ -106,7 +147,7 @@ ORDER BY pri_li_item_no';
 foreach ($pdo->query($sql) as $row) {
 	echo '<tr>';
 	echo '<td>'. $row['pri_li_no'] . '</td>';
-	echo '<td>'. $row['pri_li_item_no'] . '</td>';
+//	echo '<td>'. $row['pri_li_item_no'] . '</td>';
 	echo '<td>'. $row['pri_li_serial_no'] . '</td>';
 	echo '<td>'. $row['pri_li_manufacturer'] . '</td>';
 	echo '<td>'. $row['pri_li_model'] . '</td>';
@@ -132,7 +173,7 @@ foreach ($pdo->query($sql) as $row) {
 </tbody>
 </table>
 
-<br><br><br><br><br><br>
+<br><br>
 <?php
 //load the database configuration file
 include 'dbConfig.php';
@@ -173,6 +214,12 @@ if(!empty($_GET['status'])){
             </form>
         </div>
     </div>
+</div>
+</div>
+<br><br><br>
+<div id="bottom-return-to-dashboard">
+<div id="button-back">
+<a class="btn" href="admin_main_dashboard.php">Return to Dashboard</a>
 </div>
 </div>
 <br><br><br><br><br>

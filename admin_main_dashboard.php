@@ -1,6 +1,5 @@
 <br>
 <?php  
- //login_success.php  
  session_start();  
  if(isset($_SESSION["sess_username"]))  
  {  
@@ -109,11 +108,13 @@ else {
 </div>		
 <br>
 <br>
-<br>
+<br><br><br>
 <div class="member-portal-link">
-	<ul>
-	<li><a href="user_view_edit_personal_information.php">Access Personal Member Portal</a></li>
-	</ul>
+	<div id="bottom-return-to-dashboard">
+	<div id="button-back">
+	<a class="btn" href="user_view_edit_personal_information.php">Access Personal Member Portal</a>
+	</div>
+	</div>
 </div>
 <br><br><br><br><br>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->

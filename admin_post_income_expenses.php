@@ -49,11 +49,38 @@ if(isset($_POST['mem_no']))
 	   ":amount" => $amount,
 	   ":description" => $description
 ));
-	$query2->execute();
-	$query3->execute();
-	Database::disconnect();
-	header("Location: admin_post_sales_checkout_success.php");
+	$result1 = $query2->execute();
+	$result2 = $query3->execute();
+	
+	// check if mysql insert query successful
+	if($result)
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger has been updated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger has not been updated. Please verify submission.');</script>";
+	}
+	
+	if($result1)
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger balance has been updated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('General ledger balance has not been updated. Please verify submission.');</script>";
+	}
 
+	if($result2)
+	{
+		echo "<script type= 'text/javascript'>alert('Receipt has been generated.');</script>";
+	}
+	else
+	{
+		echo "<script type= 'text/javascript'>alert('Receipt has not been generated. Please verify submission.');</script>";
+	}
+	
+	Database::disconnect();
 }
 ?>
 
@@ -89,7 +116,7 @@ if(isset($_POST['mem_no']))
 		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 		<li><a href="admin_view_update_membership_summary.php">View Membership</a></li>
 		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
-		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
+		<li><a href="admin_view_update_import_price_list.php">View Inventory</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
 	</ul>
 <br>
@@ -144,6 +171,7 @@ if(isset($_POST['mem_no']))
 		<option value="O">E - Other</option>
 		<option value="S">E - Supplies</option>
 		<option value="X">E - Clerical Error</option>
+		<option value="R">E - Sales fee refund</option>
 	</select>
 </div><br>
 
@@ -172,8 +200,13 @@ if(isset($_POST['mem_no']))
 </div>
 <br>
 <div class="submit-inc-exp"><br>
-	<button type="submit" name="submit" class="submit-inc-exp">Submit</button><br><br><br>
-	<a class="btn" href="admin_main_dashboard.php">Back</a>
+	<button type="submit" name="submit" class="submit-inc-exp">Submit</button><br><br><br><br>
+	<div id="bottom-return-to-dashboard">
+	<div id="button-back">
+	<a class="btn" href="admin_main_dashboard.php">Return to Dashboard</a>
+	</div>
+	</div>
+
 	</div>
 	
 <div class="reset">

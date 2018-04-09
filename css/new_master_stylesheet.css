@@ -5,6 +5,7 @@
 	box-sizing: inherit;
 }
 
+
 table {
 	border: 1px solid black;
 	border-radius: 1px solid yellow;
@@ -36,7 +37,7 @@ tr:nth-child(odd) {
 }
 
 body {
-	background-color: #e4fcfc;
+	background: #e4fcfc;
 }
 
 h6 {
@@ -51,6 +52,13 @@ h6 {
 	width: 300px;
 }
 
+div#datatable_length {
+	text-align: left;
+}
+
+.dataTables_wrapper .dataTables_info {
+	text-align: left;
+}
 /* main header display rules-----------------------------------------------------------*/
 .main-heading h1 {
 	width: auto;
@@ -216,6 +224,7 @@ hr {
 	border: 1px solid #000;
 	float: left;
 	background-color: #DDD;
+	border-radius: 4px;
 }	
 
 #button li:hover {
@@ -420,6 +429,37 @@ form {
 	text-align: center;
 } 
 
+/* added styles for admin_view_update_ATF_status.php */
+#button-two ul {
+	list-style-type: none;
+	overflow: hidden;
+	width: 420px;
+	margin: 0px auto;
+}
+
+#button-two li {
+	width: 200px;
+	height: 40px;
+	margin: 0px 4px;
+	border: 1px solid #000;
+	float: left;
+	background-color: #DDD;
+	border-radius: 4px;
+}	
+
+#button-two li:hover {
+	background-color: #ffeb99;
+}
+
+#button-two a {
+	display: block;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	text-decoration: none;
+	text-align: center;
+}
+
 /* added styles for admin_add_new_members.php */
 
 .form {
@@ -519,6 +559,29 @@ form {
 
 }
 
+#button-back {
+	text-align: center;
+	width: 280px;
+	height: 40px;
+}
+
+#bottom-return-to-dashboard {
+	text-align: center;
+	width: 280px;
+	margin: 0px auto;
+}
+
+#button-back a {
+	border: 1px solid black;
+	padding: 10px;
+	border-radius: 5px; 
+	text-decoration: none;
+	background-color: lightblue;
+}
+
+#button-back a:hover {
+	background-color: #ffeb99;
+}
 /* added styles for admin_post_sales_checkout.php */
 .select-item label {
 	font-size: 22px;

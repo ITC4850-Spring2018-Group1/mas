@@ -271,10 +271,16 @@ INSERT INTO ref_gen_led_expense_type
 VALUES ('T', 'Trip reimbursement');
 
 INSERT INTO ref_gen_led_expense_type
-VALUES ('O', 'Other');
+VALUES ('S', 'Supplies');
 
 INSERT INTO ref_gen_led_expense_type
-VALUES ('S', 'Supplies');
+VALUES ('R', 'Sales fee refund');
+
+INSERT INTO ref_gen_led_expense_type
+VALUES ('X', 'Clerical error');
+
+INSERT INTO ref_gen_led_expense_type
+VALUES ('O', 'Other');
 
 CREATE TABLE ref_gen_led_income_type (
 	ref_gen_led_income_typ CHAR (2) PRIMARY KEY,

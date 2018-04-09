@@ -24,10 +24,29 @@ if( $_SESSION['sess_user_type'] == "A") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
+	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+<!-- files needed for datatables installation -->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
+<link rel="stylesheet" 
+href="https://code.jquery.com/ui/1.10.13/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" 
+href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="script1.js"></script>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table_jui.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link data-require="jqueryui@*" data-server="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
 </head>
 
 <body>
@@ -51,10 +70,10 @@ if( $_SESSION['sess_user_type'] == "A") {
 <div class="nav-admin">
 	<ul>
 		<li><a href="admin_view_update_membership_summary.php">View Membership</a></li>
+		<li><a href="admin_add_new_members.php">Add Membership</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
-		<li><a href="admin_view_update_ATF_status.php">ATF Status</a></li>
-		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
 		<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
+		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 	</ul>
 <br>
 </div>
@@ -72,21 +91,34 @@ if( $_SESSION['sess_user_type'] == "A") {
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <center>
 
-<table class="user-table"> 
+<table class="user-table" id="datatable"> 
 	<thead> 
-		 <th>M. no.</th> 
+		 <th>Member #</th> 
 		 <th>First Name</th> 
 		 <th>MI</th> 
 		 <th>Last Name</th> 
 		 <th>Member Category</th> 
-                 <th>Member Type</th> 
+         <th>Member Type</th> 
+		 <th>Email</th>
+		 <th>Cell</th>  
 		 <th>Effective Date</th> 
-                 <th>Term Date</th> 
-	      
+         <th>Term Date</th> 
  	</thead>
+	
+	<tfoot> 
+		 <th>Member #</th> 
+		 <th>First Name</th> 
+		 <th>MI</th> 
+		 <th>Last Name</th> 
+		 <th>Member Category</th> 
+		 <th>Member Type</th> 
+		 <th>Email</th>
+		 <th>Cell</th>  
+		 <th>Effective Date</th> 
+		 <th>Term Date</th>  
+	</tfoot>
 
 <tbody>
-
 <?php
  include 'database.php';
  $pdo = Database::connect();
@@ -105,6 +137,8 @@ foreach ($pdo->query($sql) as $row) {
 					echo '<td>'. $row['mem_lname'] . '</td>';
 					echo '<td>'. $row['ref_mem_category_desc'] . '</td>';
 					echo '<td>'. $row['ref_mem_typ_desc'] . '</td>';
+					echo '<td>'. $row['mem_email'] . '</td>';
+					echo '<td>'. $row['mem_cell_number'] . '</td>';
 					echo '<td>'. $row['membership_eff_date'] . '</td>';
 					echo '<td>'. $row['membership_term_date'] . '</td>';
 					echo ' ';
@@ -112,15 +146,22 @@ foreach ($pdo->query($sql) as $row) {
  }
  Database::disconnect();
 ?>
+</tbody>
 </table>
 <br><br><br><br><br><br>
-<div id="button">
+<div id="button-two">
 	<ul>
-		 <li><a href="admin_report_member_expiry.php">Print</a></li>
+		 <li><a href="admin_view_update_import_price_list.php">Import Inventory</a>
 		 <li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
 </div>
 <br><br><br>
+<div id="button-one">
+<SCRIPT LANGUAGE="JavaScript"> 
+	if (window.print) {
+	document.write('<form><input type="button" name="print" value="Print Report"onClick="window.print()"></form>');
+	}
+</script>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>

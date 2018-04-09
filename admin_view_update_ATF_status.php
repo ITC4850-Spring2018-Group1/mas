@@ -24,10 +24,29 @@ if( $_SESSION['sess_user_type'] == "A") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<title>Membership and Accounting System (MAS)</title>
+	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+<!-- files needed for datatables installation -->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
+<link rel="stylesheet" 
+href="https://code.jquery.com/ui/1.10.13/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" 
+href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="script1.js"></script>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table_jui.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
+<link data-require="jqueryui@*" data-server="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
 </head>
 
 <body>
@@ -53,8 +72,8 @@ if( $_SESSION['sess_user_type'] == "A") {
 		<li><a href="admin_view_update_membership_summary.php">View Membership</a></li>
 		<li><a href="admin_add_new_members.php">Add Membership</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
-		<li><a href="admin_view_update_import_price_list.php">Import Inventory</a></li>
 		<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
+		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 	</ul>
 <br>
 </div>
@@ -72,7 +91,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <center>
 
-<table class="user-table"> 
+<table class="user-table" id="datatable"> 
 	<thead> 
 		 <th>Member<br>#</th> 
 		 <th>First Name</th> 
@@ -87,8 +106,23 @@ if( $_SESSION['sess_user_type'] == "A") {
          <th>Last Updated</th>
          <th>Updated By</th>
          <th>Action</th>
-	      
  	</thead>
+
+	<tfoot>
+		<th>Member<br>#</th> 
+		 <th>First Name</th> 
+		 <th>MI</th> 
+		 <th>Last Name</th> 
+		 <th>Serial #</th> 
+		 <th>ATF Form<br>Sent</th> 
+			<th>Sent Date</th>
+			<th>Approval Date</th>
+			<th>Comment</th>
+			<th>Date Added</th>
+			<th>Last Updated</th>
+			<th>Updated By</th>
+			<th>Action</th>
+	</tfoot>
 
 <tbody>
 
@@ -122,12 +156,18 @@ foreach ($pdo->query($sql) as $row) {
 ?>
 </table>
 <br><br><br><br><br><br>
-<div id="button">
+<div id="button-two">
 	<ul>
-		 <li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
-		 <li><a href="admin_report_ATF_accountability.php">Print ATF Report</a></li>
+		 <li><a href="admin_view_update_import_price_list.php">View Inventory</a></li>
 		 <li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
+</div><br><br><br> 
+<div id="button-one">
+<SCRIPT LANGUAGE="JavaScript"> 
+	if (window.print) {
+	document.write('<form><input type="button" name="print" value="Print Report"onClick="window.print()"></form>');
+	}
+</script>
 </div>
 <br><br><br>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->

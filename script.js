@@ -1,39 +1,61 @@
-// The plugin function for adding a new filtering routine
-			$.fn.dataTableExt.afnFiltering.push(
-			function(oSettings, aData, iDataIndex){
-				var dateStart = parseDateValue($("#min").val());
-				var dateEnd = parseDateValue($("#max").val());
-				
-// aData represents the table structure as an array of columns, so the script accesses the date value 
-// in the second column of the table via aData[1]
-				var evalDate= parseDateValue(aData[1]);
-
-				if (evalDate >= dateStart && evalDate <= dateEnd) {
-					return true;
+	$(document).ready(function() {
+		$( function() {
+	   	 $( "#datepicker" ).datepicker(
+		{
+			changeMonth:	true,
+			changeYear:		true
+		}
+	);
+	  	} );
+	  
+		// Setup - add a text input to each footer cell
+		$('#datatable tfoot th').each( function () {
+			var title = $(this).text();
+			if (title === "Start date") {
+				$(this).html( '<input type="text" id="datepicker" placeholder="Search '+title+'" />' );
 				}
 				else {
-					return false;
+				$(this).html( '<input type="text" placeholder="Search '+title+'" />' );
 				}
-			});
+		} );
 
-			$(document).ready(function(){			
-				var oTable = $('#datatable').dataTable({
-			
-				});
-				
-				$('#min,#max').datepicker({
-					dateFormat: "yy-mm-dd",
-					showOn: "button",
-					buttonImageOnly: "true",
-					buttonImage: "datepicker.png",
-					weekStart: 1,
-					changeMonth: "true",
-					changeYear: "true",
-					daysOfWeekHighlighted: "0",
-					autoclose: true,
-					todayHighlight: true
-				});
-				
-// Add event listeners to the two range filtering inputs
-				$('#min,#max').change(function(){ oTable.fnDraw(); });
-			});
+		// DataTable
+		var table = $('#datatable').DataTable({ 
+			"scrollCollapse": false,
+			"paging":         true
+		}
+		);
+
+
+		$('#datatable tbody').on( 'click', 'tr', function () {
+		$(this).toggleClass('selected');
+		} );
+
+
+		 $('#datatable tbody')
+			.on( 'mouseenter', 'td', function () {
+				var colIdx = table.cell(this).index().column;
+
+				$( table.cells().nodes() ).removeClass( 'highlight' );
+				$( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+			} );
+
+
+		$('#button').click( function () {
+			alert( table.rows('.selected').data().length +' row(s) selected' );
+		} );
+
+		// Apply the search
+		table.columns().every( function () {
+			var that = this;
+
+			$( 'input', this.footer() ).on( 'keyup change', function () {
+				if ( that.search() !== this.value ) {
+					that
+						.search( this.value )
+						.draw();
+				}
+			} );
+		} );
+	} );				
+
