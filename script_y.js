@@ -1,8 +1,5 @@
 $(function() {
 	var oTable = $('#datatable').DataTable({
-		"oLanguage": {
-			"sSearch": "Filter Data"
-		},
 		"sPaginationType": "full_numbers",
 
 	});
@@ -13,11 +10,11 @@ $(function() {
 		buttonImageOnly: false,
 		"onSelect": function(date) {
 			minDateFilter = new Date(date).getTime();
-			oTable.fnDraw();
+			oTable.Draw();
 		}
 	}).keyup(function() {
 		minDateFilter = new Date(this.value).getTime();
-		oTable.fnDraw();
+		oTable.Draw();
 	});
 
 	$("#datepicker_to").datepicker({
@@ -26,11 +23,11 @@ $(function() {
 		buttonImageOnly: false,
 		"onSelect": function(date) {
 			maxDateFilter = new Date(date).getTime();
-			oTable.fnDraw();
+			oTable.Draw();
 		}
 	}).keyup(function() {
 		maxDateFilter = new Date(this.value).getTime();
-		oTable.fnDraw();
+		oTable.Draw();
 	});
 
 });
