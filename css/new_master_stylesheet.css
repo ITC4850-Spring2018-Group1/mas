@@ -109,6 +109,9 @@ div#datatable_length {
 	text-decoration: none;
 }
 
+.submit-inc-exp button:hover {
+	background-color: #ffeb99;
+}
 /* Set a specific color for each brand */
 
 /* Facebook */
