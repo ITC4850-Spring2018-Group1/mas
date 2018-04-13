@@ -205,7 +205,7 @@ Database::disconnect();
 		<label for="memberType">Member Type:</label>
 		<input id="memberType" style="background-color: #F3F2F2" required type="text" name="memberType" value="<?php echo $data['mem_type'];?>"><br><br>
 		
-		</div>
+</div>
 </div>
 <div class="right_column"><br>
 		<h3>User Information</h3><br>
@@ -265,19 +265,17 @@ Database::disconnect();
 	</div>
 </div>
 </div>
-<div id="button5">
-<input id="submit" type="submit" name="submit" value="Update Member" style="width:150px";>
-
-</div>
-</form>
-<br>
-<br>
+<div class="submit-inc-exp"><br>
 <div id="bottom-return-to-dashboard">
+<button type="submit" name="submit" class="submit-inc-exp">Submit</button><br><br><br><br>
 <div id="button-back">
 <a class="btn" href="admin_main_dashboard.php">Return to Dashboard</a>
 </div>
 </div>
 </div>
+</form>
+<br>
+<br>
 <br>
 <br>
 <br>

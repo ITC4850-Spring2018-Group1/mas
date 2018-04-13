@@ -27,7 +27,6 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-<!-- files needed for datatables installation -->
 <script src="http://code.jquery.com/jquery-2.0.3.min.js" data-semver="2.0.3" data-require="jquery"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
@@ -38,9 +37,13 @@ if( $_SESSION['sess_user_type'] == "A") {
 <script data-require="jqueryui@*" data-semver="1.10.0" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.js" data-semver="1.9.4" data-require="datatables@*"></script>
 <link href="style.css" rel="stylesheet" />
-<script src="script_y.js"></script>
-</head>
-<body>
+<script src="script_test.js"></script>
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
+</head><body>
 <div class="main-heading">
 	<h1>Yokota Sportsmen&#39;s Club</h1>
 </div>
@@ -81,7 +84,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 <p id="date_filter">
 		<span id="date-label-from" class="date-label">From: </span><input class="date_range_filter date" type="text" id="datepicker_from" />
 		<span id="date-label-to" class="date-label">To:<input class="date_range_filter date" type="text" id="datepicker_to" />
-</p>
+</p><br>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <table class="user-table" id="datatable"> 
 	<thead>

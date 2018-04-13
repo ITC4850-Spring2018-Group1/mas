@@ -37,7 +37,8 @@ tr:nth-child(odd) {
 }
 
 body {
-	background: #e4fcfc;}
+	background: #e4fcfc;
+}
 
 h6 {
 	color: red;
@@ -45,8 +46,6 @@ h6 {
 
 .login h3 {
 	text-align: center;
-	margin-top: 90px;
-	font-weight: 700;
 }
 
 .form-control input {
@@ -60,82 +59,6 @@ div#datatable_length {
 .dataTables_wrapper .dataTables_info {
 	text-align: left;
 }
-
-.logo img {
-	float: left;
-	margin-top: -20px;
-	margin-left: -55px;
-	width: 35%;
-	height: 35%;
-	opacity: .95;
-}
- 
-.logo2 img {
-	float: right;
-	margin-top: 15px;
-	margin-left: -55px;
-	width: 20%;
-	height: 20%;
-	opacity: .95;
-}
-
-#login-page-message {
-	text-align: center;
-	font-weight: bold;
-	color: green;
-}
-
-#message {
-	text-align: center;
-	color: red;
-	font-weight: bold;
-}
-
-/* Style all font awesome icons */
-.fa {
-	padding: 20px;
-	font-size: 50px;
-	width: 70px;
-	text-align: center;
-	text-decoration: none;
-	margin: 4px 2px; 
-	display: inline-block;
-	font: x-large;
-}
-
-/* Add a hover effect if you want */
-.fa:hover {
-	opacity: 0.7;
-	text-decoration: none;
-}
-
-/* Set a specific color for each brand */
-
-/* Facebook */
-.fa-facebook {
-	background: #3B5998;
-	color: white;
-}
-
-/* Twitter */
-.fa-twitter {
-	background: #55ACEE;
-	color: white;
-}
-
-.fa-pinterest {
-	background: #cb2027;
-	color: white;
-}
-
-.fa-youtube {
-	background: #bb0000;
-	color: white;
-}
-#social-media {
-	text-align: center;
-}
-
 /* main header display rules-----------------------------------------------------------*/
 .main-heading h1 {
 	width: auto;
@@ -375,24 +298,6 @@ hr {
 	font-size: 12px;
 }
 
-/* added button styles for admin_report_quarterly_financial_statement.php */
-#center-table {
-	text-align: center;
-	width: 960px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#report th {
-	width: 60%;
-	text-align: left;
-	height: 40px; 
-}
-
-.balance-report {
-	text-align: center;
-}
-
 /* added styles for admin_post_imcome_expenses.php */
 #search-by h4 {
 	text-align: center;
@@ -563,7 +468,7 @@ form {
 
 #add_members {
 	width: 809px;
-	height: 715px;
+	height: 700px;
 	margin: 20px auto;
 	background: lightgray;
 	border: 2px solid black;
@@ -578,7 +483,7 @@ form {
 	width: 420px;
 	margin-right: 0px; 
 	border: 1px solid black;
-	height: 714px;
+	height: 698px;
 }
 
 .left_column label {
@@ -604,7 +509,7 @@ form {
 .right_column {
 	float: left;
 	width: 385px; 
-	height: 714px;
+	height: 698px;
 	border: 1px solid black;
 }
 
@@ -665,6 +570,11 @@ form {
 	width: 280px;
 	margin: 0px auto;
 }
+
+.submit-inc-exp button:hover {
+	background-color: #ffeb99;
+}
+
 
 #button-back a {
 	border: 1px solid black;
