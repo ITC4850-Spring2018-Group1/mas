@@ -375,6 +375,24 @@ hr {
 	font-size: 12px;
 }
 
+/* added button styles for admin_report_quarterly_financial_statement.php */
+#center-table {
+	text-align: center;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#report th {
+	width: 60%;
+	text-align: left;
+	height: 40px; 
+}
+
+.balance-report {
+	text-align: center;
+}
+
 /* added styles for admin_post_imcome_expenses.php */
 #search-by h4 {
 	text-align: center;
@@ -545,7 +563,7 @@ form {
 
 #add_members {
 	width: 809px;
-	height: 700px;
+	height: 715px;
 	margin: 20px auto;
 	background: lightgray;
 	border: 2px solid black;
@@ -560,7 +578,7 @@ form {
 	width: 420px;
 	margin-right: 0px; 
 	border: 1px solid black;
-	height: 698px;
+	height: 714px;
 }
 
 .left_column label {
@@ -586,7 +604,7 @@ form {
 .right_column {
 	float: left;
 	width: 385px; 
-	height: 698px;
+	height: 714px;
 	border: 1px solid black;
 }
 

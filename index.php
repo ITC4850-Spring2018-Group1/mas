@@ -80,6 +80,9 @@ if(isset($_GET['message']))
 <br>
 <br>
 <div class="login">
+<br>
+<br>
+<br>
 <h3>Club Login Form</h3><br />
 </div>  
 <form method="post">  
@@ -99,6 +102,9 @@ if(isset($_GET['message']))
 <br>
 <br> 
 <br>  
+<br>
+<br>
+<br><br><br><br>
 </div> 
 <p id="login-page-message">Stay up-to-date with YSC events through email annoucements and newsletters! Click <a href="https://facebook.us17.list-manage.com/subscribe?u=38d1ab6fbfefeeab47f7bd995&id=56615443b8">here</a> to sign-up!</p>
 <br>
