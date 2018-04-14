@@ -144,10 +144,10 @@ foreach ($pdo->query($sql) as $row) {
 		echo '<td>'. $row['mem_lname'] . '</td>';
 		echo '<td>'. $row['gen_led_description'] . '</td>';
 		echo '<td>'. $row['ref_gen_led_transaction_desc'] . '</td>';
-		echo '<td>'. $row['gen_led_amount'] . '</td>';
+		echo '<td>$'. $row['gen_led_amount'] . '</td>';
 		echo '<td>'. $row['ref_gen_led_expense_desc'] . '</td>';
 		echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
-		echo '<td>'. $row['bal_acct_balance'] . '</td>';
+		echo '<td>$'. $row['bal_acct_balance'] . '</td>';
 		echo '<td>'. $row['gen_led_add_by'] . '</td>';
 		echo '<td><a class="btn" href="admin_user_receipt.php?rec_receipt_no='.$row['rec_receipt_no'].'">View Receipt</a></td>';
 		echo ' ';
