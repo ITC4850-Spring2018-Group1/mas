@@ -1,11 +1,13 @@
-$(document).ready(function() {
-	$( function() {
-   	 $( "#datepicker" ).datepicker(
-	{
-
-	}
-);
-  	} );
+	$(document).ready(function() {
+		$( function() {
+	   	 $( "#datepicker" ).datepicker(
+		{
+			changeMonth:	true,
+			changeYear:		true,
+			dateFormat: 'yy-mm-dd'
+		}
+	);
+	  	} );
 	  
 // Setup - add a datepicker for From and To fields
 $("#datepicker_from").datepicker({
@@ -15,7 +17,7 @@ $("#datepicker_from").datepicker({
 	changeMonth:	true,
 	changeYear:		true,
 	dateFormat: 'yy-mm-dd',
-		"onSelect": function(date) {
+	"onSelect": function(date) {
 		minDateFilter = new Date(date).getTime();
 		oTable.Draw();
 	}
@@ -97,7 +99,7 @@ $("#datepicker_to").datepicker({
 	$.fn.dataTableExt.afnFiltering.push(
 		function(oSettings, aData, iDataIndex) {
 			if (typeof aData._date == 'undefined') {
-				aData._date = new Date(aData[0]).getTime();
+				aData._date = new Date(aData[4]).getTime();
 			}
 
 			if (minDateFilter && !isNaN(minDateFilter)) {

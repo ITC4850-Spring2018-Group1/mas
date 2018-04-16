@@ -33,6 +33,7 @@ if(isset($_POST['mem_no']))
 	$amount = $_POST['amount'];
 	$description = $_POST['description'];
 	$username = $_SESSION["sess_username"];
+	
 	$q = "INSERT INTO general_ledger (gen_led_users_mem_no, gen_led_transaction_type, gen_led_expense_type, gen_led_income_type, gen_led_amount, gen_led_description, gen_led_add_by) VALUES (:mem_no, :trans_type, :expense_type, :income_type, :amount, :description, '$username')";
 	$q2 = "INSERT INTO balance (bal_gen_led_id, bal_trans_type, bal_trans_amount) VALUES ((LAST_INSERT_ID()), '$trans_type', '$amount')";
 	$q3 = "INSERT INTO receipts (rec_gen_led_id) VALUES (LAST_INSERT_ID())";

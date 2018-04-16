@@ -40,7 +40,7 @@ if( $_SESSION['sess_user_type'] == "A") {
 </div>
 
 <div class="logininfo">
-	<p>[placeholder][placeholder] you are logged in as an ADMIN</p>
+	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an ADMIN</p>'; ?> 
 </div>
 <br>
 <br>
@@ -66,12 +66,46 @@ if( $_SESSION['sess_user_type'] == "A") {
 <div class="individual-page-title">	
 	<h3>Financial Statement</h3>
 </div>
+<br>
+<form method="post" action="">
+<div class="balance-report">
+<input class="balance-report" type="text" id="min" name="min" />&nbsp;To:
+<input class="balance-report" type="text" id="max" name="max"/>
+<button type="submit" name="submit" class="submit-inc-exp">Submit</button>
+</div>
+<div class="reset">
+	<button type="reset" value="Reset">Reset</button>
+</div>
+</form>
+<br>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
-
-
-
-
-
+<div id="center-table">
+<table id="report" class="user-table" style="width:80%">
+	<tr>
+		<th>Starting Balance:</th>
+		<td><?php
+			require_once 'start.php';
+			$sBalance = "SELECT bal_gen_led_id, bal_acct_balance, bal_date_time FROM balance ORDER BY bal_date_time DESC LIMIT 1";
+			$balance = $db->query($sBalance);
+		  	foreach($balance->fetchAll() as $bal);
+			echo "$", $bal['bal_acct_balance'];
+		    ?> 
+		</td>
+	</tr>
+	<tr>
+		<th>Income:</th>
+		<td> </td>
+	</tr>
+	<tr>
+		<th>Expenses:</th>
+		<td> </td>
+	</tr>
+	<tr>
+		<th>Ending Balance:</th>
+		<td> </td>
+	</tr>
+</table>
+</div>
 
 
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->

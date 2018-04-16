@@ -147,7 +147,7 @@ foreach ($pdo->query($sql) as $row) {
 					echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
 					echo '<td>'. $row['ref_gen_led_expense_desc'] . '</td>';
 					echo '<td>'. $row['pri_li_serial_no'] . '</td>';
-					echo '<td>'. $row['gen_led_amount'] . '</td>';
+					echo '<td>$'. $row['gen_led_amount'] . '</td>';
 					echo '<td>'. $row['gen_led_add_by'] . '</td>';
 					echo ' ';
 					echo '</tr>';

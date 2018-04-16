@@ -59,15 +59,18 @@ if(isset($_POST["login"]))
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
  <link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
 </head>  
 <body>  
-<div class="main-heading">
-	<h1>Yokota Sportsmen&#39;s Club</h1>
+<div class="logo">
+	<img src="images/ysc1_logo.png" alt="logo">
 </div>
-
-<br />  
- <div class="container" style="width:500px;">  
+<div class="logo2">
+	<img src="images/american_japanese_flags.png" alt="flags">
+</div>
+<br>  
+<div class="container" style="width:500px;">  
 	<?php  
 if(isset($_GET['message']))  
 	{  
@@ -77,6 +80,9 @@ if(isset($_GET['message']))
 <br>
 <br>
 <div class="login">
+<br>
+<br>
+<br>
 <h3>Club Login Form</h3><br />
 </div>  
 <form method="post">  
@@ -92,9 +98,28 @@ if(isset($_GET['message']))
 <br>
 <br>
 <p><a href="https://www.facebook.com/yokotasportsmensclub/">About Us</a> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;<a href="mailto:YSCsecretary@gmail.com">Contact Us</a></p>
-</form>  
- </div>  
- <br />  
+</form>
+<br>
+<br> 
+<br>  
+<br>
+<br>
+<br><br><br><br>
+</div> 
+<p id="login-page-message">Stay up-to-date with YSC events through email annoucements and newsletters! Click <a href="https://facebook.us17.list-manage.com/subscribe?u=38d1ab6fbfefeeab47f7bd995&id=56615443b8">here</a> to sign-up!</p>
+<br>
+<br>
+<div id="social-media">
+<!-- Add font-awesome icons -->
+<a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-pinterest"></a>
+<a href="#" class="fa fa-youtube"></a>
+</div>
+<br>
+<br>
+<br>
+<p id="message">Disclaimer: The information contained within this site is for demonstration purposes. If you have any questions about the content of this site, please message the project team <a href="mailto:kidder.r@husky.neu.edu">here.</a></p>  
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
 </body>

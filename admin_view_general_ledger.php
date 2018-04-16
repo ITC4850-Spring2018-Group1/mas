@@ -27,25 +27,23 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-<!-- files needed for datatables installation -->
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
-<link rel="stylesheet" 
-href="https://code.jquery.com/ui/1.10.13/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" 
-href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="script1.js"></script>
 
-<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
-<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
-<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table_jui.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
-<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
-<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-server="1.9.4" data-require="datatables@*" />
-<link data-require="jqueryui@*" data-server="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.js"></script>
 
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table_jui.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+<link data-require="jqueryui@*" data-semver="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+<link href="style.css" rel="stylesheet" />
+<script src="script_test.js"></script>
 
 </head>
 <body>
@@ -86,11 +84,10 @@ href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataT
 	<h3>General Ledger (view only)</h3>
 </div>
 <br>
-<div class="input-daterange">
-	<input type="text" id="min" name="min" class="form-control">
-	<span class="input-group-addon">to</span>
-	<input type="text" id="max" name="max" class="form-control">
-</div>
+<p id="date_filter">
+		<span id="date-label-from" class="date-label">From: </span><input class="date_range_filter date" type="text" id="datepicker_from" />
+		<span id="date-label-to" class="date-label">To:<input class="date_range_filter date" type="text" id="datepicker_to" />
+</p><br>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <table class="user-table" id="datatable"> 
 	<thead>
@@ -150,10 +147,10 @@ foreach ($pdo->query($sql) as $row) {
 		echo '<td>'. $row['mem_lname'] . '</td>';
 		echo '<td>'. $row['gen_led_description'] . '</td>';
 		echo '<td>'. $row['ref_gen_led_transaction_desc'] . '</td>';
-		echo '<td>'. $row['gen_led_amount'] . '</td>';
+		echo '<td>$'. $row['gen_led_amount'] . '</td>';
 		echo '<td>'. $row['ref_gen_led_expense_desc'] . '</td>';
 		echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
-		echo '<td>'. $row['bal_acct_balance'] . '</td>';
+		echo '<td>$'. $row['bal_acct_balance'] . '</td>';
 		echo '<td>'. $row['gen_led_add_by'] . '</td>';
 		echo '<td><a class="btn" href="admin_user_receipt.php?rec_receipt_no='.$row['rec_receipt_no'].'">View Receipt</a></td>';
 		echo ' ';
