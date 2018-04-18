@@ -53,32 +53,12 @@ if(isset($_POST['mem_no']))
 	$result1 = $query2->execute();
 	$result2 = $query3->execute();
 	
-	// check if mysql insert query successful
-	if($result)
-	{
-		echo "<script type= 'text/javascript'>alert('General ledger has been updated.');</script>";
-	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('General ledger has not been updated. Please verify submission.');</script>";
-	}
-	
-	if($result1)
-	{
-		echo "<script type= 'text/javascript'>alert('General ledger balance has been updated.');</script>";
-	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('General ledger balance has not been updated. Please verify submission.');</script>";
-	}
-
-	if($result2)
-	{
-		echo "<script type= 'text/javascript'>alert('Receipt has been generated.');</script>";
-	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('Receipt has not been generated. Please verify submission.');</script>";
+	if($result){ //if the update worked
+		if($result1) {
+			if($result2) {
+				echo "<p id=message>Update successful!</p>";	 
+			}
+		}
 	}
 	
 	Database::disconnect();

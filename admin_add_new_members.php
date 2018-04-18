@@ -96,44 +96,18 @@ else {
 }
 
 // check if mysql insert query successful
-	if($pdoExec)
-	{
-		echo "<script type= 'text/javascript'>alert('Member has been added successfully');</script>";
+	if($pdoExec){ //if the update worked
+		if($pdoExec2) {
+			if($pdoExec4) {
+				echo "<p id=message>Member has been added successfully!</p>";
+				}	 
+			}
+		}
+		
+	  if($pdoExec3) {
+		echo "<p id=message2>Family information has been added successfully!</p>";
 	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('Member has not been added. Please confirm entry.');</script>";
-	}
-	
-	if($pdoExec2)
-	{
-		echo "<script type= 'text/javascript'>alert('Credentials have been added');</script>";
-	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('Credentials were not added. Please verify username is unique.');</script>";
-	}
-	
-	if($pdoExec4)
-	{
-		echo "<script type= 'text/javascript'>alert('Membership details have been added.');</script>";
-	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('Membership details were NOT added. Please verify membership information and update if necessary.');</script>";
-	}
-	
-	if($pdoExec3)
-	{
-		echo "<script type= 'text/javascript'>alert('Family information has been added.');</script>";
-	}
-	else 
-	{
-		echo "<script type= 'text/javascript'>alert('Family member details were NOT added. Please verify family information and update if necessary.');</script>";
-	}
-
 }
-
 
 ?>
 

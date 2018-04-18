@@ -20,6 +20,15 @@ if( $_SESSION['sess_user_type'] == "A") {
 ?> 
 
 <!-- INSTRUCTIONS: this is the header and footer template for the primary ADMIN pages. Code your forms, tables, etc., below the navigation tags. Placeholders have been included where variables will be displayed based on session login information for the user. Leave these "AS IS" for now. To maintain consistency, please do not change the header information other than where indicated with additional comments. -->
+<?php
+$hostname = "localhost";
+$dbname = "yokotasp_mas1";
+$username = "root";
+$password = "root";
+
+$conn = new mysqli($hostname, $username, $password, $dbname) or die('Cannot connect to database');
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -87,11 +96,9 @@ if( $_SESSION['sess_user_type'] == "A") {
 <div class="individual-page-title">	
 	<h3>View/Update ATF Status</h3>
 </div><br>
-
-
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <center>
-
+<form action="" method="post">
 <table class="user-table" id="datatable"> 
 	<thead> 
 		 <th>Member<br>#</th> 
@@ -106,9 +113,9 @@ if( $_SESSION['sess_user_type'] == "A") {
          <th>Date Added</th>
          <th>Last Updated</th>
          <th>Updated By</th>
-         <th>Action</th>
- 	</thead>
 
+	     <th>Action</th>
+ 	</thead>
 	<tfoot>
 		<th>Member<br>#</th> 
 		 <th>First Name</th> 
@@ -116,46 +123,68 @@ if( $_SESSION['sess_user_type'] == "A") {
 		 <th>Last Name</th> 
 		 <th>Serial #</th> 
 		 <th>ATF Form<br>Sent</th> 
-	  	 <th>Sent Date</th>
+		 <th>Sent Date</th>
 		 <th>Approval Date</th>
 		 <th>Comment</th>
 		 <th>Date Added</th>
 		 <th>Last Updated</th>
 		 <th>Updated By</th>
+	 	
 		 <th>Action</th>
 	</tfoot>
-
 <tbody>
+<?php
+if (isset($_POST['submit']) && $_POST['submit'] == 'update'){
+	$serial = $_POST['serial'];
+	$status = $_POST['status'];
+	$hidden = $_POST['hidden'];
+	$query = "UPDATE atf SET atf_status_cd = '$_POST[status]' WHERE atf_serial_no = '$_POST[hidden]'";
+	
+	mysql_query($query) or die("Cannot update"); 
+	}
+?>
 
 <?php
- include 'database.php';
- $pdo = Database::connect();
- $sql = 'SELECT * 
-FROM atf a
+$sql = "SELECT * FROM atf a
 LEFT JOIN price_list b ON a.atf_serial_no=b.pri_li_serial_no
-LEFT JOIN member c ON a.atf_mem_no=c.mem_no';
-
-foreach ($pdo->query($sql) as $row) {
-	echo '<tr>';
-	echo '<td>'. $row['mem_no'] . '</td>';
-	echo '<td>'. $row['mem_fname'] . '</td>';
-	echo '<td>'. $row['mem_mi'] . '</td>';
-	echo '<td>'. $row['mem_lname'] . '</td>';
-	echo '<td>'. $row['atf_serial_no'] . '</td>';
-	echo '<td>'. $row['atf_status_cd'] . '</td>';
-	echo '<td>'. $row['atf_form_sent_date'] . '</td>';
-	echo '<td>'. $row['atf_form_approval_date'] . '</td>';
-	echo '<td>'. $row['atf_comment'] . '</td>';
-	echo '<td>'. $row['atf_date_added'] . '</td>';
-	echo '<td>'. $row['atf_last_updated'] . '</td>';
-	echo '<td>'. $row['atf_updated_by'] . '</td>';
-	echo '<td><a href="admin_view_update_ATF_details.php?serial_no='.$row['atf_serial_no'].'" target="_blank">View | Update</a></td>';
-	echo ' ';
-	echo '</tr>';
- }
- Database::disconnect();
+LEFT JOIN member c ON a.atf_mem_no=c.mem_no";
+$result = $conn->query($sql) or die("Cannot connect!");
+$query=getenv(QUERY_STRING);
+parse_str($query);
 ?>
+
+<?php
+while ($row = $result->fetch_assoc()) {?>
+	<tr>
+	<td><?php echo $row['mem_no']?></td>
+	<td><?php echo $row['mem_fname']?></td>
+	<td><?php echo $row['mem_mi']?></td>
+	<td><?php echo $row['mem_lname']?></td>
+	<td><?php echo $row['atf_serial_no']?></td>
+	<td><?php echo $row['atf_status_cd']?></td>
+	<td><?php echo $row['atf_form_sent_date']?></td>
+	<td><?php echo $row['atf_form_approval_date']?></td>
+	<td><?php echo $row['atf_comment']?></td>
+	<td><?php echo $row['atf_date_added']?></td>
+	<td><?php echo $row['atf_last_updated']?></td>
+	<td><?php echo $row['atf_updated_by']?></td>
+	<td><a class="btn" href="admin_view_update_ATF_details.php?serial_no='.$row['_no'].'">View | Update</a></td>';
+
+	</tr>
+<?php }
+?>
+</tbody>
 </table>
+</form>
+<p></p>
+<?php
+if($update) {
+echo "<b>Update successful!</b>";
+echo $serial; echo $status;
+
+}
+?>
+
 <br><br><br><br><br><br>
 <div id="button-two">
 	<ul>
