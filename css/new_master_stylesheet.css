@@ -91,6 +91,12 @@ div#datatable_length {
 	font-weight: bold;
 }
 
+#message2 {
+	text-align: center;
+	color: red;
+	font-weight: bold;
+}
+
 /* Style all font awesome icons */
 .fa {
 	padding: 20px;
