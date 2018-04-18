@@ -36,7 +36,7 @@ LEFT JOIN membership c ON a.mem_no=c.membership_no
 LEFT JOIN users d ON a.mem_no=d.user_mem_no
 WHERE mem_no = $mem_no";
 $q = $pdo->prepare($sql);
-$q->execute(array($rec_receipt_no));
+$q->execute(array($mem_no));
 $data = $q->fetch(PDO::FETCH_ASSOC);
 Database::disconnect();
 }
@@ -129,25 +129,19 @@ Database::disconnect();
 	
 	$query = $pdo->prepare($update);
 	$query2 = $pdo->prepare($update2);
-
 	$query4 = $pdo->prepare($update4);
 	
 	$result = $query->execute();
 	$result2 = $query2->execute();
-
 	$result4 = $query4->execute();
 	
-	if($result4)
-	{
-		echo "<script type='text/javascript'>alert('Member information has been updated.');
-		window.location='admin_view_update_membership_summary.php';
-		</script>";
+	if($result){ //if the update worked
+		if($result2) {
+			if($result4) {
+				echo "<font color='red'><b>Update successful!</b></font>";	 
+			}
+		}
 	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('Member information has not been updated. Please verify submission.');<///script>";
-	}
-
 }
 ?>
 

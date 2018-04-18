@@ -52,42 +52,15 @@ if(isset($_POST['mem_no'])) {
 	$result4 = $query4->execute();
 
 // check if mysql insert query successful
-	if($result)
-	{
-		echo "<script type= 'text/javascript'>alert('General ledger has been updated');</script>";
+	if($result){ //if the update worked
+		if($result2) {
+			if($result3) {
+				if($result4) {
+					echo "<p id=message>Update successful!</p>";
+				}	 
+			}
+		}
 	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('General ledger has not been updated. Please confirm entry.');</script>";
-	}
-
-	if($result2)
-	{
-		echo "<script type= 'text/javascript'>alert('General ledger balance has been updated');</script>";
-	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('General ledger balance has not been updated. Please confirm entry.');</script>";
-	}
-
-	if($result3)
-	{
-		echo "<script type= 'text/javascript'>alert('ATF table has been updated.');</script>";
-	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('ATF table has not been updated. Please confirm entry.');</script>";
-	}
-
-	if($result4)
-	{
-		echo "<script type= 'text/javascript'>alert('Receipt has been generated.');</script>";
-	}
-	else
-	{
-		echo "<script type= 'text/javascript'>alert('Receipt has not been generated. Please confirm entry.');</script>";
-	}
-
 Database::disconnect();
 		}
 ?>

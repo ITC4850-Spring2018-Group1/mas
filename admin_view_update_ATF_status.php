@@ -116,13 +116,13 @@ if( $_SESSION['sess_user_type'] == "A") {
 		 <th>Last Name</th> 
 		 <th>Serial #</th> 
 		 <th>ATF Form<br>Sent</th> 
-			<th>Sent Date</th>
-			<th>Approval Date</th>
-			<th>Comment</th>
-			<th>Date Added</th>
-			<th>Last Updated</th>
-			<th>Updated By</th>
-			<th>Action</th>
+	  	 <th>Sent Date</th>
+		 <th>Approval Date</th>
+		 <th>Comment</th>
+		 <th>Date Added</th>
+		 <th>Last Updated</th>
+		 <th>Updated By</th>
+		 <th>Action</th>
 	</tfoot>
 
 <tbody>
@@ -136,22 +136,22 @@ LEFT JOIN price_list b ON a.atf_serial_no=b.pri_li_serial_no
 LEFT JOIN member c ON a.atf_mem_no=c.mem_no';
 
 foreach ($pdo->query($sql) as $row) {
-					echo '<tr>';
-					echo '<td>'. $row['mem_no'] . '</td>';
-					echo '<td>'. $row['mem_fname'] . '</td>';
-					echo '<td>'. $row['mem_mi'] . '</td>';
-					echo '<td>'. $row['mem_lname'] . '</td>';
-					echo '<td>'. $row['atf_serial_no'] . '</td>';
-					echo '<td contentEditable="true">'. $row['atf_status_cd'] . '</td>';
-					echo '<td>'. $row['atf_form_sent_date'] . '</td>';
-					echo '<td>'. $row['atf_form_approval_date'] . '</td>';
-					echo '<td>'. $row['atf_comment'] . '</td>';
-					echo '<td>'. $row['atf_date_added'] . '</td>';
-					echo '<td>'. $row['atf_last_updated'] . '</td>';
-					echo '<td>'. $row['atf_updated_by'] . '</td>';
-					echo '<td><a class="btn" href="admin_view_update_ATF_status.php?mem_no='.$row['mem_no'].'">View | Update</a></td>';
-					echo ' ';
-					echo '</tr>';
+	echo '<tr>';
+	echo '<td>'. $row['mem_no'] . '</td>';
+	echo '<td>'. $row['mem_fname'] . '</td>';
+	echo '<td>'. $row['mem_mi'] . '</td>';
+	echo '<td>'. $row['mem_lname'] . '</td>';
+	echo '<td>'. $row['atf_serial_no'] . '</td>';
+	echo '<td>'. $row['atf_status_cd'] . '</td>';
+	echo '<td>'. $row['atf_form_sent_date'] . '</td>';
+	echo '<td>'. $row['atf_form_approval_date'] . '</td>';
+	echo '<td>'. $row['atf_comment'] . '</td>';
+	echo '<td>'. $row['atf_date_added'] . '</td>';
+	echo '<td>'. $row['atf_last_updated'] . '</td>';
+	echo '<td>'. $row['atf_updated_by'] . '</td>';
+	echo '<td><a href="admin_view_update_ATF_details.php?serial_no='.$row['atf_serial_no'].'" target="_blank">View | Update</a></td>';
+	echo ' ';
+	echo '</tr>';
  }
  Database::disconnect();
 ?>
