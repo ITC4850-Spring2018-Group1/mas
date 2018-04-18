@@ -1,8 +1,8 @@
 <?php
 //DB details
 $dbHost = 'localhost';
-$dbUsername = 'admin';
-$dbPassword = 'admin';
+$dbUsername = 'root';
+$dbPassword = 'root';
 $dbName = 'yokotasp_mas1';
 
 //Create connection and select DB
