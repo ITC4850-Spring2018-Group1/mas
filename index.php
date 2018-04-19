@@ -12,8 +12,9 @@ if(isset($_POST["login"]))
 {  
 	 if(empty($_POST["username"]) || empty($_POST["password"]))  
 	 {  
-		$message = '<label>All fields are required.</label>';  
+		//$message = '<label>All fields are required.</label>';  
 	 }  
+	 
 	 else  
 	 {  
 		$query = "SELECT * 
@@ -24,7 +25,7 @@ if(isset($_POST["login"]))
 		$statement->execute(array('username'=>$_POST["username"],'password'=>$_POST["password"]));
 		
 		if ($statement->rowCount() == 0) {
-			header('Location: index.php?message=invalid username and password combination');
+			header('Location: index.php?message=Invalid username and password combination');
 					}	
 		else {
 			$row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -59,6 +60,7 @@ if(isset($_POST["login"]))
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
  <link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
  <style type="text/css">
  	.erreur{
@@ -68,12 +70,14 @@ if(isset($_POST["login"]))
 	}
  </style> 
 </head>  
-<body>  
-<div class="main-heading">
-	<h1>Yokota Sportsmen&#39;s Club</h1>
+<body>
+<div class="logo">
+	<img src="images/ysc1_logo.png" alt="logo">
 </div>
-
-<br />  
+<div class="logo2">
+	<img src="images/american_japanese_flags.png" alt="flags">
+</div>
+<br>    
  <div class="container" style="width:500px;">  
 	<?php  
 if(isset($_GET['message']))  
@@ -89,21 +93,37 @@ if(isset($_GET['message']))
 <form method="post">  
 	 <label>Username</label>  
 	 <input type="text" name="username" id="username" class="form-control" />
-     <p class="erreur" id="username-erreur">Please enter your username !</p>  
+     <p class="erreur" id="username-erreur">Please enter your username</p>  
 	 <br />  
 	 <label>Password</label>  
 	 <input type="password" name="password" id="password" class="form-control" />
-     <p class="erreur" id="password-erreur">Please enter your  password !</p>  
+     <p class="erreur" id="password-erreur">Please enter your password</p>  
 	 <br />  
 	 <input type="submit" name="login" class="btn btn-info" value="Login" id="sub-form" /> 
-	<br><br>
+	<br><br><br>
 <p>Forgot your username or password? Click <a href="mailto:YSCsecretary@gmail.com">here</a>.</p>
 <br>
 <br>
 <p><a href="https://www.facebook.com/yokotasportsmensclub/">About Us</a> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;<a href="mailto:YSCsecretary@gmail.com">Contact Us</a></p>
 </form>  
  </div>  
- <br />  
+<br>
+<br><br><br><br>
+</div> 
+<p id="login-page-message">Stay up-to-date with YSC events through email annoucements and newsletters! Click <a href="https://facebook.us17.list-manage.com/subscribe?u=38d1ab6fbfefeeab47f7bd995&id=56615443b8">here</a> to sign-up!</p>
+<br>
+<br>
+<div id="social-media">
+<!-- Add font-awesome icons -->
+<a href="https://www.facebook.com/yokotasportsmensclub/" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-pinterest"></a>
+<a href="#" class="fa fa-youtube"></a>
+</div>
+<br>
+<br>
+<br>
+<p id="message">Disclaimer: The information contained within this site is for demonstration purposes. If you have any questions about the content of this site, please message the project team <a href="mailto:kidder.r@husky.neu.edu">here.</a></p>
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
 
@@ -128,16 +148,4 @@ if(isset($_GET['message']))
 </script>
 </body>
 </html>
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About
-Press h to open a hovercard with more details. 
+ 
