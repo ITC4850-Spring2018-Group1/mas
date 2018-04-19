@@ -61,11 +61,11 @@ require 'database.php';
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
-<div class="signout">
+<div class="signout1">
 	<a href="signout.php">Sign Out</a>	
 </div>
 
-<div class="logininfo">
+<div class="logininfo1">
 	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an ADMIN</p>'; ?> 
 </div>
 <br>
@@ -109,13 +109,13 @@ require 'database.php';
 <label for="status_cd">Status Code:</label>
 <input id="status_cd" type="text" name="status_cd" value="<?php echo $data['atf_status_cd'];?>"><br><br>
 
-<label for="sent_date">Form Sent Date:</label>
+<label for="sent_date">Sent Date:</label>
 <input id="sent_date" type="text" name="sent_date" value="<?php echo $data['atf_form_sent_date'];?>"><br><br>
 
-<label for="appr_date">Form Approval Date:</label>
+<label for="appr_date">Approval Date:</label>
 <input id="appr_date" type="text" name="appr_date" value="<?php echo $data['atf_form_approval_date'];?>"><br><br>
 
-<label for="comment">Form Approval Date:</label>
+<label for="comment">Comments:</label>
 <input id="comment" type="text" name="comment" value="<?php echo $data['atf_comment'];?>"><br><br>
 <br>
 <button type="submit" name="submit" class="submit-inc-exp">Submit</button><br><br><br><br>

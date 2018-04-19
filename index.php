@@ -100,7 +100,7 @@ if(isset($_GET['message']))
      <p class="erreur" id="password-erreur">Please enter your password</p>  
 	 <br />  
 	 <input type="submit" name="login" class="btn btn-info" value="Login" id="sub-form" /> 
-	<br><br><br>
+	<br><br>
 <p>Forgot your username or password? Click <a href="mailto:YSCsecretary@gmail.com">here</a>.</p>
 <br>
 <br>

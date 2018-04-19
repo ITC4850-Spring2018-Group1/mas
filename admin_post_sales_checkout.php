@@ -75,16 +75,16 @@ Database::disconnect();
 </head>
 
 <body>
-<div class="main-heading">
-	<h1>Yokota Sportsmen&#39;s Club</h1>
+<br>
+<div class="logo-admin">
+	<img src="images/ysc2_logo.png" alt="logo">
 </div>
-
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
-<div class="signout">
+<div class="signout1">
 	<a href="logout.php">Sign Out</a>	
 </div>
 
-<div class="logininfo">
+<div class="logininfo1">
 	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an ADMIN</p>'; ?> 
 </div>
 <br>
@@ -96,10 +96,9 @@ Database::disconnect();
 	<ul>
 		<li><a href="admin_add_new_members.php">Add Membership</a></li>
 		<li><a href="admin_view_update_membership_summary.php">View Membership</a></li>
-		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
-		<li><a href="admin_view_update_import_price_list.php">View Inventory</a></li>
-	</ul>
+		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
+		<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>	</ul>
 <br>
 </div>
 <hr>
@@ -163,7 +162,7 @@ Database::disconnect();
 
 <div class="amount2">
 	<label>Amount ($):</label>
-	<input type="text" required name="amount">
+	<input type="text" required name="amount" value="10.00">
 </div><br>
 
 <div class="button-checkout"><br>

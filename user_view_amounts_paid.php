@@ -33,11 +33,11 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
-<div class="signout">
+<div class="signout1">
 	<a href="logout.php">Sign Out</a>	
 </div>
 
-<div class="logininfo">
+<div class="logininfo1">
 	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as a MEMBER</p>'; ?> </div>
 <br>
 <br>
@@ -61,7 +61,7 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
 	<h3>Member Amounts Paid</h3><br>
-	<p>Note: only amounts paid directly to the YSC are reflected within this report. The actual amounts paid to Japanese vendors are not reported.</p>
+	<p id="message">Note: only amounts paid directly to the YSC are reflected within this report. The actual amounts paid to Japanese vendors are not reported.</p>
 </div>
 <br>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->

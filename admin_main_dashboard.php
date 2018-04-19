@@ -32,8 +32,8 @@ else {
 
 <body>
 <div class="admin_dashboard">
-<div class="main-heading">
-	<h1>Yokota Sportsmen&#39;s Club</h1>
+<div class="logo-admin">
+	<img src="images/ysc2_logo.png" alt="logo">
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
@@ -106,8 +106,7 @@ else {
 	</ul>
 </div>	
 </div>		
-<br>
-<br>
+
 <br><br><br>
 <div class="member-portal-link">
 	<div id="bottom-return-to-dashboard">

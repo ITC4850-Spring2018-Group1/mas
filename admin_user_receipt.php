@@ -55,8 +55,8 @@ Database::disconnect();
 </head>
 
 <body>
-<div class="main-heading">
-	<h1>Yokota Sportsmen&#39;s Club</h1>
+<div class="logo-admin">
+	<img src="images/ysc2_logo.png" alt="logo">
 </div>
 
 <div class="logininfo">
@@ -69,6 +69,8 @@ Database::disconnect();
 echo date("Y/m/d");
 ?>	
 </div>
+<br>
+<br>
 <br>
 <br>
 <br>
