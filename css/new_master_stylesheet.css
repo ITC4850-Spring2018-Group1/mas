@@ -36,9 +36,6 @@ tr:nth-child(odd) {
 	background-color: white;
 }
 
-body {
-	background: #e4fcfc;}
-
 h6 {
 	color: red;
 }
@@ -65,18 +62,35 @@ div#datatable_length {
 	float: left;
 	margin-top: -20px;
 	margin-left: -55px;
-	width: 35%;
-	height: 35%;
+	width: 30%;
+	height: 30%;
 	opacity: .95;
 }
  
+.logo1 img {
+	width: 30%;
+	height: 20%;
+	opacity: .95;
+	position: absolute;
+	top: 30px;
+	left: -60px;
+
+}
+
 .logo2 img {
 	float: right;
 	margin-top: 15px;
 	margin-left: -55px;
-	width: 20%;
-	height: 20%;
+	width: 200px;
+	height: 150px;
 	opacity: .95;
+
+}
+
+.logo-admin { 
+	position: absolute;
+	top: 35px;
+	left: 30px;
 }
 
 #login-page-message {
@@ -91,10 +105,17 @@ div#datatable_length {
 	font-weight: bold;
 }
 
+#message1 {
+	color: red;
+	font-weight: bold;
+	text-align: center;
+}
+
 #message2 {
 	text-align: center;
 	color: red;
 	font-weight: bold;
+
 }
 
 .text-danger {
@@ -162,7 +183,7 @@ div#datatable_length {
 
 .signout {
 	border: 1px solid black;
-	margin-top: -40px;
+	margin-top: -10px;
 	margin-right: 15px;
 	float: right;
 	padding: 7.5px 30px; 
@@ -186,11 +207,50 @@ div#datatable_length {
 }
 
 .logininfo {
-	margin-top: -35px;
 	font-size: 13.5px;
-	margin-right: 155px;
+	margin-right: 5px;
 	text-align: right;
+	width: 400px;
+	position: absolute;
+	right: 35px;
+	top: 65px;
 }
+
+.signout1 {
+	border: 1px solid black;
+	margin-top: 20px;
+	margin-right: 15px;
+	float: right;
+	padding: 7.5px 30px; 
+	border-radius: 5px;
+	background-color: #DCDCDC;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.signout1 a:link {
+	text-decoration: none;
+	color: black;
+}
+
+.signout1 a:visited {
+	color: black;
+}
+
+.signout1 a:hover {
+	color: red;
+}
+
+.logininfo1 {
+	font-size: 13.5px;
+	margin-right: 35px;
+	text-align: right;
+	width: 400px;
+	position: absolute;
+	right: 35px;
+	top: 20px;
+}
+
 
 body {
 	font-family: Helvetica;
@@ -198,6 +258,7 @@ body {
 	margin-right: 30px;
 	padding: 0;
 	box-sizing: border-box;
+	background: #e4fcfc;
 	}
 
 hr {
@@ -219,7 +280,7 @@ hr {
 	margin: 0px 4px;
 	border: 1px solid #000;
 	float: left;
-	background-color: #DDD;
+	background-color: #eaa083;
 	border-radius: 5px;
 
 }	
@@ -249,22 +310,23 @@ hr {
 .nav-user ul {
 	list-style-type: none;
 	overflow: hidden;
-	width: 720px;
+	width: 840px;
 	margin: 0px auto;
+
 	}
 
 .nav-user li {
-	width: 170px;
+	width: 200px;
 	height: 40px;
 	margin: 0px 4px;
 	border: 1px solid #000;
 	float: left;
-	background-color: #DDD;
+	background-color: #eaa083;
 }	
 
 .nav-user a {
 	display: block;
-	width: 170px;
+	width: 200px;
 	height: 40px;
 	line-height: 40px;
 	text-decoration: none;
@@ -272,11 +334,11 @@ hr {
 }
 
 .nav-user a:link {
-	color: green;
+	color: blue;
 }
 
 .nav-user a:visited {
-	color: black;
+	color: purple;
 }
 
 .nav-user li:hover {
@@ -331,6 +393,7 @@ hr {
 	line-height: 40px;
 	text-decoration: none;
 	text-align: center;
+
 }
 
 .filter-box1 input {
@@ -652,6 +715,7 @@ form {
 #button5 {
 	height: 45px; 
 	text-align: center;
+	border-radius: 4px;
 }
 
 #button5 input {
@@ -661,6 +725,7 @@ form {
 	font-size: 15px;
 	margin-left: 20px;  
 	font-size: 15px;
+	
 }
 
 #button5 input:hover {
@@ -813,7 +878,7 @@ form {
 	margin: 0px 0px;
 	border: 1px solid #000;
 	float: left;
-	background-color: #DDD;
+	background-color: #eaa083;
 	border-radius: 5px;
 	text-align: center;
 }
@@ -828,7 +893,7 @@ form {
 	margin: 0px 0px;
 	border: 1px solid #000;
 	float: left;
-	background-color: #DDD;
+	background-color: #eaa083;
 	border-radius: 5px;
 }
 
@@ -842,7 +907,7 @@ form {
 	margin: 0px 0px;
 	border: 1px solid #000;
 	float: left;
-	background-color: #DDD;
+	background-color: #eaa083;
 	border-radius: 5px;
 }
 
@@ -872,7 +937,7 @@ form {
 	margin: 0px 0px;
 	border: 1px solid #000;
 	float: left;
-	background-color: #DDD;
+	background-color: #eaa083;
 	border-radius: 5px;
 }
 
@@ -886,7 +951,7 @@ form {
 	margin: 0px 0px;
 	border: 1px solid #000;
 	float: left;
-	background-color: #DDD;
+	background-color: #eaa083;
 	border-radius: 5px;
 }
 
@@ -900,7 +965,7 @@ form {
 	margin: 0px 0px;
 	border: 1px solid #000;
 	float: left;
-	background-color: #DDD;
+	background-color: #eaa083;
 	border-radius: 5px;
 }
 
@@ -919,7 +984,7 @@ form {
 	height: 80px;
 	margin: 0px 0px;
 	border: 1px solid #000;
-	background-color: #DDD;
+	background-color: #eaa083;
 	border-radius: 5px;
 	text-align: center;	
 }
@@ -948,10 +1013,12 @@ form {
 .member-portal-link a {
 	text-align: center;
 	text-decoration: none;
+	color: green;
 }
 
 .member-portal-link li {
 	text-align: center;
+
 }
 
 .member-portal-link ul {
@@ -979,6 +1046,30 @@ form {
 	background: none;
 	text-align: center;
 }
+
+#button6 {
+	padding: 14px; 
+	width: 120px;
+	background-color: lightblue;
+	font-size: 14px;
+	font-family: Helvetica;
+	float: none;
+	text-align: center;
+	border: 1px solid black;
+}
+
+#button6 a {
+	text-decoration: none;
+}
+
+#center6 {
+	text-align: center;
+	margin: 0px auto;
+	width: 120px;
+}
+
+
+
 /* added more styles for admin_user_receipt.php */
 
 .receipt-label {
