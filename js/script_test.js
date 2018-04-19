@@ -24,7 +24,7 @@ $('#datatable tfoot th').each( function () {
 // Add a datepicker for date range input boxes
 $("#datepicker_from").datepicker({
 	showOn: "button",
-	buttonImage: "images/calendar.gif",
+	buttonImage: "images/datepicker.png",
 	buttonImageOnly: false,
 	changeMonth:	true,
 	changeYear:		true,
@@ -39,7 +39,7 @@ $("#datepicker_from").datepicker({
 
 $("#datepicker_to").datepicker({
 	showOn: "button",
-	buttonImage: "images/calendar.gif",
+	buttonImage: "images/datepicker.png",
 	buttonImageOnly: false,
 	changeMonth:	true,
 	changeYear:		true,

@@ -44,22 +44,22 @@ if( $_SESSION['sess_user_type'] == "A") {
 <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
 <link data-require="jqueryui@*" data-semver="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
 <link href="style.css" rel="stylesheet" />
-<script src="script_test.js"></script>
+<script src="js/script_test.js"></script>
 
 </head>
 
 
 <body>
-<div class="main-heading">
-	<h1>Yokota Sportsmen&#39;s Club</h1>
+<div class="logo-admin">
+	<img src="images/ysc2_logo.png" alt="logo">
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
-<div class="signout">
+<div class="signout1">
 	<a href="logout.php">Sign Out</a>	
 </div>
 
-<div class="logininfo">
+<div class="logininfo1">
 	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an ADMIN</p>'; ?> 
 </div>
 <br>
@@ -71,9 +71,9 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<ul>
 		<li><a href="admin_add_new_members.php">Add Membership</a></li>
 		<li><a href="admin_view_update_membership_summary.php">View Membership</a></li>
-		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
-		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
 		<li><a href="admin_view_general_ledger.php">View General Ledger</a></li>
+		<li><a href="admin_view_update_ATF_status.php">View ATF Status</a></li>
+		<li><a href="admin_post_income_expenses.php">Post Income/Expenses</a></li>
 	</ul>
 <br>
 </div>
@@ -110,7 +110,6 @@ if( $_SESSION['sess_user_type'] == "A") {
 		 <th>Assoc<br>Member #</th>
 		 <th>Added</th>
 		 <th>Updated</th>
-		 <th>Action</th>
 	 	</thead>
 	<tfoot>
 		<th>List #</th>
@@ -130,7 +129,6 @@ if( $_SESSION['sess_user_type'] == "A") {
 			 <th>Assoc<br>Member #</th>
 			 <th>Added</th>
 			 <th>Updated</th>
-			 <th>Action</th>
 		 	</thead>
 	</tfoot>
 <tbody>
@@ -160,7 +158,6 @@ foreach ($pdo->query($sql) as $row) {
 	echo '<td>'. $row['atf_mem_no'] . '</td>';
 	echo '<td>'. $row['pri_li_add_date'] . '</td>';
 	echo '<td>'. $row['pri_li_update_date'] . '</td>';
-	echo '<td><a class="btn" href="">Update</a></td>';
 	echo ' ';
 	echo '</tr>';
  }

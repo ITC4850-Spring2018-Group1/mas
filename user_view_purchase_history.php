@@ -33,11 +33,11 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
-<div class="signout">
+<div class="signout1">
 	<a href="logout.php">Sign Out</a>	
 </div>
 
-<div class="logininfo">
+<div class="logininfo1">
 	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as a MEMBER</p>'; ?> 
 </div>
 <br>

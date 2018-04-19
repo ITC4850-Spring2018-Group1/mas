@@ -12,8 +12,9 @@ if(isset($_POST["login"]))
 {  
 	 if(empty($_POST["username"]) || empty($_POST["password"]))  
 	 {  
-		$message = '<label>All fields are required.</label>';  
+		//$message = '<label>All fields are required.</label>';  
 	 }  
+	 
 	 else  
 	 {  
 		$query = "SELECT * 
@@ -24,7 +25,7 @@ if(isset($_POST["login"]))
 		$statement->execute(array('username'=>$_POST["username"],'password'=>$_POST["password"]));
 		
 		if ($statement->rowCount() == 0) {
-			header('Location: index.php?message=Invalid username and/or password combination.');
+			header('Location: index.php?message=Invalid username and password combination');
 					}	
 		else {
 			$row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -60,17 +61,24 @@ if(isset($_POST["login"]))
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
  <link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+ <style type="text/css">
+ 	.erreur{
+		display:none;
+		color:#F00;
+		font-weight:bold;
+	}
+ </style> 
 </head>  
-<body>  
+<body>
 <div class="logo">
 	<img src="images/ysc1_logo.png" alt="logo">
 </div>
 <div class="logo2">
 	<img src="images/american_japanese_flags.png" alt="flags">
 </div>
-<br>  
-<div class="container" style="width:500px;">  
+<br>    
+ <div class="container" style="width:500px;">  
 	<?php  
 if(isset($_GET['message']))  
 	{  
@@ -80,29 +88,25 @@ if(isset($_GET['message']))
 <br>
 <br>
 <div class="login">
-<br>
-<br>
-<br>
 <h3>Club Login Form</h3><br />
 </div>  
 <form method="post">  
 	 <label>Username</label>  
-	 <input type="text" name="username" class="form-control" />  
+	 <input type="text" name="username" id="username" class="form-control" />
+     <p class="erreur" id="username-erreur">Please enter your username</p>  
 	 <br />  
 	 <label>Password</label>  
-	 <input type="password" name="password" class="form-control" />  
+	 <input type="password" name="password" id="password" class="form-control" />
+     <p class="erreur" id="password-erreur">Please enter your password</p>  
 	 <br />  
-	 <input type="submit" name="login" class="btn btn-info" value="Login" /> 
+	 <input type="submit" name="login" class="btn btn-info" value="Login" id="sub-form" /> 
 	<br><br>
 <p>Forgot your username or password? Click <a href="mailto:YSCsecretary@gmail.com">here</a>.</p>
 <br>
 <br>
 <p><a href="https://www.facebook.com/yokotasportsmensclub/">About Us</a> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;<a href="mailto:YSCsecretary@gmail.com">Contact Us</a></p>
-</form>
-<br>
-<br> 
-<br>  
-<br>
+</form>  
+ </div>  
 <br>
 <br><br><br><br>
 </div> 
@@ -111,7 +115,7 @@ if(isset($_GET['message']))
 <br>
 <div id="social-media">
 <!-- Add font-awesome icons -->
-<a href="#" class="fa fa-facebook"></a>
+<a href="https://www.facebook.com/yokotasportsmensclub/" class="fa fa-facebook"></a>
 <a href="#" class="fa fa-twitter"></a>
 <a href="#" class="fa fa-pinterest"></a>
 <a href="#" class="fa fa-youtube"></a>
@@ -119,8 +123,29 @@ if(isset($_GET['message']))
 <br>
 <br>
 <br>
-<p id="message">Disclaimer: The information contained within this site is for demonstration purposes. If you have any questions about the content of this site, please message the project team <a href="mailto:kidder.r@husky.neu.edu">here.</a></p>  
+<p id="message">Disclaimer: The information contained within this site is for demonstration purposes. If you have any questions about the content of this site, please message the project team <a href="mailto:kidder.r@husky.neu.edu">here.</a></p>
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
+
+<script type="application/javascript">
+	
+	$( "#sub-form" ).on( "click", function(e) {
+		if( ($( "#username" ).val() == "") || ($( "#password" ).val() == "") ){
+			if( $( "#username" ).val() == "" ){
+				$( "#username-erreur" ).show();
+			}else{
+				$( "#username-erreur" ).hide();
+			}
+			if( $( "#password" ).val() == "" ){
+				$( "#password-erreur" ).show();
+			}else{
+				$( "#password-erreur" ).hide();
+			}
+			return false;
+		}
+		
+	});
+</script>
 </body>
 </html>
+ 

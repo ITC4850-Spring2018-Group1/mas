@@ -50,11 +50,11 @@ require 'database.php';
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
-<div class="signout">
+<div class="signout1">
 	<a href="logout.php">Sign Out</a>	
 </div>
 
-<div class="logininfo">
+<div class="logininfo1">
 	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an MEMBER</p>'; ?> 
 </div>
 <br>
@@ -178,7 +178,11 @@ require 'database.php';
 </form>
 <br>
 </div>
-
+<div id="center6">
+<div id="button6">
+<a href="mailto:YSCsecretary@gmail.com">Email Admin</a></p>
+</div>
+</div>
 <br>
 <br>
 
