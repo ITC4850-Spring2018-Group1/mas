@@ -163,7 +163,7 @@ Database::disconnect();
 <br><br><br>
 <div id="button">
 	<ul>
-		<li><a href="admin_post_sales_checkout.php">Post Sales/Checkout</a></li>
+		<li><a href="exportData.php">Export General Ledger</a></li>
 		<li><a href="admin_view_update_import_price_list.php">View Inventory</a></li>
 		<li><a href="admin_main_dashboard.php">Return to Dashboard</a></li>
 	</ul>
