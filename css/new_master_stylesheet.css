@@ -97,6 +97,13 @@ div#datatable_length {
 	font-weight: bold;
 }
 
+.text-danger {
+	color: red;
+	margin-left: 80px;
+	position: absolute;
+	top: 180px;
+}
+
 /* Style all font awesome icons */
 .fa {
 	padding: 20px;
