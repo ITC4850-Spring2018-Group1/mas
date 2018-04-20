@@ -123,7 +123,7 @@ if(isset($_GET['message']))
 <br>
 <br>
 <br>
-<p id="message">Disclaimer: The information contained within this site is for demonstration purposes. If you have any questions about the content of this site, please message the project team <a href="mailto:kidder.r@husky.neu.edu">here.</a></p>
+<p id="disclaimer">Disclaimer: The information contained within this site is for demonstration purposes. If you have any questions about the content of this site, please message the project team <a href="mailto:kidder.r@husky.neu.edu">here.</a></p>
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
 

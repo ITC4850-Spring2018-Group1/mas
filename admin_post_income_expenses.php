@@ -56,7 +56,7 @@ if(isset($_POST['mem_no']))
 	if($result){ //if the update worked
 		if($result1) {
 			if($result2) {
-				echo "<p id=message1>Update successful!</p>";	 
+				echo "<p id=message>Update successful!</p>";	 
 			}
 		}
 	}
@@ -200,7 +200,7 @@ if(isset($_POST['mem_no']))
 
 <div class="amount">
 	<label>Amount ($):</label>
-	<input type="text" required name="amount">
+	<input type="number" required name="amount" min="0.01" step="0.01" placeholder="00.00">
 </div><br>
 
 <div class="description">

@@ -39,29 +39,28 @@ CREATE TABLE member (
  );
 
 /* this statement is to add data into table after its created */
-INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Jason', 'T', 'Kidder', '225-4225', '080-9158-6594', 'PSC 78 Box 146', 'APO', 'AP', '96326', 'jason.kidder@yahoo.com', 'Yokota', 'AD', 'I', ' ', 'President');
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by)
+VALUES ('Jason', 'T', 'Kidder', '225-4225', '080-9158-6594', 'PSC 78 Box 146', 'APO', 'AP', '96326', 'jason.kidder@yahoo.com', 'Yokota', 'AD', 'I', ' ', 'President', 'SYSADMIN');
 
-INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Catherine', 'S', 'Jones', '225-4532', '090-4324-4324', 'PSC 78 Box 111', 'APO', 'AP', '96326', 'csj@gmail.com', 'Yokosuka', 'AV', 'I', 'DEROS 6/2019', '');
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by)
+VALUES ('Catherine', 'S', 'Jones', '225-4532', '090-4324-4324', 'PSC 78 Box 111', 'APO', 'AP', '96326', 'csj@gmail.com', 'Yokosuka', 'AV', 'I', 'DEROS 6/2019', '', 'SYSADMIN');
 
-INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Bob', 'S', 'Rayburn', '225-2232', '090-4334-4324', 'PSC 78 Box 143', 'APO', 'AP', '96326', 'bobr@gmail.com', 'Zama', 'AD', 'I', 'DEROS 3/2019', '');
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by)VALUES ('Bob', 'S', 'Rayburn', '225-2232', '090-4334-4324', 'PSC 78 Box 143', 'APO', 'AP', '96326', 'bobr@gmail.com', 'Zama', 'AD', 'I', 'DEROS 3/2019', '', 'SYSADMIN');
 
-INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Harry', 'S', 'Harrison', '225-2112', '090-2234-4324', 'PSC 78 Box 113', 'APO', 'AP', '96326', 'harryworks@gmail.com', 'Yokota', 'AD', 'I', 'DEROS 12/2019', '');
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by)
+VALUES ('Harry', 'S', 'Harrison', '225-2112', '090-2234-4324', 'PSC 78 Box 113', 'APO', 'AP', '96326', 'harryworks@gmail.com', 'Yokota', 'AD', 'I', 'DEROS 12/2019', '', 'SYSADMIN');
 
-INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Makoto', '', 'Sato', '', '080-3334-4424', '東京都中央区八重洲一丁目5番3号', '東京', '中央郵便局', '〒100-8994', 'msato11@gmail.com', 'Yokota', 'LN', 'I', '', '');
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by)
+VALUES ('Makoto', '', 'Sato', '', '080-3334-4424', '東京都中央区八重洲一丁目5番3号', '東京', '中央郵便局', '〒100-8994', 'msato11@gmail.com', 'Yokota', 'LN', 'I', '', '', 'SYSADMIN');
 
-INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Joe', 'E', 'Johnson', '225-2232', '090-2234-4552', 'PSC 78 Box 103', 'APO', 'AP', '96326', 'maverick@gmail.com', 'Yokota', 'AD', 'I', 'DEROS 9/2019', 'Vice President');
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by)
+VALUES ('Joe', 'E', 'Johnson', '225-2232', '090-2234-4552', 'PSC 78 Box 103', 'APO', 'AP', '96326', 'maverick@gmail.com', 'Yokota', 'AD', 'I', 'DEROS 9/2019', 'Vice President', 'SYSADMIN');
 
-INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Alan', 'P', 'Lambert', '225-2212', '090-9994-4324', 'PSC 78 Box 3443', 'APO', 'AP', '96326', 'sunnyday@gmail.com', 'Zama', 'AD', 'F', 'DEROS 3/2020', '');
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by)
+VALUES ('Alan', 'P', 'Lambert', '225-2212', '090-9994-4324', 'PSC 78 Box 3443', 'APO', 'AP', '96326', 'sunnyday@gmail.com', 'Zama', 'AD', 'F', 'DEROS 3/2020', '', 'SYSADMIN');
 
-INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position)
-VALUES ('Yuki', '', 'Naganosawa', '', '090-8754-4478', '東京都中央区八重洲一丁目5番3号', '東京', '中央郵便局', '〒100-8994', 'yukismiles@gmail.com', 'Yokota', 'LN', 'I', '', '');
+INSERT INTO member (mem_fname, mem_mi, mem_lname, mem_duty_ph, mem_cell_number, mem_add_street, mem_add_city, mem_add_state, mem_add_zip, mem_email, mem_installation, mem_category_cd, mem_type, mem_remarks, mem_position, mem_updated_by)
+VALUES ('Yuki', '', 'Naganosawa', '', '090-8754-4478', '東京都中央区八重洲一丁目5番3号', '東京', '中央郵便局', '〒100-8994', 'yukismiles@gmail.com', 'Yokota', 'LN', 'I', '', '', 'SYSADMIN');
 
 CREATE TABLE ref_member_type (
 		ref_mem_typ CHAR (1) PRIMARY KEY,
@@ -81,13 +80,28 @@ CREATE TABLE membership (
 );
 
 INSERT INTO membership
-VALUES ('1', '2017-10-01', '0000-00-00');
+VALUES ('1', '2017-10-01', '2018-09-30');
 
 INSERT INTO membership
 VALUES ('2', '2016-10-01', '2017-09-30');
 
 INSERT INTO membership
 VALUES ('3', '2016-10-01', '2017-09-30');
+
+INSERT INTO membership
+VALUES ('4', '2017-10-01', '2018-09-30');
+
+INSERT INTO membership
+VALUES ('5', '2017-10-01', '2018-09-30');
+
+INSERT INTO membership
+VALUES ('6', '2017-10-01', '2018-09-30');
+
+INSERT INTO membership
+VALUES ('7', '2017-10-01', '2018-09-30');
+
+INSERT INTO membership
+VALUES ('8', '2017-10-01', '2018-09-30');
 
 CREATE TABLE atf (
 	atf_serial_no VARCHAR (40) PRIMARY KEY,
@@ -210,24 +224,24 @@ CREATE TABLE price_list (
 	pri_li_comment VARCHAR (120),
 	pri_li_add_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
 	pri_li_update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	pri_li_added_by INTEGER (1),
-	pri_li_update_by INTEGER (1)
+	pri_li_added_by VARCHAR (50),
+	pri_li_update_by VARCHAR (50)
 );
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '1', 'Theoben', 'Eliminator', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FERE340-1', '', '1', '');
+VALUES ('P-2017 (3)', '1', 'Theoben', 'Eliminator', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥12,000', '', 'FERE340-1', '', 'SYSADMIN', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '2', 'Remington', 'Fourn', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'ERTE340-1', '', '1', '');
+VALUES ('P-2017 (3)', '2', 'Remington', 'Fourn', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥32,000', '', 'ERTE340-1', '', 'SYSADMIN', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '3', 'Ruger', 'Rapier', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'KIJU340-1', '', '1', '');
+VALUES ('P-2017 (3)', '3', 'Ruger', 'Rapier', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥24,000', '', 'KIJU340-1', '', 'SYSADMIN', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '4', 'Browning', 'BAR MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FFERT340-1', '', '1', '');
+VALUES ('P-2017 (3)', '4', 'Browning', 'BAR MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥60,000', '', 'FFERT340-1', '', 'SYSADMIN', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '5', 'Browning', 'MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FREDYJ340-1', '', '1', '');
+VALUES ('P-2017 (3)', '5', 'Browning', 'MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥430,000', '', 'FREDYJ340-1', '', 'SYSADMIN', '');
 
 
 CREATE TABLE ref_member_catg (

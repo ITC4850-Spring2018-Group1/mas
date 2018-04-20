@@ -28,8 +28,8 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 </head>
 
 <body>
-<div class="main-heading">
-	<h1>Yokota Sportsmen&#39;s Club</h1>
+<div class="logo-admin">
+	<img src="images/ysc2_logo.png" alt="logo">
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->

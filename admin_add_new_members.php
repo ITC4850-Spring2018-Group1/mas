@@ -31,9 +31,9 @@ if(isset($_POST['submit'])) {
 	}
 	
 // get values from input text and number
-	$fname = $_POST['mem_fname'];
-	$mi = $_POST['mname'];
-	$lname = $_POST['lname'];
+	$fname = ucwords($_POST['mem_fname']);
+	$mi = ucwords($_POST['mname']);
+	$lname = ucwords($_POST['lname']);
 	$duty = $_POST['duty'];
 	$cell = $_POST['cell'];
 	$street = $_POST['street'];
@@ -45,16 +45,16 @@ if(isset($_POST['submit'])) {
 	$remarks = $_POST['remarks'];
 	$category = $_POST['category'];
 	$memberType = $_POST['memberType'];
-	$position = $_POST['position'];
+	$position = ucwords($_POST['position']);
 	$sess_username = $_SESSION["sess_username"];
 	
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$role = $_POST['role'];
 	
-	$fam_fname = $_POST['fam_fname'];
-	$fam_mi = $_POST['fam_mi'];
-	$fam_lname = $_POST['fam_lname'];
+	$fam_fname = ucwords($_POST['fam_fname']);
+	$fam_mi = ucwords($_POST['fam_mi']);
+	$fam_lname = ucwords($_POST['fam_lname']);
 	$fam_cell = $_POST['fam_cell'];
 	$fam_email = $_POST['fam_email'];
 	$fam_installation = $_POST['installation'];
@@ -118,12 +118,10 @@ else {
 	<title>Membership and Accounting System (MAS)</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- need to add favicon links HERE -->
 </head>
-
 <body>
 <div class="logo-admin">
-	<img src="images/ysc2_logo.png" alt="logo">
+	<img src="images/ysc3_logo.png" alt="logo">
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
@@ -134,6 +132,7 @@ else {
 <div class="logininfo1">
 	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an ADMIN</p>'; ?> 
 </div>
+<br>
 <br>
 <br>
 <br>
@@ -151,7 +150,7 @@ else {
 <hr>
 <br>
 <div class="main-title">
-	<h2>Membership And Accounting System</h2>
+<h2>MEMBERSHIP AND ACCOUNTING SYSTEM</h2>
 </div>
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
@@ -166,7 +165,7 @@ else {
 		<label for="mem_fname">First Name:</label>
 		<input id="mem_fname" required type="text" name="mem_fname" value="" style="text-transform: capitalize;"><br><br>
 		
-		<label for="mname">Middle Name:</label>
+		<label for="mname">Middle Initial:</label>
 		<input id="mname" type="text" name="mname" value="" style="text-transform: capitalize;"><br><br>
 				
 		<label for="lname">Last Name:</label>

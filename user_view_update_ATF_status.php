@@ -27,8 +27,8 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 </head>
 
 <body>
-<div class="main-heading">
-	<h1>Yokota Sportsmen&#39;s Club</h1>
+<div class="logo-admin">
+	<img src="images/ysc2_logo.png" alt="logo">
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
@@ -104,7 +104,7 @@ foreach ($pdo->query($sql) as $row) {
 				echo '<td>'. $row['atf_comment'] . '</td>';
 				echo '<td>'. $row['atf_last_updated'] . '</td>';
 				echo '<td>'. $row['atf_updated_by'] . '</td>';
-				echo '<td><a class="btn" href="">Update</a></td>';
+				echo '<td><a href="user_view_update_ATF_details.php?serial_no='.$row['atf_serial_no'].'" target="_blank">View | Update</a></td>';
 				echo ' ';
 				echo '</tr>';
  }

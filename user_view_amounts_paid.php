@@ -28,8 +28,8 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 </head>
 
 <body>
-<div class="main-heading">
-	<h1>Yokota Sportsmen&#39;s Club</h1>
+<div class="logo-admin">
+	<img src="images/ysc2_logo.png" alt="logo">
 </div>
 
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
@@ -61,7 +61,7 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 <!-- IMPORTANT #2: change the H3 tag to match the title of YOUR specific wireframe -->
 <div class="individual-page-title">	
 	<h3>Member Amounts Paid</h3><br>
-	<p id="message">Note: only amounts paid directly to the YSC are reflected within this report. The actual amounts paid to Japanese vendors are not reported.</p>
+	<p id="user_note">Note: only amounts paid directly to the YSC are reflected within this report. The actual amounts paid to Japanese vendors are not reported.</p>
 </div>
 <br>
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
