@@ -46,7 +46,6 @@ if( $_SESSION['sess_user_type'] == "A") {
 <link data-require="jqueryui@*" data-semver="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
 <link href="style.css" rel="stylesheet" />
 <script src="js/script_test.js"></script>
-
 </head>
 
 <body>
@@ -92,31 +91,29 @@ if( $_SESSION['sess_user_type'] == "A") {
 	<thead>
 		 <th>Member #</th> 
 		 <th>First Name</th> 
-		 <th>MI</th> 
 		 <th>Last Name</th> 
 		 <th>Email</th> 
 		 <th>Installation</th> 
 		 <th>Category</th> 
-		 <th>Position</th> 
-		 <th>Last Updated</th>
 		 <th>Type of User</th>
 		 <th>Updated By</th>
+		 <th>Date Added</th>
+		 <th>Last Updated</th>
 		 <th>Action</th>
  	</thead>
 
 	<tfoot>
 	<tr>
 		<th>Member #</th> 
-		 <th>First Name</th> 
-		 <th>MI</th> 
+		 <th>First Name</th>  
 		 <th>Last Name</th> 
 		 <th>Email</th> 
 		 <th>Installation</th> 
 		 <th>Category</th> 
-		 <th>Position</th> 
-		 <th>Last Updated</th>
 		 <th>Type of User</th>
 		 <th>Updated By</th>
+		 <th>Date Added</th>
+		 <th>Last Updated</th>
 		 <th>Action</th>
 	</tr>
 	</tfoot>
@@ -135,15 +132,14 @@ foreach ($pdo->query($sql) as $row) {
 					echo '<tr>';
 					echo '<td>'. $row['mem_no'] . '</td>';
 					echo '<td>'. $row['mem_fname'] . '</td>';
-					echo '<td>'. $row['mem_mi'] . '</td>';
 					echo '<td>'. $row['mem_lname'] . '</td>';
 					echo '<td>'. $row['mem_email'] . '</td>';
 					echo '<td>'. $row['mem_installation'] . '</td>';
 					echo '<td>'. $row['ref_mem_category_desc'] . '</td>';
-					echo '<td>'. $row['mem_position'] . '</td>';
-					echo '<td>'. $row['mem_last_updated'] . '</td>';
 					echo '<td>'. $row['ref_users_desc'] . '</td>';
 					echo '<td>'. $row['mem_updated_by'] . '</td>';
+					echo '<td>'. $row['mem_add_date_time'] . '</td>';
+					echo '<td>'. $row['mem_last_updated'] . '</td>';
 					echo '<td><a class="btn" href="admin_view_update_members_details.php?mem_no='.$row['mem_no'].'">View | Update</a></td>';
 					echo ' ';
 					echo '</tr>';
@@ -168,6 +164,10 @@ foreach ($pdo->query($sql) as $row) {
 	document.write('<form><input type="button" name="print" value="Print Report"onClick="window.print()"></form>');
 	}
 </script>
+
+
+</head>
+
 </div>
 <br>
 <br>

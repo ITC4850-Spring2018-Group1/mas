@@ -56,8 +56,7 @@ if(isset($_POST['mem_no'])) {
 		if($result2) {
 			if($result3) {
 				if($result4) {
-					echo "<p id=message>Update successful!</p>";
-				}	 
+					echo "<p id=message>Update successful!</p>";				}	 
 			}
 		}
 	}
@@ -162,7 +161,7 @@ Database::disconnect();
 
 <div class="amount2">
 	<label>Amount ($):</label>
-	<input type="text" required name="amount" value="10.00">
+	<input type="number" required name="amount" min="0.01" step="0.01" placeholder="00.00">
 </div><br>
 
 <div class="button-checkout"><br>

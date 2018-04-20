@@ -60,7 +60,7 @@ Database::disconnect();
 </div>
 
 <div class="logininfo">
-	<?php echo '<p>Welcome ' . $_SESSION["sess_username"].'! You are logged in as an ADMIN</p>'; ?> 
+ 
 </div>
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
 <br>
