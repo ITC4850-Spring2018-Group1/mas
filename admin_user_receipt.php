@@ -55,27 +55,19 @@ Database::disconnect();
 </head>
 
 <body>
-<div class="logo-admin">
-	<img src="images/ysc2_logo.png" alt="logo">
+<div class="main-heading">
+	<h1>Yokota Sportsmen&#39;s Club</h1>
 </div>
-
 <div class="logininfo">
  
 </div>
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
-<br>
-<br>
-<br>
 <br>
 <div class="ReceiptDate">
 	<?php
 echo date("Y/m/d");
 ?>	
 </div>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -111,7 +103,6 @@ echo date("Y/m/d");
 	<?php echo $data['mem_add_zip'];?>
 </label>
 
-
 <!-- IMPORTANT #3: insert/paste YOUR code below to create the table, form, etc. -->
 <br><br>
 <table class="user-table"> 
@@ -124,6 +115,8 @@ echo date("Y/m/d");
 		 <th>Income Type</th> 
 		 <th>Expense Type</th> 
 		 <th>Serial #</th> 
+		 <th>Manufacturer</th> 
+		 <th>Model</th> 
 		 <th>Amount<br>($)</th> 
 		 <th>Received By</th>
 	 </thead>
@@ -152,6 +145,8 @@ foreach ($pdo->query($sql) as $row) {
 					echo '<td>'. $row['ref_gen_led_income_desc'] . '</td>';
 					echo '<td>'. $row['ref_gen_led_expense_desc'] . '</td>';
 					echo '<td>'. $row['pri_li_serial_no'] . '</td>';
+					echo '<td>'. $row['pri_li_manufacturer'] . '</td>';
+					echo '<td>'. $row['pri_li_model'] . '</td>';
 					echo '<td>$'. $row['gen_led_amount'] . '</td>';
 					echo '<td>'. $row['gen_led_add_by'] . '</td>';
 					echo ' ';
