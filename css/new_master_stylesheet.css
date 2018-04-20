@@ -103,6 +103,21 @@ div#datatable_length {
 	text-align: center;
 	color: red;
 	font-weight: bold;
+	position: absolute;
+	top: 40px;
+	left: 550px;
+}
+
+#disclaimer {
+	color: red;
+	font-weight: bold;
+	text-align: center;
+}
+
+#user_note {
+	color: red;
+	font-weight: bold;
+	text-align: center;
 }
 
 #message1 {
@@ -115,7 +130,9 @@ div#datatable_length {
 	text-align: center;
 	color: red;
 	font-weight: bold;
-
+	position: absolute;
+	top: 60px;
+	left: 550px;
 }
 
 .text-danger {
