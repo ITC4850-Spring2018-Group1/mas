@@ -64,6 +64,9 @@ Database::disconnect();
 </div>
 <!-- this redirects the user to a signout page where the variables will be reset and the session terminated -->
 <br>
+<br>
+<br>
+<br>
 <div class="ReceiptDate">
 	<?php
 echo date("Y/m/d");
@@ -179,6 +182,6 @@ function goBack() {
 </div>
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
-<p>Copyright 2018 Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
+<p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
 </body>
 </html>
