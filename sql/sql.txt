@@ -224,24 +224,24 @@ CREATE TABLE price_list (
 	pri_li_comment VARCHAR (120),
 	pri_li_add_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
 	pri_li_update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	pri_li_added_by INTEGER (1),
-	pri_li_update_by INTEGER (1)
+	pri_li_added_by VARCHAR (50),
+	pri_li_update_by VARCHAR (50)
 );
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '1', 'Theoben', 'Eliminator', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FERE340-1', '', '1', '');
+VALUES ('P-2017 (3)', '1', 'Theoben', 'Eliminator', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥12,000', '', 'FERE340-1', '', 'SYSADMIN', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '2', 'Remington', 'Fourn', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'ERTE340-1', '', '1', '');
+VALUES ('P-2017 (3)', '2', 'Remington', 'Fourn', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥32,000', '', 'ERTE340-1', '', 'SYSADMIN', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '3', 'Ruger', 'Rapier', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'KIJU340-1', '', '1', '');
+VALUES ('P-2017 (3)', '3', 'Ruger', 'Rapier', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥24,000', '', 'KIJU340-1', '', 'SYSADMIN', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '4', 'Browning', 'BAR MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FFERT340-1', '', '1', '');
+VALUES ('P-2017 (3)', '4', 'Browning', 'BAR MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥60,000', '', 'FFERT340-1', '', 'SYSADMIN', '');
 
 INSERT INTO price_list (pri_li_no, pri_li_item_no, pri_li_manufacturer, pri_li_model, pri_li_kind, pri_li_type, pri_li_gauge, pri_li_bbl, pri_li_choke, pri_li_quantity, pri_li_price, pri_li_description, pri_li_serial_no, pri_li_comment, pri_li_added_by, pri_li_update_by)
-VALUES ('P-2017 (3)', '5', 'Browning', 'MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', 'Y22000', '', 'FREDYJ340-1', '', '1', '');
+VALUES ('P-2017 (3)', '5', 'Browning', 'MKII', 'UARG', 'Gas Spring', '4.55mm', '', '', '1', '¥430,000', '', 'FREDYJ340-1', '', 'SYSADMIN', '');
 
 
 CREATE TABLE ref_member_catg (
