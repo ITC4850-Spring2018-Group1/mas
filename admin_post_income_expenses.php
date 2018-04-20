@@ -69,9 +69,37 @@ if(isset($_POST['mem_no']))
 <html lang="en">
 <head>
 	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 	<title>Membership and Accounting System (MAS)</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script type="application/javascript" >
+	$(function() {
+    $('#trans-type').on('change', function() {
+   // after creating the option
+   
+   if ($('#trans-type').val() == "I") {
+    	$('#expense-type').prop('disabled',true);
+    	$('#income-type').removeAttr('disabled');
+    }
+
+    if ($('#trans-type').val() == "E") {
+    	$('#income-type').prop('disabled',true);
+    	$('#expense-type').removeAttr('disabled');
+    }
+
+   // try following
+   //$("select").prop('disabled',true);
+   //alert($('#trans-type').val());
+});
+    
+    console.log( "ready!" );
+
+});			
+</script>
+
+
 </head>
 
 <body>
@@ -136,7 +164,7 @@ if(isset($_POST['mem_no']))
 
 <div class="select-trans">
 	<label>Transaction Type:</label>
-	<select required name="trans_type">
+	<select required name="trans_type" id="trans-type">
 		<option value=""></option>
 		<option value="I">Income</option>
 		<option value="E">Expense</option>
@@ -145,7 +173,7 @@ if(isset($_POST['mem_no']))
 
 <div class="select-exp-type">
 	<label>Expense Type:</label>
-	<select name="expense_type">
+	<select name="expense_type" id="expense-type">
 		<option value=" ">Select Expense Type</option>
 		<option value="M">E - Meeting</option>
 		<option value="T">E - Trip Reimbursement</option>
@@ -158,7 +186,7 @@ if(isset($_POST['mem_no']))
 
 <div class="select-inc-type">
 	<label>Income Type:</label>
-	<select name="income_type">
+	<select name="income_type" id="income-type">
 		<option value=" ">Select Income Type</option>
 		<option value="AD">I - Annual Dues</option>
 		<option value="RD">I - Renewal Dues</option>
@@ -181,7 +209,7 @@ if(isset($_POST['mem_no']))
 </div>
 <br>
 <div class="submit-inc-exp"><br>
-	<button type="submit" name="submit" class="submit-inc-exp">Submit</button><br><br><br><br>
+	<button type="submit" id="sub-form" name="submit" class="submit-inc-exp">Submit</button><br><br><br><br>
 	<div id="bottom-return-to-dashboard">
 	<div id="button-back">
 	<a class="btn" href="admin_main_dashboard.php">Return to Dashboard</a>
