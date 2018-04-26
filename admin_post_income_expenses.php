@@ -84,7 +84,6 @@ if(isset($_POST['mem_no']))
     $('#trans-type').on('change', function() {
      // after creating the option
    
-<<<<<<< HEAD
 	    if ($('#trans-type').val() == "I") {
 	    	$('#expense-type').prop('disabled',true);
 	    	$('#income-type').removeAttr('disabled');
@@ -117,7 +116,6 @@ if(isset($_POST['mem_no']))
 	   }
 })
 
-=======
    if ($('#trans-type').val() == "I") {
     	$('#expense-type').prop('disabled',true);
     	$('#income-type').removeAttr('disabled');
@@ -132,7 +130,7 @@ if(isset($_POST['mem_no']))
    // try following
    //$("select").prop('disabled',true);
    //alert($('#trans-type').val());
->>>>>>> 9ebeccfa6c407f3b9c8b549e0ef6aac64ef9384b
+
 });
 
 </script>
