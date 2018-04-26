@@ -237,7 +237,7 @@ if(isset($_POST['mem_no']))
 
 <div class="amount">
 	<label>Amount ($):</label>
-	<input type="number" name="trans-amount" id="trans-amount" min="0.01" step="0.10" placeholder="00.00">
+	<input type="number" name="amount" id="trans-amount" min="0.00" step="0.01" placeholder="00.00">
 </div><br>
 
 <div class="description">
