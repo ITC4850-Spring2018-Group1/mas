@@ -56,8 +56,7 @@ $('#datatable tbody').on( 'click', 'tr', function () {
 	$(this).toggleClass('selected');
 	} );
 
-$('#datatable tbody')
-	.on( 'mouseenter', 'td', function () {
+$('#datatable tbody').on( 'mouseenter', 'td', function () {
 		var colIdx = table.cell(this).index().column;
 
 		$( table.cells().nodes() ).removeClass( 'highlight' );

@@ -107,6 +107,7 @@ if(isset($_GET['message']))
 <br>
 <p><a href="https://www.facebook.com/yokotasportsmensclub/">About Us</a> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;<a href="mailto:YSCsecretary@gmail.com">Contact Us</a></p>
 </form>  
+<<<<<<< HEAD
  </div>  
 <br>
 <br><br><br><br>
@@ -124,6 +125,25 @@ if(isset($_GET['message']))
 <br>
 <br>
 <br>
+=======
+ </div>  
+<br>
+<br><br><br><br>
+</div> 
+<p id="login-page-message">Stay up-to-date with YSC events through email announcements and newsletters! Click <a href="https://facebook.us17.list-manage.com/subscribe?u=38d1ab6fbfefeeab47f7bd995&id=56615443b8">here</a> to sign-up!</p>
+<br>
+<br>
+<div id="social-media">
+<!-- Add font-awesome icons -->
+<a href="https://www.facebook.com/yokotasportsmensclub/" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-pinterest"></a>
+<a href="#" class="fa fa-youtube"></a>
+</div>
+<br>
+<br>
+<br>
+>>>>>>> 9ebeccfa6c407f3b9c8b549e0ef6aac64ef9384b
 <p id="disclaimer">Disclaimer: The information contained within this site is for demonstration purposes. If you have any questions about the content of this site, please message the project team <a href="mailto:kidder.r@husky.neu.edu">here.</a></p>
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
