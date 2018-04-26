@@ -9,7 +9,8 @@ if(isset($_SESSION["sess_username"]))
  {  
 	header("location:index.php");  
  }  
-if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {		
+if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
+		
 		  }
 	else {
 		header('Location: index.php');
@@ -81,7 +82,6 @@ if( $_SESSION['sess_user_type'] == "U" || $_SESSION['sess_user_type'] == "A") {
 		 <th>Action</th> 
  	</thead>
 <tbody>
-
 <?php
  include 'database.php';
  $pdo = Database::connect();
@@ -117,7 +117,7 @@ foreach ($pdo->query($sql) as $row) {
 </div>
 <br><br><br><br><br><br><br><br>
 <div id="button-one">
-<SCRIPT LANGUAGE="JavaScript"> 
+<script LANGUAGE="JavaScript"> 
 	if (window.print) {
 	document.write('<form><input type="button" name="print" value="Print Page"onClick="window.print()"></form>');
 	}
@@ -127,3 +127,7 @@ foreach ($pdo->query($sql) as $row) {
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
+</footer>
+</body>
+</html>
+
