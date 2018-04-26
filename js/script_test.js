@@ -55,13 +55,6 @@ $("#datepicker_to").datepicker({
 $('#datatable tbody').on( 'click', 'tr', function () {
 	$(this).toggleClass('selected');
 	} );
-
-$('#datatable tbody').on( 'mouseenter', 'td', function () {
-		var colIdx = table.cell(this).index().column;
-
-		$( table.cells().nodes() ).removeClass( 'highlight' );
-		$( table.column( colIdx ).nodes() ).addClass( 'highlight' );
-	} );
 	
 // Apply date range filter based on date picker value entered
 minDateFilter = "";
