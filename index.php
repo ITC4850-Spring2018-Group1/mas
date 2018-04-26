@@ -61,6 +61,7 @@ if(isset($_POST["login"]))
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
  <link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="shortcut icon" type="image/png" href="/images/favicon-16x16.png"/>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
  <style type="text/css">
  	.erreur{
@@ -148,4 +149,3 @@ if(isset($_GET['message']))
 </script>
 </body>
 </html>
- 

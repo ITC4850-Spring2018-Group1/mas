@@ -69,6 +69,7 @@ if(isset($_POST['mem_no']))
 <html lang="en">
 <head>
 	<link rel="stylesheet" type="text/css" href="css/new_master_stylesheet.css">
+	<link rel="shortcut icon" type="image/png" href="/images/favicon-16x16.png"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 	<title>Membership and Accounting System (MAS)</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -76,27 +77,47 @@ if(isset($_POST['mem_no']))
 
 	<script type="application/javascript" >
 	$(function() {
+
+	//if ($('#trans-type').val() == "") 
+	$('#trans-amount').prop('disabled',true);
+
     $('#trans-type').on('change', function() {
-   // after creating the option
+     // after creating the option
    
-   if ($('#trans-type').val() == "I") {
-    	$('#expense-type').prop('disabled',true);
-    	$('#income-type').removeAttr('disabled');
-    }
+	    if ($('#trans-type').val() == "I") {
+	    	$('#expense-type').prop('disabled',true);
+	    	$('#income-type').removeAttr('disabled');
+	    	$('#trans-amount').removeAttr('disabled');
+	    }
 
-    if ($('#trans-type').val() == "E") {
-    	$('#income-type').prop('disabled',true);
-    	$('#expense-type').removeAttr('disabled');
-    }
+	    if ($('#trans-type').val() == "E") {
+	    	$('#income-type').prop('disabled',true);
+	    	$('#expense-type').removeAttr('disabled');
+	    	$('#trans-amount').removeAttr('disabled');
+	    }
+	});
 
-   // try following
-   //$("select").prop('disabled',true);
-   //alert($('#trans-type').val());
+	 $("form").submit(function(e) {
+	   console.log(!!$('#trans-amount').val());
+	   if (!$('#trans-amount').val()) {
+	   		alert("transaction amount required");
+	   		return false;
+	   }
+
+	   if (($('#trans-type').val() == "I" && !!$('#income-type').val()) || ($('#trans-type').val() == "E" && !!$('#expense-type').val())) 
+	   { 
+	    //alert('successful validation, submit for realz');
+
+	     return true;
+	   } 
+	   else {
+	   	alert('rejected');
+	   	return false;
+	   }
+})
+
 });
-    
-    console.log( "ready!" );
 
-});			
 </script>
 
 
@@ -165,7 +186,7 @@ if(isset($_POST['mem_no']))
 <div class="select-trans">
 	<label>Transaction Type:</label>
 	<select required name="trans_type" id="trans-type">
-		<option value=""></option>
+		<option disabled selected value> -- select an option -- </option>
 		<option value="I">Income</option>
 		<option value="E">Expense</option>
 	</select>
@@ -173,8 +194,8 @@ if(isset($_POST['mem_no']))
 
 <div class="select-exp-type">
 	<label>Expense Type:</label>
-	<select name="expense_type" id="expense-type">
-		<option value=" ">Select Expense Type</option>
+	<select required name="expense_type" id="expense-type">
+		<option disabled selected value> -- select an option -- </option>
 		<option value="M">E - Meeting</option>
 		<option value="T">E - Trip Reimbursement</option>
 		<option value="O">E - Other</option>
@@ -186,8 +207,8 @@ if(isset($_POST['mem_no']))
 
 <div class="select-inc-type">
 	<label>Income Type:</label>
-	<select name="income_type" id="income-type">
-		<option value=" ">Select Income Type</option>
+	<select required name="income_type" id="income-type">
+		<option disabled selected value> -- select an option -- </option>
 		<option value="AD">I - Annual Dues</option>
 		<option value="RD">I - Renewal Dues</option>
 		<option value="FD">I - Fundraiser</option>
@@ -200,7 +221,7 @@ if(isset($_POST['mem_no']))
 
 <div class="amount">
 	<label>Amount ($):</label>
-	<input type="number" required name="amount" min="0.01" step="0.01" placeholder="00.00">
+	<input type="number" name="trans-amount" id="trans-amount" min="0.01" step="0.10" placeholder="00.00">
 </div><br>
 
 <div class="description">
