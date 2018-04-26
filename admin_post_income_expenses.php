@@ -74,7 +74,7 @@ if(isset($_POST['mem_no']))
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<script type="application/javascript" >
+<script type="application/javascript" >
 	$(function() {
     $('#trans-type').on('change', function() {
    // after creating the option
@@ -82,6 +82,7 @@ if(isset($_POST['mem_no']))
    if ($('#trans-type').val() == "I") {
     	$('#expense-type').prop('disabled',true);
     	$('#income-type').removeAttr('disabled');
+		$('#income-type').prop('required',true);
     }
 
     if ($('#trans-type').val() == "E") {
@@ -145,7 +146,7 @@ if(isset($_POST['mem_no']))
 <h4>Search for Member by Name:</h4>
 </div><br>
 
-<form action="" method="post">
+<form action="" name="myForm" method="post">
 <div class="select-name">
 	<label>Member Name:</label>
 		<select required name="mem_no" class="required">
@@ -197,6 +198,7 @@ if(isset($_POST['mem_no']))
 		<option value="CE">I - Clerical Error</option>
 	</select>
 </div><br>
+
 
 <div class="amount">
 	<label>Amount ($):</label>
