@@ -155,6 +155,7 @@ foreach ($pdo->query($sql) as $row) {
  }
  Database::disconnect();
 ?>
+</tbody>
 </table>
 <br><br><br><br><br><br>
 <div id="button-two">
