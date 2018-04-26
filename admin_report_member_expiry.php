@@ -122,10 +122,9 @@ if( $_SESSION['sess_user_type'] == "A") {
  $pdo = Database::connect();
  $sql = 'SELECT * 
 FROM member a
-LEFT JOIN Membership b ON a.mem_no=b.membership_no
+LEFT JOIN membership b ON a.mem_no=b.membership_no
 LEFT JOIN ref_member_catg c ON a.mem_category_cd=c.ref_mem_category_cd
 LEFT JOIN ref_member_type d ON a.mem_type=d.ref_mem_typ';
-
 
 foreach ($pdo->query($sql) as $row) {
 					echo '<tr>';
@@ -156,7 +155,7 @@ foreach ($pdo->query($sql) as $row) {
 </div>
 <br><br><br>
 <div id="button-one">
-<SCRIPT LANGUAGE="JavaScript"> 
+<script LANGUAGE="JavaScript"> 
 	if (window.print) {
 	document.write('<form><input type="button" name="print" value="Print Report"onClick="window.print()"></form>');
 	}
@@ -167,5 +166,6 @@ foreach ($pdo->query($sql) as $row) {
 <!-- Page footer; please do not change. Footer should always be on the bottom of the page but not fixed. -->
 <footer>
 <p>This site is intended for personal use by the members of the Yokota Sportsmen&#39;s Club specifically for conducting club business. All rights reserved. Yokota Sportsmen&#39;s Club, Fussa-shi, Tokyo, Japan | Yokota Air Base, Tokyo, Japan</p>
+</footer>
 </body>
 </html>
